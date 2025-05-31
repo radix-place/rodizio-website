@@ -1,0 +1,1634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carta - Rodizio Do Sul</title>
+  <link rel="stylesheet" href="styles.css" />
+
+
+<style>
+  /* Fondo general oscuro y texto claro */
+  body {
+    background-color: #000;
+    color: #fff;
+  }
+
+  /* Contenedor general de la carta */
+  .seccion-carta {
+    padding: 3rem 1.5rem;
+  }
+
+  .seccion-carta h2 {
+    font-size: 2.2rem;
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  /* Navegación interna */
+  .navegacion-carta {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .navegacion-carta a {
+    margin: 0 0.5rem;
+    text-decoration: none;
+    color: #d4af37;
+    font-weight: bold;
+  }
+
+  .navegacion-carta a:hover {
+    text-decoration: underline;
+  }
+
+  /* Botón de volver */
+  .volver-inicio {
+    display: block;
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .volver-inicio a {
+    background-color: #d4af37;
+    color: #000;
+    padding: 0.8rem 1.6rem;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .volver-inicio a:hover {
+    background-color: #e2d3c0;
+  }
+
+  /* Categoría (como Rodizio, Carnes, Bebidas, etc) */
+  .categoria-carta {
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  .categoria-carta h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #d4af37;
+    /* border-bottom: 2px solid #d4af37; */
+    display: inline-block;
+    padding-bottom: 0.3rem;
+  }
+
+  /* Fondo con imagen e iluminación */
+  section.categoria-carta {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  section.categoria-carta::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+    border-radius: 12px;
+  }
+
+  section.categoria-carta .info {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Estilo de cada ítem de la carta */
+  .item-carta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    max-width: 700px;
+    margin: 1rem auto;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: #fff;
+  }
+
+  .item-carta img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .item-carta .info {
+    text-align: left;
+    flex-grow: 1;
+  }
+
+  .item-carta h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .item-carta p {
+    margin: 0.4rem 0;
+    color: #ddd;
+    font-size: 0.95rem;
+  }
+
+  .item-carta .precio {
+    font-weight: bold;
+    color: #d4af37;
+  }
+
+  /* Subcategorías internas como títulos intermedios */
+  .item-carta.titulo-subcategoria {
+    background-color: rgba(255, 255, 255, 0.3);
+    justify-content: center;
+    text-align: center;
+    padding: 0.8rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ccc;
+    text-transform: uppercase;
+    border: 1px solid #444;
+    display: flex;
+  }
+
+/* Sección con imagen de fondo */
+section.categoria-carta {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 5rem 1.5rem;
+  margin-bottom: 3rem;
+  border-radius: 12px;
+}
+
+/* Oscurecimiento parcial de la imagen con capa translúcida */
+section.categoria-carta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 3, 3, 0.703); /* imagen más clara por transparencia */
+  z-index: 0;
+  border-radius: 12px;
+}
+
+/* Contenedor oscuro sobre la imagen */
+.tarjeta-oscura {
+  background-color: rgb(0, 0, 0); /* negro casi opaco */
+  color: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.descripcion-subcategoria {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 1.5rem auto;
+  font-size: 1rem;
+  color: #eee;
+}
+
+
+
+.encabezado-destilados-global {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 850px;
+  margin: 2rem auto 1rem auto;
+  padding: 1rem 2rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  font-weight: bold;
+  color: #f5b900;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+
+.encabezado-destilados-global .categoria-nombre {
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.svg-icono {
+  width: 24px;
+  height: auto;
+  filter: brightness(0) saturate(100%) invert(82%) sepia(64%) saturate(303%) hue-rotate(5deg) brightness(95%) contrast(97%);
+}
+
+.subcategoria-destilado {
+  max-width: 850px;
+  margin: 2rem auto 0 auto;
+}
+
+.subcategoria-destilado .subtitulo {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  text-transform: uppercase;
+  border-left: 4px solid #d4af37;
+}
+
+.fila-destilado {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: rgba(255,255,255,0.03);
+  margin-bottom: 0.3rem;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.fila-destilado span:nth-child(2),
+.fila-destilado span:nth-child(3) {
+  color: #d4af37;
+  font-weight: bold;
+  text-align: right;
+}
+
+
+.recomendacion-maridaje {
+  font-style: italic;
+  color: #f5b900;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+@media (max-width: 500px) {
+  .fila-destilado {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+.encabezado-destilados-global {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 850px;
+  margin: 2rem auto 1rem auto;
+  padding: 1rem 2rem;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  font-weight: bold;
+  color: #f5b900;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+
+  .subcategoria-destilado .subtitulo {
+    text-align: center;
+    border-left: none;
+    border-bottom: 1px solid #d4af37;
+  }
+}
+
+
+      @media (max-width: 600px) {
+        .encabezado-destilados-global {
+          grid-template-columns: 1fr 1fr 1fr;
+          padding: 1rem 1rem;
+          text-align: center;
+        }
+        .categoria-nombre {
+          grid-column: 1 / 4;
+          text-align: center;
+          margin-bottom: 0.5rem;
+        }
+      }
+
+
+.categoria-carta {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  border-radius: 12px;
+  filter: grayscale(1); 
+  animation: revelarColor 10s forwards ease-in-out;
+}
+
+@keyframes revelarColor {
+  to {
+    filter: grayscale(0);
+  }
+}
+
+.tarjeta-oscura {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 850px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.particulas-container {
+  position: absolute;
+  inset: 0;
+  z-index: 99;
+  pointer-events: none;
+}
+
+.boid {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #f5b900;
+  border-radius: 50%;
+  opacity: 0.9;
+  box-shadow: 0 0 8px #f5b900;
+}
+
+</style>
+
+<script>
+let tiempoQuieto = 0;
+let intervaloQuietud;
+let boidsActivos = false;
+
+function crearBoid(targetX, targetY) {
+  const boid = document.createElement('div');
+  boid.className = 'boid';
+  boid.style.left = Math.random() * window.innerWidth + 'px';
+  boid.style.top = Math.random() * window.innerHeight + 'px';
+  document.querySelector('.particulas-container').appendChild(boid);
+
+  const interval = setInterval(() => {
+    const bx = parseFloat(boid.style.left);
+    const by = parseFloat(boid.style.top);
+    const dx = targetX - bx;
+    const dy = targetY - by;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    if (dist < 2) {
+      clearInterval(interval);
+      return;
+    }
+    const speed = 1.5;
+    boid.style.left = bx + dx / dist * speed + 'px';
+    boid.style.top = by + dy / dist * speed + 'px';
+  }, 16);
+
+  setTimeout(() => {
+    clearInterval(interval);
+    boid.remove();
+  }, 8000);
+}
+
+function activarBoids() {
+  if (boidsActivos) return;
+  boidsActivos = true;
+
+  const h4 = document.querySelector('.destino-boid');
+  if (!h4) return;
+
+  const rect = h4.getBoundingClientRect();
+  const containerRect = document.querySelector('.categoria-carta').getBoundingClientRect();
+  const x = rect.left + rect.width / 2 - containerRect.left;
+  const y = rect.top + rect.height / 2 - containerRect.top;
+
+  // Punto de referencia rojo
+  const marcador = document.createElement('div');
+  marcador.style.position = 'absolute';
+  marcador.style.left = `${x}px`;
+  marcador.style.top = `${y}px`;
+  marcador.style.width = '10px';
+  marcador.style.height = '10px';
+  marcador.style.background = 'red';
+  marcador.style.borderRadius = '50%';
+  marcador.style.zIndex = '100';
+  document.querySelector('.particulas-container').appendChild(marcador);
+  setTimeout(() => marcador.remove(), 3000);
+
+  for (let i = 0; i < 12; i++) {
+    setTimeout(() => crearBoid(x, y), i * 150);
+  }
+
+  setTimeout(() => boidsActivos = false, 10000);
+}
+
+function reiniciarTemporizador() {
+  tiempoQuieto = 0;
+  clearInterval(intervaloQuietud);
+  intervaloQuietud = setInterval(() => {
+    tiempoQuieto++;
+    if (tiempoQuieto >= 4) {
+      activarBoids();
+      clearInterval(intervaloQuietud);
+    }
+  }, 1000);
+}
+
+['mousemove', 'scroll', 'touchstart'].forEach(evt => {
+  window.addEventListener(evt, reiniciarTemporizador);
+});
+
+reiniciarTemporizador();
+</script>
+
+
+
+
+
+</head>
+<body>
+  <section class="seccion-carta">
+    <h2>Carta de Rodizio Do Sul</h2>
+
+    <div class="navegacion-carta">
+      <a href="#entradas">Entradas</a>
+      <a href="#fastfood">Fast Food</a>
+      <a href="#rodizio">Rodizio</a>
+      <a href="#premium">Rodizio Premium</a>
+      <a href="#steak">Steak House</a>
+      <a href="#salsa">Carnes en Salsa</a>
+      <a href="#mariscos">Pescado y Mariscos</a>
+      <a href="#pollo">Pollo, Pastas y Ensaladas</a>
+      <a href="#postres">Postres</a>
+      <a href="#bebidas">Bebidas</a>
+      <a href="#bebidas-calientes">Bebidas Calientes</a>
+      <a href="#cervezas">Cervezas</a>
+      <a href="#cocteles-sin-alcohol">Cócteles sin Alcohol</a>
+      <a href="#cocteleria-autor">Coctelería de Autor</a>
+      <a href="#cocteleria-clasica">Coctelería Clásica</a>
+      <a href="#destilados">Licores Destilados</a>
+      <a href="#vinos">Vinos</a>
+    </div>
+  </section>
+
+    <!------------------- CATEGORÍAS ----------------------------------->
+    
+
+  <section class="categoria-carta" id="entradas">
+    <div class="particulas-container"></div>
+      <div class="tarjeta-oscura">
+      <h3>Entradas</h3>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Picada</h4>
+          <p>Deliciosa costilla ahumada y chorizo asados a la parrilla, yucas fritas y salsa de ajo casera.</p>
+          <span class="precio">$48.000</span>
+        </div>
+      </div>
+      
+      <div class="item-carta">
+        <div class="info">
+          <h4>Ceviche de Pulpo</h4>
+          <p>Pulpo fresco asado, acompañado de una cama de aliños cítricos y mango viche.</p>
+          <span class="precio">$50.000</span>
+        </div>
+      </div>
+      
+      <div class="item-carta">
+        <div class="info">
+          <h4>Ceviche de Panceta</h4>
+          <p>Delicioso chicharrón de cerdo tostado al carbón, acompañado de una cama aliños cítricos.</p>
+          <span class="precio">$40.000</span>
+        </div>
+      </div>
+      
+      <div class="item-carta">
+        <div class="info">
+          <h4>Consomé</h4>
+          <p>Delicioso caldo hecho con pollo y verduras.</p>
+          <span class="precio">$32.000</span>
+        </div>
+      </div>
+
+      <div class="volver-inicio">
+        <a href="#">Volver al inicio</a>
+      </div>
+    </div>
+</section>
+
+<!-- FASTFOOD -->
+
+<section class="categoria-carta" id="fastfood" style="background-image: url('imagenes/fotoA.jpg');">
+  <div class="tarjeta-oscura">
+      <h3>Fast Food</h3>
+        <p class="descripcion-subcategoria">
+          <em> Ideal con una Caipiriña de maracuyá o un Mojito Clásico </em>
+      </p>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Hamburguesa Jack Daniels</h4>
+          <p>Pan Brioche artesanal, deliciosa carne
+              asada al carbón acompañanada de
+              tocineta crocante, queso americano,
+              aros de cebolla en cerveza, lechuga y
+              nuestra salsa de Jack Daniels </p>
+          <span class="precio">$50.000</span>
+        </div>
+      </div>
+      <div class="item-carta">
+        <div class="info">
+          <h4>Hamburguesa Clásica</h4>
+          <p>Pan Brioche artesanal, deliciosa carne
+              asada al carbón acompañanada de
+              tocineta crocante, queso americano,
+              lechuga, tomate y nuestra salsa Do Sul.</p>
+          <span class="precio">$35.000</span>
+        </div>
+      </div>
+      <div class="item-carta">
+        <div class="info">
+          <h4>Hamburguesa Jack Daniels Doble</h4>
+          <p>Pan Brioche artesanal, doble carne asada
+            al carbón acompañanada de tocineta
+            crocante, queso americano, aros de
+            cebolla en cerveza, lechuga y nuestra
+            salsa de Jack Daniels</p>
+          <span class="precio">$50.000</span>
+        </div>
+      </div>
+
+      <div class="volver-inicio">
+        <a href="#">Volver al inicio</a>
+      </div>
+
+    </div>
+</section>
+
+
+<!-- Sección Rodizio -->
+
+
+<section class="categoria-carta" id="rodizio"  style="background-image: url('imagenes/fotoA.jpg');">
+  <canvas class="revelado-canvas"></canvas>
+  <div class="tarjeta-oscura">
+    <h3>Rodizio</h3>
+    
+    <div class="item-carta">
+      <div class="info">
+        <h4 class="destino-boid">Rodizio</h4>
+        <p>Doce variedades de carne entre res, cerdo y pollo, asadas al
+          carbón, servidas en espadas a su mesa. Incluye nueve tipos
+          diferentes de acompañaminetos.</p>
+        <p>Este plato es personal y de consumo ilumitado.</p>
+        <p><strong>Cortes:</strong> Picanha angus importada, 
+        morrillo, cadera, lomo viche, costilla de cerdo, lomo de caracho 
+        angus importado, bondiola de cerdo, chorizo, lomo redondo, 
+        muslos de pollo, corazones de pollo y ubre.</p>
+        <p><strong>Acompañamientos:</strong> Polenta, yuca frita, bananos
+           acaramelados, aros de cebolla, arroz blanco, picadillo de tomate,
+            ensalada hawaiana, ensalada de papa y caraotas.</p>
+        <p><strong>Sugerencia de bebida:</strong> Acompáñalo con un Aperol Spritz.</p>
+        <span class="precio">$108.500</span>
+      </div>
+    </div>
+    <div class="volver-inicio">
+      <a href="#">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+
+<!-- Sección Rodizio Premium -->
+<section class="categoria-carta" id="rodizio-premium" style="background-image: url('imagenes/fotoA.jpg');">
+  <div class="tarjeta-oscura">
+  <h3>Rodizio Premium</h3>
+  <div class="item-carta">
+    <div class="info">
+      <h4>Rodizio Premium</h4>
+      <p>Quince variedades de carne entre res, cerdo y pollo,
+        asadas al carbón, servidas en espadas a su mesa. Incluye
+        nueve tipos diferentes de acompañamientos.</p>
+      <p>Este plato es personal, de consumo ilimitado, no se puede compartir
+        o empacar para llevar</p>
+      <p><strong>Cortes:</strong> Langostinos, Picanha angus importada,
+        rib eye importado, new york steak importado, morrillo, cadera, 
+        lomo viche, costilla de cerdo, lomo de caracho angus importado, 
+        bondiola de cerdo, chorizo, lomo redondo, muslos de pollo, 
+        corazones de pollo y ubre.</p>
+      <p><strong>Acompañamientos:</strong> Polenta, yuca frita, bananos acaramelados,
+       aros de cebolla, arroz blanco, picadillo de tomate, ensalada hawaiana, 
+       ensalada de papa y caraotas.</p>
+      <p><strong>Sugerencia de bebida:</strong> Perfecto con una sangría espumosa.</p>
+      <span class="precio">$149.000</span>
+    </div>
+    </div>
+    <div class="volver-inicio">
+      <a href="#">Volver al inicio</a>
+    </div>  
+  </div>
+</section>
+
+
+<!-- STEAK HOUSE -->
+<section class="categoria-carta" id="steak" style="background-image: url('imagenes/fotoA.jpg');">
+  <div class="tarjeta-oscura">
+      <h3>Steak House</h3>
+      
+      <div class="item-carta">
+        <div class="info">
+          <h4>Picanha</h4>
+          <p>Jugosa porción de picanha angus importada al carbón.
+            Acompañada de papas a la francesa y ensalada.</p>
+          <span class="precio">$85.000 (300g) / $100.000 (450g)</span>
+       <p><em>Recomendado con un Guarito Sour</em></p>
+       <p><em>su frescura resalta la jugosidad de la carne</em></p>
+        </div>
+      </div>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>New York Steak</h4>
+          <p>Jugoso corte angus importado al carbón (450g).
+            Acompañado de papas a la francesa y ensaladas fresca.</p>
+          <span class="precio">$100.000</span>
+      <p><em>Acompáñalo con un Mint Julep.</em></p>
+       <p><em>Ideal para los amantes del whisky y sabores herbales</em></p>
+        </div>
+      </div>
+      
+      <div class="item-carta">
+        <div class="info">
+          <h4>Rib Eye</h4>
+          <p>Jugoso corte angus importado al carbón (450g).
+            Acompáñalo de papas a la francesa y ensalada fresca.</p>
+          <span class="precio">$100.000</span>
+        </div>
+      </div>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Morillo</h4>
+          <p>Medallones de corte grado (500gr) de carne asada al carbón,
+            acompañado de ensalada y chips de plátano.</p>
+          <span class="precio">$65.000</span>
+        </div>
+      </div>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Churrasco</h4>
+          <p>Espectacular filete de lomo de caracho ancho (300gr) 
+            importado al carbón, acompañado de chips de plátano y ensalada fresca.</p>
+          <span class="precio">$68.000</span>
+        </div>
+      </div>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Baby Beef</h4>
+          <p>Jugoso corte de lomo fino de res, sin grase, al carbón. 
+            Acompañado de ensalada fresca y chips de plátano.
+          </p>
+          <span class="precio">$69.000</span>
+        </div>
+      </div>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Adiciones</h4>
+          <p>Polenta, yuca frita, bananos acaramelados,
+          aros de cebolla, arroz blanco, picadillo de
+          tomate, ensalada hawaiana, ensalada de
+          papa, caraotas, papas a la francesa, chips
+          de plátano, puré de papa, ensalada de la
+          casa.</p>
+          <span class="precio">$69.000</span>
+        </div>
+      </div>
+
+        <div class="volver-inicio"> 
+          <a href="#">Volver al inicio</a>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- CARNES ENSALSAS -->
+
+<section class="categoria-carta" id="salsa">
+  <div class="tarjeta-oscura">
+      <h3>Carnes en Salsa</h3>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Lomo en Salsa de Trufa Negra</h4>
+          <p>Solomillo tierno al carbón bañado en salsa de trufa
+            negra silvestre, champiñones y queso padano. 
+            Acompañado de chips de platano y ensalada fresca.</p>
+          <span class="precio">$84.000</span>
+      <p><em>Maridaje: Una Sangría espumosa para balancear su intesidad.</em></p>
+        </div>
+      </div>
+      <div class="item-carta">
+
+
+        <div class="info">
+          <h4>Filet Mignon</h4>
+          <p>Jugosos medallones de lomo fino de res
+              sellados al carbón en salsa de vino
+              tinto, champiñones y tocineta.
+              Acompañado de ensalda fresca y chips
+              de plátano.</p>
+          <span class="precio">$82.000</span>
+          <p><em>Marida perfectamente con un Old Fashion o un elegante La Verde.</em></p>
+        </div>
+      </div>
+    <div class="volver-inicio"> 
+      <a href="#">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- PESCADOS Y MARISCOS -->
+
+<section class="categoria-carta" id="mariscos">
+  <div class="tarjeta-oscura">
+      <h3>Pescado y Mariscos</h3>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Salmón a la Parrilla</h4>
+          <p>Filete de salmón cuidadosamente
+            seleccionado, asado a la parrilla.
+            Acompañado de chips de plátano y
+            ensalada de la casa. </p>
+          <span class="precio">$75.000</span>
+        </div>
+      </div>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Salmón Fruto del Mar</h4>
+          <p>Filete de salmón bañado en salsa de
+            mariscos, leche de coco y hierbas del
+            pacífico. Acompañado de chips de
+            plátano y ensalada de la casa.</p>
+          <span class="precio">$85.000</span>
+      <p><em>Maridaje: Paloma con Don Julio Blanco, notas
+        cítricas que limpian el paladar tras cada bocado.</em></p>
+        </div>
+      </div>
+      
+      <div class="item-carta">
+        <div class="info">
+          <h4>Langostinos Do Sul</h4>
+          <p>Brocheta de langostinos al carbón asados al carbón
+            en espada. Acompañado de chips de plátano y ensalada de la casa.</p>
+          <span class="precio">$89.000</span>
+        </div>
+      </div>
+      
+      <div class="item-carta">
+        <div class="info">
+          <h4>Langostinos al Ajillo</h4>
+          <p>Langostinos al ajillo flambeados con brandy. 
+            Acompañados con chips de plátano y ensalada de la casa.</p>
+          <span class="precio">$89.000</span>
+        </div>
+      </div>
+      
+      <div class="item-carta">
+        <div class="info">
+          <h4>Langosta (Gratinada/Menier/Ajillo)</h4>
+          <p>Deliciosa cola de langosta fresca, preparada a tu
+            preferencia: gratinada con queso fundido, salteada al ajillo
+            o bañada en una clásica salsa menier de mantequilla y
+            limón. Acompañada de chips de plátano y ensalda fresca.</p>
+          <span class="precio">$160.000</span>
+        <p><em>Marida con un Orgásmo Múltiple (digestivo dulce) para cerrar
+          una experiencia de lujo.</em></p>
+        </div>
+      </div>
+
+      <div class="volver-inicio"> 
+        <a href="#">Volver al inicio</a>
+      </div>
+    </div>
+</section>
+
+<!-- POLLO, PASTAS Y ENSALADA -->
+
+<section class="categoria-carta" id="pollo">
+  <div class="tarjeta-oscura">
+      <h3>Pollo, Pastas y Ensaladas</h3>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>File de Frango</h4>
+          <p>Filete de pechuga de pollo a la
+            plancha. Acompañado de chips de
+            plátano y ensalda fresca.</p>
+            <span class="precio">$49.000</span>
+        </div>
+      </div>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Ensalada César</h4>
+          <p>Filete de pechuga de pollo en julianas,
+              lechuga, aceitunas, crotones, queso
+              parmesano y aderzo cesar con anchoas.</p>
+            <span class="precio">$49.000</span>
+        </div>
+      </div>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Pasta en Salsa de Trufa y Hongos (Res/Pollo)</h4>
+          <p>Medallon de res o filete de pollo es salsa
+            de trufa negra y champiñones, finalizado
+            con queso parmesano sobre una cama de
+            espaquetis.</p>
+            <p> Res: <span class="precio">$55.000 </span>
+            <p> Pollo: <span class="precio">$49.000 </span>
+        </div>
+      </div>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Pasta Fruto del Mar</h4>
+          <p>Espaquetis en salsa de mariscos, leche de
+            coco, fumé de pescado y heirbas del
+            pacífico, finalizado con queso parmesano.</p>
+            <span class="precio">$55.000</span>
+        </div>
+
+      </div>
+      <div class="volver-inicio"> 
+        <a href="#">Volver al inicio</a>
+      </div>
+  </div>
+</section>
+
+
+<!-- BEBIDAS -->
+
+<section class="categoria-carta" id="bebidas">
+  <div class="tarjeta-oscura">
+    <h3>Bebidas</h3>
+
+    <div class="subcategoria-carta">
+      <div class="item-carta titulo-subcategoria">Aguas y Sodas</div>
+      <div class="item-carta"><div class="info"><h4>Agua con gas</h4><span class="precio">$7.500</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Agua en botella</h4><span class="precio">$8.500</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Soda Hatsu de frambuesa</h4><span class="precio">$12.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Soda Hatsu de limón y hirbabuena</h4><span class="precio">$12.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Canada Dry Ginger Ale</h4><span class="precio">$8.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Soda Bretaña</h4><span class="precio">$8.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Red Bull</h4><span class="precio">$14.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Coca Cola</h4><span class="precio">$8.800</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Coca Cola Cero</h4><span class="precio">$15.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Agua mineral</h4><span class="precio">$16.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Monster</h4><span class="precio">$15.000</span></div></div>
+    </div>
+
+    <div class="subcategoria-carta">
+      <div class="item-carta titulo-subcategoria">Jugos Naturales</div>
+      <div class="item-carta"><div class="info"><h4>Jugos en agua</h4><span class="precio">$15.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Jugos en leche</h4><span class="precio">$17.500</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Limonada Natural</h4><span class="precio">$15.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Limonada de coco</h4><span class="precio">$18.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Limonada de cereza</h4><span class="precio">$18.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Limonada de mango viche</h4><span class="precio">$17.500</span></div></div>
+    </div>
+          <div class="volver-inicio"> 
+      <a href="#">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECCION DE CERVEZAS  -->
+
+<section class="categoria-carta" id="cervezas">
+  <div class="tarjeta-oscura">
+  <h3>Cervezas</h3>
+      <div class="item-carta"><div class="info"><h4>Cervezas importadas</h4><span class="precio">$16.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Cervezas nacionales</h4><span class="precio">$15.500</span></div></div>
+      <div class="item-carta"><div class="info"><h4>Cerveza Corona Cero</h4><span class="precio">$16.000</span></div></div>
+
+    <div class="volver-inicio"> 
+      <a href="#">Volver al inicio</a>
+    </div>
+ </div>
+</section>
+
+<!-- COCTELERÍA SIN ACOHOL -->
+
+<section class="categoria-carta" id="cocteles-sin-alcohol">
+  <div class="tarjeta-oscura">
+  <h3>Cócteles sin Alcohol</h3>
+  <div class="item-carta">
+    <div class="info">
+      <h4>Soda Italiana</h4>
+      <p>Puré o sirope de fruta hecho en casa, elevado con soda.</p>
+      <span class="precio">$19.000</span>
+    </div>
+  </div>
+  <div class="item-carta">
+    <div class="info">
+      <h4>Piña colada</h4>
+      <p>Leche de coco, crema de leche, piña fresca y sirope simple.</p>
+      <span class="precio">$26.000</span>
+    </div>
+  </div>
+
+  <div class="subcategoria-carta">
+      <div class="item-carta titulo-subcategoria">Mojito</div>
+        <div class="item-carta">
+          <div class="info">
+        <h4>Mojito</h4>
+        <p>Hierbabuena, albahaca, limón, sirope simple elevado con soda.</p>
+        <span class="precio">$19.000</span>
+        <h4>Mojito de fresa</h4>
+        <p>El mojito con sirope de fresa.</p>
+        <span class="precio">$21.000</span>
+        <h4>Mojito de maracuyá</h4>
+        <p>El mojito con sirope de maracuyá.</p>
+        <span class="precio">$21.000</span>
+        <h4>Mojito de agraz</h4>
+        <p>El clásico con sirope de agraz.</p>
+        <span class="precio">$21.000</span>
+      </div>
+    </div>
+      <div class="volver-inicio"> 
+      <a href="#">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- BEBIDAS CALIENTES -->
+
+<section class="categoria-carta" id="bebidas-calientes">
+  <div class="tarjeta-oscura">
+  <h3>Bebidas sin Alcohol</h3>
+
+  <div class="subcategoria-carta">
+    <div class="item-carta titulo-subcategoria">Café y Aromáticas</div>
+    <div class="item-carta"><div class="info"><h4>Café Negro</h4><span class="precio">$5.000</span></div></div>
+    <div class="item-carta"><div class="info"><h4>Café con Leche</h4><span class="precio">$6.000</span></div></div>
+    <div class="item-carta"><div class="info"><h4>Aromática de Frutas</h4><span class="precio">$6.000</span></div></div>
+  </div>
+          <div class="volver-inicio"> 
+      <a href="#">Volver al inicio</a>
+    </div>
+  </div>
+</setion>
+
+
+<!-- COCTELERÍA DE AUTOR -->
+
+<section class="categoria-carta" id="cocteleria-autor">
+   <div class="tarjeta-oscura">
+  <h3>Coctelería de Autor</h3>
+
+  <div class="item-carta">
+    <div class="info">
+      <h4>Burbujeante de Cereza</h4>
+      <p>Puré de cordial de cereza, elevado con soda Bretaña o prosecco.</p>
+      <span class="precio">$35.000</span>
+    </div>
+  </div>
+
+   <div class="item-carta">
+    <div class="info">
+      <h4>Amargor de Vodka</h4>
+      <p>Absolut Vodka, vermouth extra dry Cinzano, sirope simple y sirope de maracuyá. </p>
+      <span class="precio">$40.000</span>
+    </div>
+  </div>
+
+  <div class="item-carta">
+    <div class="info">
+      <h4>Caricia Añeja</h4>
+      <p>Whisky Buchanan's 12 años </p>
+      <span class="precio">$37.000</span>
+    </div>
+  </div>
+
+  <div class="item-carta">
+    <div class="info">
+      <h4>Secreto de la Tierra</h4>
+      <p> Mezcal 400 conejos, licor de naranja, zumo de piña, sirope simple y zumo de limón.</p>
+      <span class="precio">$52.000</span>
+    </div>
+  </div>
+
+  <div class="item-carta">
+    <div class="info">
+      <h4>Brisa Tequilera</h4>
+      <p> Tequila reposado Cazadores, sirope de maracuyá y agua tónica.</p>
+      <span class="precio">$52.000</span>
+    </div>
+  </div>
+
+  <div class="item-carta">
+    <div class="info">
+      <h4>Arrechera</h4>
+      <p>Aguardiente anizado Blanco del Valle, crema de café y crema de leche.</p>
+      <span class="precio">$37.000</span>
+    </div>
+  </div>
+
+  <div class="item-carta">
+    <div class="info">
+      <h4>Guarito Sour</h4>
+      <p>Aguardiente anizado Blanco del Valle, zumo de limón crema de café y crema de leche.</p>
+      <span class="precio">$37.000</span>
+    </div>
+  </div>  
+
+  <div class="item-carta">
+    <div class="info">
+      <h4>La Verde</h4>
+      <p>Tequila Patrón, hierbabuena, zumo de limón y sirope simple.</p>
+      <span class="precio">$55.000</span>
+    </div>
+  </div>  
+
+  <div class="item-carta">
+    <div class="info">
+      <h4>Mar Morado</h4>
+      <p>Brandy sinco estrellas, leche de coco y puré de agras.</p>
+      <span class="precio">$55.000</span>
+    </div>
+  </div>
+
+    <div class="item-carta">
+    <div class="info">
+      <h4>White Anis Negroni</h4>
+      <p>Variación Do Sul del clásico: gin tanqueray, vermouth extra dry Cinzano y aguardiente Blanco del Valle.</p>
+      <span class="precio">$40.000</span>
+    </div>
+  </div>
+
+  <div class="item-carta">
+    <div class="info">
+      <h4>Sangría Espumosa</h4>
+      <p>Gin Tanqueray, sirope simple y botella de vino espumoso.</p>
+      <p>Copa <span class="precio">$50.000</span> </p>
+      <p>Jarra <span class="precio">$150.000</span> </p> 
+    </div>
+  </div> 
+
+  <div class="volver-inicio"> 
+    <a href="#">Volver al inicio</a>
+  </div>
+  </div>
+</section>
+
+<!-- COCTELERÍA CLÁSICA  -->
+
+<section class="categoria-carta" id="cocteleria-clasica">
+  <div class="tarjeta-oscura">
+  <h3>Coctelería Clásica</h3>
+
+<div class="item-carta">
+    <div class="info">
+      <h4>Mule Family</h4>
+      <p>Zumo de limón, Fever Tree ginger beer y destilado de eleccion:</p>
+      <p>Moscow Mule <span class="precio">$38.000</span> </p>
+      <p>Mexican Mule <span class="precio">$38.000</span> </p>
+      <p>Mezcal Mule <span class="precio">$39.000</span> </p>
+      <p>Gingin Mule <span class="precio">$39.000</span> </p>
+      
+    </div>
+</div>
+
+<div class="item-carta">
+    <div class="info">
+      <h4>Mint Julep</h4>
+      <p>Variación Do Sul del clásico: hierbabuena, sirope simple y whisky Old Parr 12 años</p>
+      <span class="precio">$38.000</span>
+    </div>
+</div>
+
+<div class="item-carta">
+    <div class="info">
+      <h4>Paloma</h4>
+      <p>Tequila Don Julio Blanco, zumo de limón, zumo de toronja, pisca de sal, soda Bretaña.</p>
+      <span class="precio">$50.000</span>
+    </div>
+</div>
+
+<div class="item-carta">
+    <div class="info">
+      <h4>Mojito</h4>
+      <p>hierbabuena, limón, sirope simple y soda Bretaña.</p>
+      <p>Variantes de ron:</p>
+      <p>Ron Viejo de Caldas <span class="precio">$38.000</span> </p>
+      <p>La Hechicera <span class="precio">$45.000</span> </p>
+      <p>Zacapa 23 años <span class="precio">$50.000</span> </p>
+    </div>
+</div>
+
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>Caricia Añeja</h4>
+        <p>Whisky Buchanan's 12, licor de naranja, zumo de naranja y bitter.</p>
+        <span class="precio">$37.000</span>
+      </div>
+    </div>
+   
+
+  <div class="subcategoria-carta">
+    <div class="item-carta titulo-subcategoria">Refrescantes</div>
+      <p class="descripcion-subcategoria">
+  Tragos largos o cortos, con menor porcentaje de alcohol, donde priman las notas herbáceas,
+  vegetales, frutales y/o burbujeantes de la mezcla.
+      </p>
+  </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>Mojito Clásico</h4>
+        <p>Ron blanco, hierbabuena, limón, azúcar y soda.</p>
+        <span class="precio">$30.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>Caipiroska</h4>
+        <p>Vodka, limón, azúcar y hielo picado.</p>
+        <span class="precio">$30.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>Negroni</h4>
+        <p>Gin, vermouth rojo y Campari.</p>
+        <span class="precio">$32.000</span>
+      </div>
+    </div>
+  
+    <div class="item-carta">
+      <div class="info">
+        <h4>Aperol Spritz</h4>
+        <p>Aperol, prosecco y soda.</p>
+        <span class="precio">$32.000</span>
+      </div>
+    </div>
+
+  <div class="item-carta">
+      <div class="info">
+        <h4>Campari Spritz</h4>
+        <p>Campari, soda Bretaña y proseco.</p>
+        <span class="precio">$40.000</span>
+      </div>
+    </div>
+
+  <div class="item-carta">
+      <div class="info">
+        <h4>French 75</h4>
+        <p>Gin Tanqueray, sirope simple, zumo de limón, elevado con prosecco.</p>
+        <span class="precio">$40.000</span>
+      </div>
+    </div>
+
+  <div class="item-carta">
+      <div class="info">
+        <h4>Mimosa</h4>
+        <p>Zumo de naranja, soda Bretaña, elevado con vino espumoso.</p>
+        <span class="precio">$35.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>Caipiriña</h4>
+        <p>Cachaza Jamel, cascos de limón y sirope simple. Puedes escoger de Maracuyá o Frutos rojos.</p>
+        <span class="precio">$40.000</span>
+      </div>
+    </div>
+  
+  <div class="subcategoria-carta">
+    <div class="item-carta titulo-subcategoria">Tipo Aperitivo</div>
+      <p class="descripcion-subcategoria">
+      Tragos largos o cortos, con mayor porcentaje de
+      alcohol, dónde priman las notas cítricas,
+      vegetales, astringentes propias de los
+      destilados y/o licores utilizados en la mezcla.
+      </p>
+  </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>Sangría</h4>
+        <p>Vino tinto de la casa, brandy Cinco Estrellas, Ron Viejo de Caldas Tradicional, sirope simple y mix de frutas.</p>
+        <p>Copa <span class="precio">$30.000</span> </p>
+        <p>Media Jarra <span class="precio">$68.000</span> </p>
+        <p>Jarra <span class="precio">$120.000</span> </p>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>Samba</h4>
+        <p>Vino blanco de la casa, brandy Cinco Estrellas, cachaza Jamel, sirope simple y mix de frutas.</p>
+        <p>Copa <span class="precio">$38.000</span> </p>
+        <p>Media Jarra <span class="precio">$60.000</span> </p>
+        <p>Jarra <span class="precio">$120.000</span> </p>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>Negroni Family</h4>
+        <p>Vermouth rosso, Campari y el destilado de su elección.</p>
+        <p>Negroni Clásico <span class="precio">$52.000</span> </p>
+        <p>Mezcal Negroni  <span class="precio">$50.000</span> </p>
+        <p>White Negroni   <span class="precio">$45.000</span> </p>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>Martini Family</h4>
+        <h4>Dry/Dirty Martini</h4>
+        <p>Vermouth extra seco Cinzano, salmuera de aceituna y Gin de su 
+          elección.</p>
+        <p>Tanqueray <span class="precio">$40.000</span> </p>
+        <p>Bombay  <span class="precio">$45.000</span> </p>
+        <p>Hendrick's   <span class="precio">$55.000</span> </p>
+        <p>Monkey 47   <span class="precio">$65.000</span> </p>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>Vodka Martini</h4>
+        <p>Vermouth extra seco Cinzano y vodka de su elección.</p>
+        <p>Absolut <span class="precio">$40.000</span> </p>
+        <p>Lemon Drop   <span class="precio">$4.000</span> </p>
+        <p>Grey Goose  <span class="precio">$50.000</span> </p>
+      </div>
+    </div>
+
+  <div class="subcategoria-carta">
+    <div class="item-carta titulo-subcategoria">Tipo Digestivo</div>
+      <p class="descripcion-subcategoria">
+      Tragos largos o cortos, con mayor procentaje de alcohol, donde priman las notas
+      de frutos secos, dulces, normalmente de textura cremosa o sedosa.
+      </p>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>Sour Family</h4>
+        <p>Clara de huevo, zumo de limón, sirope simple y el destilado de su elección.</p>
+        <p>Whisky Sour <span class="precio">$40.000</span> </p>
+        <p>Pisco Sour  <span class="precio">$38.000</span> </p>
+        <p>Amaretto Sour  <span class="precio">$38.000</span> </p>
+        <p>Tequila Sour <span class="precio">$38.000</span> </p>
+        <p>Vodka Sour  <span class="precio">$35.000</span> </p>
+        <p>New York Sour  <span class="precio">$43.000</span> </p>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>Black Russian</h4>
+        <p>Absolut Vodka y licor de café.</p>
+        <span class="precio">$37.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>White Russian</h4>
+        <p>Absolut Vodka, licor de café y crema de leche</p>
+        <span class="precio">$38.000</span>
+      </div>
+    </div>
+
+        <div class="item-carta">
+      <div class="info">
+        <h4>Orgasmo Múltiple</h4>
+        <p>Absolut Vodka, amaretto Disaronno, crema de whisky Baileys y licor de café.</p>
+        <span class="precio">$48.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>El Padrino</h4>
+        <p>Whisky Old Parr 12 años y amaretto Disoronno.</p>
+        <span class="precio">$50.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>La Madrina</h4>
+        <p>Absolut vodka y amaretto Disoronno.</p>
+        <span class="precio">$50.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4>Piña Colada</h4>
+        <p>Piña fesca, crema de leche, sirope simple, leche de coco y ron de elección:</p>
+        <p> Tradicional <span class="precio">$40.000</span> </p>
+        <p> La Hechicera <span class="precio">$55.000</span> </p>
+        <p> Zacapa 23 años <span class="precio">$58.000</span> </p>
+      </div>
+    </div>
+
+    <div class="volver-inicio"> 
+      <a href="#">Volver al inicio</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- POSTRES -->
+
+<section class="categoria-carta" id="postres">
+  <div class="tarjeta-oscura">
+      <h3>Postres</h3>
+      
+      <div class="item-carta">
+        <div class="info">
+          <h4>Bola de Helado</h4>
+          <span class="precio">$10.000</span>
+        </div>
+      </div>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Dos Bolas de Helado</h4>
+          <span class="precio">$18.000</span>
+        </div>
+      </div>
+      
+      <div class="item-carta">
+        <div class="info">
+          <h4>Flan de Caramelo</h4>
+          <span class="precio">$18.000</span>
+        </div>
+      </div>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Esponjado de Maracuyá</h4>
+          <span class="precio">$17.000</span>
+        </div>
+      </div>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Postre de Natas</h4>
+          <span class="precio">$16.500</span>
+        </div>
+      </div>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Brownie con Helado</h4>
+          <span class="precio">$21.000</span>
+        </div>
+      </div>
+
+      <div class="volver-inicio"> 
+        <a href="#">Volver al inicio</a>
+      </div>
+    </div>
+
+</section>
+
+<!-- VINOS -->
+
+<section class="categoria-carta" id="vinos">
+    <div class="tarjeta-oscura">
+  <h3>Vinos</h3>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Picolo tinto o blanco</h4>
+          <span class="precio">30.000</span>
+        </div>
+      </div>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Picolo espumoso</h4>
+          <span class="precio">45.000</span>
+        </div>
+      </div>
+
+      <div class="item-carta">
+        <div class="info">
+          <h4>Media vino tinto o blanco</h4>
+          <span class="precio">30.000</span>
+        </div>
+      </div>
+
+  <div class="subcategoria-carta">
+    <div class="item-carta titulo-subcategoria">ARGENTINA</div>
+    
+    <h4>BODEGAS Y VIÑEDOS PEÑAFLOR</h4>
+    <div class="item-carta">
+      <div class="info">
+        <p>Finca La Escondida <span class="precio">$110.000</span> </p>
+        <p>Finca La Escondida / Torrentes blanco <span class="precio">$110.000</span> </p>
+        <p>Finca La Escondida Reserva <span class="precio">$145.000</span> </p>
+        <p>Finca La Escondida Gran Reserva <span class="precio">$155.000</span> </p>
+      </div>
+    </div>
+
+    <h4>BODEGA CASA VIGIL</h4>
+    <div class="item-carta">
+      <div class="info">
+        <p>El Enemigo Cabernet Franc <span class="precio">$250.000</span> </p>
+       </div>
+    </div>
+
+    <h4>BODEGA CATENA ZAPATA </h4>
+    <div class="item-carta">
+      <div class="info">
+        <p> Catena Malbec <span class="precio">$210.000</span> </p>
+        <p> Angelica Zapata Alta Malbec <span class="precio">$360.000</span> </p>
+       </div>
+    </div>
+
+  </div>
+
+  <div class="subcategoria-carta">
+    <div class="item-carta titulo-subcategoria">CHILE</div>
+
+    <h4>VIÑA INDOMITA </h4>
+    <div class="item-carta">
+      <div class="info">
+        <p> Zardoz Cabernet Sauvingnon <span class="precio">$250.000</span> </p>
+
+       </div>
+    </div>
+
+    <h4>BODEGA LAPOSTOLLE </h4>
+    <div class="item-carta">
+      <div class="info">
+        <p> Gran Selección Carmenere <span class="precio">$155.000</span> </p>
+        <p> Gran Selección Cabernet Sauvingnon <span class="precio">$155.000</span> </p>
+        <p> Gran Selección Sauvingnon Blanc <span class="precio">$140.000</span>
+      </div>
+    </div>
+  
+  </div>
+
+
+  <div class="subcategoria-carta">
+    <div class="item-carta titulo-subcategoria">FRANCIA</div>
+
+    <h4>THE MAISON LAURENT PERRIER</h4>
+    <div class="item-carta">
+      <div class="info">
+        <p> Laurent - Perrier Rosé <span class="precio">$600.000</span> </p>
+
+       </div>
+    </div>
+
+  </div>  
+
+  <div class="subcategoria-carta">
+    <div class="item-carta titulo-subcategoria">ESPAÑA</div>
+
+    <h4>BODEGA HEREDEROS DEL MARQUÉS DE RISCAL</h4>
+    <div class="item-carta">
+      <div class="info">
+        <p> Marqués de Riscal Reserva <span class="precio">$250.000</span> </p>
+        <p> Marqués de Riscal Verdejo <span class="precio">$150.000</span> </p>
+        <p> Marqués de Riscal Rosado  <span class="precio">$150.000</span> </p>
+       </div>
+    </div>
+
+    <h4>ESPUMOSOS</h4>
+    <div class="item-carta">
+      <div class="info">
+        <p> Codorniu Clásica <span class="precio">$150.000</span> </p>
+        <p> Codorniu Rosé <span class="precio">$150.000</span> </p>
+       </div>
+    </div>
+    
+  </div>
+
+
+    <div class="volver-inicio"> 
+      <a href="#">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+
+<!-- DESTILADOS Y LICORES -->
+
+<section class="categoria-carta" id="destilados">
+  <div class="tarjeta-oscura">
+
+    <div class="encabezado-destilados-global" style="background-color: #111; border-radius: 10px; padding: 1rem 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr; align-items: center; max-width: 900px; margin: 0 auto 2rem; gap: 0.5rem; text-align: center;">
+      <span class="categoria-nombre" style="color: #f5b900; font-weight: bold; font-size: 1.2rem; letter-spacing: 1px; text-transform: uppercase; text-align: left; grid-column: 1 / 2;">Licores y Destilados</span>
+      <span class="icono" style="display: flex; justify-content: center; align-items: center;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="36" height="36">
+          <path fill="#f5b900" d="M20 12h24l-4 40H24z"/>
+        </svg>
+      </span>
+      <span class="icono" style="display: flex; justify-content: center; align-items: center;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="36" height="36">
+          <path fill="#f5b900" d="M38 4h-12v8h12V4zM36 12H28c-1.1 0-2 .9-2 2v8c0 .6-.4 1.3-.7 1.7-2.5 3.5-5.3 7.6-5.3 14.3v18c0 2.2 1.8 4 4 4h16c2.2 0 4-1.8 4-4V38c0-6.7-2.8-10.8-5.3-14.3-.3-.4-.7-1.1-.7-1.7v-8c0-1.1-.9-2-2-2z"/>
+        </svg>
+      </span>
+    </div>
+
+    <!-- WHISKY -->
+    <div class="subcategoria-destilado">
+      <div class="fila-destilado encabezado" style="justify-content: center;"><span style="font-weight: bold; color: white; text-align: center; width: 100%;">Whisky</span><span></span><span></span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Old Parr 12 años</span><span>$38.000</span><span>$250.000</span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Caneca Old Parr 12 años</span><span>$36.000</span><span>$160.000</span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Old Parr 18 años</span><span>$50.000</span><span>$585.000</span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Buchanan's Deluxe 12</span><span>$40.000</span><span>$280.000</span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Canenca Buchanan's 12</span><span>$45.000</span><span>$165.000</span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Buchanan's Master</span><span>$45.000</span><span>$350.000</span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Buchanan's 18 años</span><span>$60.000</span><span>$625.000</span></div>
+      <div class="fila-destilado"><span style="text-align: left;">The Macallan 12 años</span><span>$65.000</span><span>$800.000</span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Glenfiddich 15 años</span><span>$50.000</span><span>$440.000</span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Crema de Whisky - Baileys</span><span>$28.000</span><span>$120.000</span></div>
+    </div>
+
+    <!-- VODKA -->
+    <div class="subcategoria-destilado">
+      <div class="fila-destilado encabezado" style="justify-content: center;"><span style="font-weight: bold; color: white; text-align: center; width: 100%;">Vodka</span><span></span><span></span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Absolut Vodka</span><span>$32.000</span><span>$150.000</span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Grey Goose</span><span>$45.000</span><span>$400.000</span></div>
+    </div>
+
+    <!-- COGNAC -->
+    <div class="subcategoria-destilado">
+      <div class="fila-destilado encabezado" style="justify-content: center;"><span style="font-weight: bold; color: white; text-align: center; width: 100%;">Cognac</span><span></span><span></span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Henessy V.S</span><span>$48.000</span><span>$300.000</span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Henessy XO</span><span>$100.000</span><span>$580.000</span></div>
+    </div>
+
+    <!-- CAÑA DE AZÚCAR -->
+    <div class="subcategoria-destilado">
+      <div class="fila-destilado encabezado" style="justify-content: center;"><span style="font-weight: bold; color: white; text-align: center; width: 100%;">De la Caña de Azúcar</span><span></span><span></span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Cachaza</span><span>$28.000</span><span></span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Aguardiente Blanco del Valle</span><span>$20.000</span><span>$110.000</span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Caneca Aguardiente Blanco del Valle</span><span></span><span>$55.000</span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Brandy Cinco Estrellas</span><span>$20.000</span><span></span></div>
+    </div>
+
+        <!-- DE LA UVA -->
+    <div class="subcategoria-destilado">
+      <div class="fila-destilado encabezado" style="justify-content: center;"><span style="font-weight: bold; color: white; text-align: center; width: 100%;">DE LA UNA</span><span></span><span></span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Pisco Demonio de los Andes</span><span>$35.000</span><span></span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Vermouth Rosso Cinzano</span><span>$20.000</span><span></span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Vermouth Extra Dry Cinzano</span><span>$23.000</span><span></span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Vermouth Blanco Cinzano</span><span>$23.000</span><span></span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Dubonet</span><span>$28.000</span><span>$130.000</span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Jerez Tío Pepe</span><span>$20.000</span><span></span></div>
+    </div>
+
+            <!-- FRUTOS SECOS, RAÍCES O FRUTAS -->
+    <div class="subcategoria-destilado">
+      <div class="fila-destilado encabezado" style="justify-content: center;"><span style="font-weight: bold; color: white; text-align: center; width: 100%;">FRUTOS SECOS, RAÍCES O FRUTAS</span><span></span><span></span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Pisco Demonio de los Andes</span><span>$35.000</span><span></span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Vermouth Rosso Cinzano</span><span>$20.000</span><span></span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Vermouth Extra Dry Cinzano</span><span>$23.000</span><span></span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Vermouth Blanco Cinzano</span><span>$23.000</span><span></span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Dubonet</span><span>$28.000</span><span>$130.000</span></div>
+      <div class="fila-destilado"><span style="text-align: left;">Jerez Tío Pepe</span><span>$20.000</span><span></span></div>
+    </div>
+
+    <div class="volver-inicio"> 
+      <a href="#">Volver al inicio</a>
+    </div>
+
+  </div>
+</section>
+
+
+</body>
+</html>

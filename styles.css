@@ -1,0 +1,239 @@
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  padding: 1rem 2rem;
+}
+
+.logo img {
+  max-height: 80px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #d4af37;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  z-index: 2;
+}
+
+.btn {
+  background-color: #d4af37;
+  color: #000;
+  padding: 0.8rem 1.6rem;
+  font-weight: bold;
+  border-radius: 4px;
+  display: inline-block;
+  margin-top: 1rem;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #b8942d;
+}
+
+/* ===== HAMBURGUESA PARA MÓVILES ===== */
+.menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* ESTILO PARA LA GALERÍA */
+
+
+.promo-galeria {
+  background: url("imagenes/textura-radix.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.promo-galeria h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.promo-galeria p {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 2.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* siempre 3 columnas */
+  gap: 1rem;
+  max-width: 600px; /* o 700px según tu preferencia */
+  margin: 0 auto;
+}
+
+.galeria-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease;
+}
+
+.galeria-grid img:hover {
+  transform: scale(1.03);
+}
+
+
+
+#titulo-dinamico,
+#parrafo-dinamico {
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* ESTILO SECCIÓN DE CONTACTO */
+
+.seccion-contacto {
+  padding: 3rem 2.5rem;
+  text-align: center;
+  background-color: #fef9f4;
+  color: #333;
+}
+
+.seccion-contacto h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Playfair Display', serif;
+}
+
+.seccion-contacto p {
+  font-size: 1.0rem;
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.contacto-datos {
+  margin-top: 2rem;
+}
+
+.contacto-datos a {
+  color: #b40000;
+  text-decoration: none;
+}
+
+.contacto-datos a:hover {
+  text-decoration: underline;
+}
+
+/* ESTILO SECCION DEL MAPA */
+
+.seccion-mapa {
+  padding: 2rem 1rem;
+  background-color: #fdfaf5;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+.seccion-mapa h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #b40000;
+}
+
+.direccion-contacto {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #444;
+  font-style: italic;
+}
+
+.mapa-container {
+  max-width: 360px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Estilo responsive para pantallas pequeñas */
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #000;
+    position: absolute;
+    top: 80px;
+    right: 2rem;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+
+  .menu-toggle:checked + .hamburger + .nav-links {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .logo img {
+    max-height: 48px;
+  }
+
+
+}
