@@ -119,13 +119,68 @@
   .estrella.activa {
     color: #f5b301;
   }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+  }
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    color: #000;
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .close:hover {
+    color: black;
+  }
+
+  .boton-flotante {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #d4af37;
+  color: black;
+  font-size: 0.85rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 1001;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 250px;
+  white-space: nowrap;
+}
+
+
 </style>
 
-<!-- === CONTENEDOR PRINCIPAL === -->
-<div class="centro">
-  <button onclick="mostrarFormulario()">Califica tu experiencia</button>
+<!-- === BOTÓN FLOTANTE === -->
+<button class="boton-flotante" onclick="mostrarModal()">⭐ Califica tu experiencia</button>
 
-  <div id="formulario-dinamico" style="display:none; width: 100%; max-width: 400px;">
+<!-- === MODAL DE CALIFICACIÓN === -->
+<div id="modalFormulario" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="cerrarModal()">&times;</span>
     <select id="categoria" onchange="cargarSubcategorias()">
       <option value="">Selecciona una categoría</option>
       <option value="Plato">Plato</option>
@@ -151,33 +206,34 @@
 <!-- === SCRIPT INTERACTIVO === -->
 <script>
   const menu = {
-    "Plato": ["Carne", "Pasta", "Pollo", "Mariscos / Pescado", "Fast food", "Entrada", "Ensalada", "Adicion"],
+    "Plato": ["Carne", "Pasta", "Pollo", "Mariscos / Pescado", "Fast food"],
     "Coctel": ["Coctel"],
     "Bebida": ["Jugos", "Cervezas", "Licor Destilado", "Vino"],
     "Postre": ["Postre"]
   };
 
   const items = {
-    "Carne": ["Rodizio", "Rodizio Premium", "Picanha (300g)", "Picanha (400g)", "Tomahawk (700g)", "T-Bone (650g)", "Churrasco", "Costilla BBQ", "Bife Ancho", "Lomo Fino", "Chorizo artesanal"],
-    "Pasta": ["Pasta Fruto del Mar", "Pasta de Pollo en Salsa Trufa", "Pasta Vegetariana"],
-    "Pollo": ["File de Frango"],
-    "Mariscos / Pescado": ["Ceviche de Pulpo", "Ceviche de Panceta", "Salmón a la Parrilla", "Salmón Fruto del Mar", "Trucha a la Plancha", "Pescado Frito", "Camarones al Ajillo", "Pulpo a la Parrilla", "Tilapia Gratinada"],
-    "Fast food": ["Hamburguesa Jack Daniels", "Hamburguesa Clásica", "Hamburguesa Jack Daniels Doble"],
-    "Entrada": ["Pan de Ajo", "Queso Provolone"],
-    "Ensalada": ["Ensalada César"] ,
-    "Adicion": ["Papas a la Francesa"],
-    "Coctel": ["Burbujeante de Cereza", "Amargor de Vodka", "Caricia Añeja", "Secreto de la Tierra", "Mojito", "Caipiriña", "Margarita", "Bloody Mary", "Piña Colada"],
-    "Jugos": ["Jugos en agua", "Jugos en leche", "Limonada Natural", "Limonada de coco", "Naranja", "Mandarina"],
+    "Carne": ["Rodizio", "Rodizio Premium", "Picanha (300g)", "Picanha (400g)", "Costilla BBQ", "Asado de Tira", "Bife Ancho", "Punta de Anca", "Churrasco", "Solomito Parrilla", "Costilla Do Sul"],
+    "Pasta": ["Pasta Fruto del Mar", "Pasta de Trufa (Pollo)", "Pasta de Trufa (Carne)", "Pasta con vegetales"],
+    "Pollo": ["File de Frango", "Pollo a la Naranja", "Pastel de Pollo"],
+    "Mariscos / Pescado": ["Ceviche de Pulpo", "Ceviche de Panceta", "Salmón a la Parrilla", "Salmón Fruto del Mar", "Langostinos", "Camarones al Ajillo"],
+    "Fast food": ["Hamburguesa Jack Daniels", "Hamburguesa Clásica", "Hamburguesa Doble", "Choripán", "Perro Caliente"],
+    "Coctel": ["Burbujeante de Cereza", "Amargor de Vodka", "Caricia Añeja", "Secreto de la Tierra", "Caipirinha", "Mojito"],
+    "Jugos": ["Jugos en agua", "Jugos en leche", "Limonada Natural", "Limonada de coco"],
     "Cervezas": ["Cervezas importadas", "Cervezas nacionales", "Cerveza Corona Cero"],
-    "Licor Destilado": ["Old Parr 12 años", "Caneca Old Parr 12 años", "Ron Medellín", "Ron Viejo de Caldas", "Aguardiente", "Whisky Buchanan's", "Vodka Absolut", "Ginebra Tanqueray", "Tequila Don Julio", "Tequila José Cuervo"],
-    "Vino": ["Picolo tinto o blanco", "Picolo espumoso", "Copa de vino de la casa", "Vino tinto de mesa", "Vino blanco seco", "Vino rosado"],
-    "Postre": ["Postre de Natas", "Esponjado de Maracuyá", "Bola de Helado", "Flan de Caramelo", "Brownie con Helado", "Mousse de Chocolate"]
+    "Licor Destilado": ["Old Parr 12 años", "Caneca Old Parr 12 años", "Ron Medellín 8 años"],
+    "Vino": ["Picolo tinto o blanco", "Picolo espumoso", "Copa de vino de la casa", "Vino tinto de mesa"],
+    "Postre": ["Postre de Natas", "Esponjado de Maracuyá", "Bola de Helado", "Flan de Caramelo"]
   };
 
   let calificacionSeleccionada = 0;
 
-  function mostrarFormulario() {
-    document.getElementById('formulario-dinamico').style.display = 'block';
+  function mostrarModal() {
+    document.getElementById("modalFormulario").style.display = "block";
+  }
+
+  function cerrarModal() {
+    document.getElementById("modalFormulario").style.display = "none";
   }
 
   function cargarSubcategorias() {
@@ -230,48 +286,51 @@
     }
   }
 
-  function enviarFormulario() {
-    const item = document.getElementById('item').value;
-    const comentario = document.getElementById('comentario').value;
-    if (!item || calificacionSeleccionada < 1) {
-      alert('Por favor selecciona un ítem y una calificación.');
-      return;
-    }
-    alert(`✅ Calificación enviada: ${item}, ${calificacionSeleccionada} estrellas, comentario: ${comentario}`);
-    // Aquí iría el fetch real
+
+  <!-- FUNCION ENVIAR FORMULARIO -->
+
+
+function enviarFormulario() {
+  const categoria = document.getElementById('categoria').value;
+  const subcategoria = document.getElementById('subcategoria').value;
+  const nombre = document.getElementById('item').value;
+  const comentario = document.getElementById('comentario').value;
+  const calificacion = calificacionSeleccionada;
+
+  if (!nombre || calificacion < 1) {
+    alert('Por favor selecciona un ítem y una calificación.');
+    return;
   }
-</script>
 
+  const formData = new FormData();
+  formData.append("categoria", categoria);
+  formData.append("subcategoria", subcategoria);
+  formData.append("nombre", nombre);
+  formData.append("calificacion", calificacion);
+  formData.append("comentario", comentario);
 
-
-<!-- === SCRIPT DE ENVÍO === -->
-<script>
-
-
-  function enviarFormulario() {
-    const formData = new FormData();
-    formData.append("nombre", document.getElementById("nombre").value);
-    formData.append("tipo", document.getElementById("tipo").value);
-    formData.append("calificacion", document.getElementById("calificacion").value);
-    formData.append("comentario", document.getElementById("comentario").value);
-
-    fetch("https://script.google.com/macros/s/AKfycbxZrH1gJPSy3-6buPX_JMAArIMdo1o4vyOmQl0D3axdCvl6T7clsrEsMUuDDDOjFN6r/exec", {
-      method: "POST",
-      body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
+  fetch("https://script.google.com/macros/s/AKfycbyA3y7ECUCGil1h2fXxm5Kcyd9Jjv9eXvaXctuUE7F5RniHpUnHgyb5RPxJowRBk6c/exec", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.status === "ok") {
       alert("✅ ¡Gracias por tu calificación!");
-      document.getElementById("formulario-calificacion").reset();
-      document.getElementById("formulario-calificacion").style.display = 'none';
-    })
-    .catch(error => {
-      console.error("❌ Error al enviar:", error);
-      alert("❌ Ocurrió un error al enviar tu calificación. Inténtalo de nuevo.");
-    });
-  }
+      cerrarModal();
+    } else {
+      alert("❌ Error al registrar: " + data.mensaje);
+    }
+  })
+  .catch(error => {
+    console.error("❌ Error al enviar:", error);
+    alert("❌ No se pudo conectar con el servidor. Inténtalo más tarde.");
+  });
+}
 
 </script>
+
+
 
 <!-- FRASES-->
 
