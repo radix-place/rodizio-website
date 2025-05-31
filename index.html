@@ -86,39 +86,163 @@
 <!-- FORMULARIO DE PONDERACIÓN -->
 
 
+<!-- === ESTILOS BÁSICOS === -->
+<style>
+  .centro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+  select, textarea, button {
+    margin: 0.5rem 0;
+    padding: 0.7rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  button.enviar {
+    background-color: #d4af37;
+    color: black;
+    font-weight: bold;
+    border: none;
+  }
+  .estrella {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #ccc;
+  }
+  .estrella.activa {
+    color: #f5b301;
+  }
+</style>
 
+<!-- === CONTENEDOR PRINCIPAL === -->
+<div class="centro">
+  <button onclick="mostrarFormulario()">Califica tu experiencia</button>
 
-<!-- === BOTÓN PARA ABRIR FORMULARIO === -->
-<button onclick="document.getElementById('formulario-calificacion').style.display='block'" style="background:#d4af37;color:black;font-weight:bold;padding:1rem;border:none;border-radius:10px;margin:1rem;">
-  Califica tu plato
-</button>
+  <div id="formulario-dinamico" style="display:none; width: 100%; max-width: 400px;">
+    <select id="categoria" onchange="cargarSubcategorias()">
+      <option value="">Selecciona una categoría</option>
+      <option value="Plato">Plato</option>
+      <option value="Coctel">Coctel</option>
+      <option value="Bebida">Bebida</option>
+      <option value="Postre">Postre</option>
+    </select>
 
-<!-- === FORMULARIO OCULTO === -->
+    <select id="subcategoria" onchange="cargarItems()">
+      <option value="">Selecciona una subcategoría</option>
+    </select>
 
-<div id="formulario-calificacion" style="display:none;padding:1rem;border:2px solid #d4af37;border-radius:10px;margin:1rem;background:#fff;color:#000;max-width:400px;width:90%;">
-<h3>Tu opinión es importante</h3>
-  <label for="nombre">Nombre del plato o bebida:</label><br>
-  <input type="text" id="nombre" name="nombre" required><br><br>
+    <select id="item" onchange="mostrarCalificacion()">
+      <option value="">Selecciona un ítem</option>
+    </select>
 
-  <label for="tipo">Categoría:</label><br>
-  <select id="tipo" name="tipo" required>
-    <option value="Plato">Plato</option>
-    <option value="Bebida">Bebida</option>
-    <option value="Coctel">Cóctel</option>
-    <option value="Postre">Postre</option>
-    <option value="Otro">Otro</option>
-  </select><br><br>
-
-  <label for="calificacion">Calificación (1 a 5):</label><br>
-  <input type="number" id="calificacion" name="calificacion" min="1" max="5" required><br><br>
-
-  <label for="comentario">Comentario:</label><br>
-  <textarea id="comentario" name="comentario" rows="3"></textarea><br><br>
-
-  <button onclick="enviarFormulario()" style="background:#d4af37;color:black;font-weight:bold;padding:0.5rem;border:none;border-radius:8px;">
-    Enviar
-  </button>
+    <div id="calificacion" style="margin-top: 1rem;"></div>
+    <textarea id="comentario" rows="3" placeholder="Comentario (opcional)"></textarea>
+    <button class="enviar" onclick="enviarFormulario()">Enviar</button>
+  </div>
 </div>
+
+<!-- === SCRIPT INTERACTIVO === -->
+<script>
+  const menu = {
+    "Plato": ["Carne", "Pasta", "Pollo", "Mariscos / Pescado", "Fast food", "Entrada", "Ensalada", "Adicion"],
+    "Coctel": ["Coctel"],
+    "Bebida": ["Jugos", "Cervezas", "Licor Destilado", "Vino"],
+    "Postre": ["Postre"]
+  };
+
+  const items = {
+    "Carne": ["Rodizio", "Rodizio Premium", "Picanha (300g)", "Picanha (400g)", "Tomahawk (700g)", "T-Bone (650g)", "Churrasco", "Costilla BBQ", "Bife Ancho", "Lomo Fino", "Chorizo artesanal"],
+    "Pasta": ["Pasta Fruto del Mar", "Pasta de Pollo en Salsa Trufa", "Pasta Vegetariana"],
+    "Pollo": ["File de Frango"],
+    "Mariscos / Pescado": ["Ceviche de Pulpo", "Ceviche de Panceta", "Salmón a la Parrilla", "Salmón Fruto del Mar", "Trucha a la Plancha", "Pescado Frito", "Camarones al Ajillo", "Pulpo a la Parrilla", "Tilapia Gratinada"],
+    "Fast food": ["Hamburguesa Jack Daniels", "Hamburguesa Clásica", "Hamburguesa Jack Daniels Doble"],
+    "Entrada": ["Pan de Ajo", "Queso Provolone"],
+    "Ensalada": ["Ensalada César"] ,
+    "Adicion": ["Papas a la Francesa"],
+    "Coctel": ["Burbujeante de Cereza", "Amargor de Vodka", "Caricia Añeja", "Secreto de la Tierra", "Mojito", "Caipiriña", "Margarita", "Bloody Mary", "Piña Colada"],
+    "Jugos": ["Jugos en agua", "Jugos en leche", "Limonada Natural", "Limonada de coco", "Naranja", "Mandarina"],
+    "Cervezas": ["Cervezas importadas", "Cervezas nacionales", "Cerveza Corona Cero"],
+    "Licor Destilado": ["Old Parr 12 años", "Caneca Old Parr 12 años", "Ron Medellín", "Ron Viejo de Caldas", "Aguardiente", "Whisky Buchanan's", "Vodka Absolut", "Ginebra Tanqueray", "Tequila Don Julio", "Tequila José Cuervo"],
+    "Vino": ["Picolo tinto o blanco", "Picolo espumoso", "Copa de vino de la casa", "Vino tinto de mesa", "Vino blanco seco", "Vino rosado"],
+    "Postre": ["Postre de Natas", "Esponjado de Maracuyá", "Bola de Helado", "Flan de Caramelo", "Brownie con Helado", "Mousse de Chocolate"]
+  };
+
+  let calificacionSeleccionada = 0;
+
+  function mostrarFormulario() {
+    document.getElementById('formulario-dinamico').style.display = 'block';
+  }
+
+  function cargarSubcategorias() {
+    const cat = document.getElementById('categoria').value;
+    const sub = document.getElementById('subcategoria');
+    sub.innerHTML = '<option value="">Selecciona una subcategoría</option>';
+    document.getElementById('item').innerHTML = '<option value="">Selecciona un ítem</option>';
+    document.getElementById('calificacion').innerHTML = '';
+    if (!cat || !menu[cat]) return;
+    menu[cat].forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = s;
+      opt.textContent = s;
+      sub.appendChild(opt);
+    });
+  }
+
+  function cargarItems() {
+    const subcat = document.getElementById('subcategoria').value;
+    const itm = document.getElementById('item');
+    itm.innerHTML = '<option value="">Selecciona un ítem</option>';
+    document.getElementById('calificacion').innerHTML = '';
+    if (!subcat || !items[subcat]) return;
+    items[subcat].forEach(i => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = i;
+      itm.appendChild(opt);
+    });
+  }
+
+  function mostrarCalificacion() {
+    const cont = document.getElementById('calificacion');
+    cont.innerHTML = '<label>Calificación:</label><br>' +
+      [1, 2, 3, 4, 5].map(n => `<span class='estrella' onclick='seleccionarCalificacion(${n})' id='estrella-${n}'>★</span>`).join('');
+    actualizarEstrellas();
+  }
+
+  function seleccionarCalificacion(n) {
+    calificacionSeleccionada = n;
+    actualizarEstrellas();
+  }
+
+  function actualizarEstrellas() {
+    for (let i = 1; i <= 5; i++) {
+      const estrella = document.getElementById(`estrella-${i}`);
+      if (estrella) {
+        estrella.classList.toggle('activa', i <= calificacionSeleccionada);
+      }
+    }
+  }
+
+  function enviarFormulario() {
+    const item = document.getElementById('item').value;
+    const comentario = document.getElementById('comentario').value;
+    if (!item || calificacionSeleccionada < 1) {
+      alert('Por favor selecciona un ítem y una calificación.');
+      return;
+    }
+    alert(`✅ Calificación enviada: ${item}, ${calificacionSeleccionada} estrellas, comentario: ${comentario}`);
+    // Aquí iría el fetch real
+  }
+</script>
+
+
 
 <!-- === SCRIPT DE ENVÍO === -->
 <script>
@@ -146,7 +270,6 @@
       alert("❌ Ocurrió un error al enviar tu calificación. Inténtalo de nuevo.");
     });
   }
-
 
 </script>
 
@@ -182,4 +305,5 @@
     }, 700); // tiempo para el fade out
   }, 10000); // cada 10 segundos
 </script>
+
 </html>
