@@ -122,29 +122,31 @@
 
 <!-- === SCRIPT DE ENVÍO === -->
 <script>
-  function enviarFormulario() {
-    const datos = {
-      nombre: document.getElementById('nombre').value,
-      tipo: document.getElementById('tipo').value,
-      calificacion: document.getElementById('calificacion').value,
-      comentario: document.getElementById('comentario').value
-    };
+function enviarFormulario() {
+  const datos = {
+    nombre: document.getElementById('nombre').value,
+    tipo: document.getElementById('tipo').value,
+    calificacion: document.getElementById('calificacion').value,
+    comentario: document.getElementById('comentario').value
+  };
 
-    fetch("https://script.google.com/macros/s/AKfycbxyPZRkicpQQAd9cVI2BJ0WNW6wt_26Xc3aRcm7-7qspSjd0bQ8txvFCrWG8b6KNBlM/exec", {
-      method: "POST",
-      body: JSON.stringify(datos),
-      headers: { "Content-Type": "application/json" }
-    })
-    .then(response => response.json())
-    .then(data => {
-      alert("¡Gracias por tu opinión!");
-      document.getElementById('formulario-calificacion').style.display = 'none';
-    })
-    .catch(error => {
-      console.error("Error al enviar:", error);
-      alert("Ocurrió un error al enviar tu calificación. Inténtalo de nuevo.");
-    });
-  }
+  fetch("https://script.google.com/macros/s/AKfycbxyPZRkicpQQAd9cVI2BJ0WNW6wt_26Xc3aRcm7-7qspSjd0bQ8txvFCrWG8b6KNBlM/exec", {
+    method: "POST",
+    body: JSON.stringify(datos),
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert("✅ ¡Gracias por tu opinión!");
+    document.getElementById('formulario-calificacion').reset();
+    document.getElementById('formulario-calificacion').style.display = 'none';
+  })
+  .catch(error => {
+    console.error("Error al enviar:", error);
+    alert("❌ Ocurrió un error al enviar tu calificación. Inténtalo de nuevo.");
+  });
+}
+
 </script>
 
 <!-- FRASES-->
