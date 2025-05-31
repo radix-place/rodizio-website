@@ -122,30 +122,31 @@
 
 <!-- === SCRIPT DE ENVÍO === -->
 <script>
-function enviarFormulario() {
-  const datos = {
-    nombre: document.getElementById('nombre').value,
-    tipo: document.getElementById('tipo').value,
-    calificacion: document.getElementById('calificacion').value,
-    comentario: document.getElementById('comentario').value
-  };
 
-  fetch("https://script.google.com/macros/s/AKfycbzGcjfJ4LynqPgW_A69XxAh8w9wShwGz-5cKOIJIi8vayR59gx6yMbStmUmHCzWPJGQ/exec", {
-    method: "POST",
-    body: JSON.stringify(datos),
-    headers: { "Content-Type": "application/json" }
-  })
-  .then(response => response.json())
-  .then(data => {
-    alert("✅ ¡Gracias por tu opinión!");
-    document.getElementById('formulario-calificacion').reset();
-    document.getElementById('formulario-calificacion').style.display = 'none';
-  })
-  .catch(error => {
-    console.error("Error al enviar:", error);
-    alert("❌ Ocurrió un error al enviar tu calificación. Inténtalo de nuevo.");
-  });
-}
+
+  function enviarFormulario() {
+    const formData = new FormData();
+    formData.append("nombre", document.getElementById("nombre").value);
+    formData.append("tipo", document.getElementById("tipo").value);
+    formData.append("calificacion", document.getElementById("calificacion").value);
+    formData.append("comentario", document.getElementById("comentario").value);
+
+    fetch("https://script.google.com/macros/s/AKfycbxZrH1gJPSy3-6buPX_JMAArIMdo1o4vyOmQl0D3axdCvl6T7clsrEsMUuDDDOjFN6r/exec", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert("✅ ¡Gracias por tu calificación!");
+      document.getElementById("formulario-calificacion").reset();
+      document.getElementById("formulario-calificacion").style.display = 'none';
+    })
+    .catch(error => {
+      console.error("❌ Error al enviar:", error);
+      alert("❌ Ocurrió un error al enviar tu calificación. Inténtalo de nuevo.");
+    });
+  }
+
 
 </script>
 
