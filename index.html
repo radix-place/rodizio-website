@@ -130,7 +130,7 @@ function enviarFormulario() {
     comentario: document.getElementById('comentario').value
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbxyPZRkicpQQAd9cVI2BJ0WNW6wt_26Xc3aRcm7-7qspSjd0bQ8txvFCrWG8b6KNBlM/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbzGcjfJ4LynqPgW_A69XxAh8w9wShwGz-5cKOIJIi8vayR59gx6yMbStmUmHCzWPJGQ/exec", {
     method: "POST",
     body: JSON.stringify(datos),
     headers: { "Content-Type": "application/json" }
