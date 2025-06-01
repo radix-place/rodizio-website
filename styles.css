@@ -20,7 +20,11 @@ body {
 
 .logo img {
   max-height: 80px;
+  height: auto;
+  width: auto;
+  max-width: 100%;
 }
+
 
 .nav-links {
   display: flex;
@@ -322,4 +326,25 @@ body {
 
 .modal-content {
   animation: fadeInUp 0.5s ease-out;
+}
+
+/* BOTON DE REGRESO PAGINA CARTA*/
+
+.boton-regreso {
+  text-align: center;
+  margin: 3rem 0 2rem;
+}
+
+.boton-regreso .btn {
+  background-color: #d4af37;
+  color: #000;
+  padding: 0.8rem 1.6rem;
+  font-weight: bold;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.boton-regreso .btn:hover {
+  background-color: #b8942d;
 }
