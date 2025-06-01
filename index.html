@@ -27,16 +27,28 @@
 </nav>
 
   <!-- Hero -->
-  <header class="hero">
+
+
+<section class="hero-completo">
+  <div class="lado">
+    <img src="imagenes/IZQUIERDA.png" alt="Bosque Izquierdo" />
+  </div>
+
+  <div class="centro-video">
     <video autoplay muted loop playsinline>
-      <source src="videos/ambiente-rodizio.mp4" type="video/mp4" />
+      <source src="videos/video_PRINCIPAL.mp4" type="video/mp4" />
     </video>
-    <div class="hero-text">
+    <div class="hero-texto">
       <h1>Rodizio Do Sul</h1>
-      <p>Una experiencia gastronómica inolvidable</p>
-      <a href="#reservas" class="btn">Reserva ahora</a>
+      <p>Una experiencia en carne viva</p>
     </div>
-  </header>
+  </div>
+
+  <div class="lado">
+    <img src="imagenes/DERECHA.png" alt="Bosque Derecho" />
+  </div>
+</section>
+
 
 <section class="promo-galeria">
   <h2 id="titulo-dinamico">Descubre el mejor sabor de la ciudad</h2>
@@ -183,10 +195,10 @@
     <span class="close" onclick="cerrarModal()">&times;</span>
     <select id="categoria" onchange="cargarSubcategorias()">
       <option value="">Selecciona una categoría</option>
-      <option value="Plato">Plato</option>
-      <option value="Coctel">Coctel</option>
-      <option value="Bebida">Bebida</option>
-      <option value="Postre">Postre</option>
+      <option value="Platos">Platos</option>
+      <option value="Cocteles">Cocteles</option>
+      <option value="Bebidas">Bebidas</option>
+      <option value="Postres">Postres</option>
     </select>
 
     <select id="subcategoria" onchange="cargarItems()">
@@ -206,24 +218,33 @@
 <!-- === SCRIPT INTERACTIVO === -->
 <script>
   const menu = {
-    "Plato": ["Carne", "Pasta", "Pollo", "Mariscos / Pescado", "Fast food"],
-    "Coctel": ["Coctel"],
-    "Bebida": ["Jugos", "Cervezas", "Licor Destilado", "Vino"],
-    "Postre": ["Postre"]
+    "Platos": ["Carne", "Pasta", "Pollo", "Mariscos / Pescado", "Fast food"],
+    "Cocteles": ["Coctel"],
+    "Bebidas": ["Jugos", "Sodas"],
+    "Postres": ["Postre"]
   };
 
   const items = {
-    "Carne": ["Rodizio", "Rodizio Premium", "Picanha (300g)", "Picanha (400g)", "Costilla BBQ", "Asado de Tira", "Bife Ancho", "Punta de Anca", "Churrasco", "Solomito Parrilla", "Costilla Do Sul"],
-    "Pasta": ["Pasta Fruto del Mar", "Pasta de Trufa (Pollo)", "Pasta de Trufa (Carne)", "Pasta con vegetales"],
-    "Pollo": ["File de Frango", "Pollo a la Naranja", "Pastel de Pollo"],
-    "Mariscos / Pescado": ["Ceviche de Pulpo", "Ceviche de Panceta", "Salmón a la Parrilla", "Salmón Fruto del Mar", "Langostinos", "Camarones al Ajillo"],
-    "Fast food": ["Hamburguesa Jack Daniels", "Hamburguesa Clásica", "Hamburguesa Doble", "Choripán", "Perro Caliente"],
-    "Coctel": ["Burbujeante de Cereza", "Amargor de Vodka", "Caricia Añeja", "Secreto de la Tierra", "Caipirinha", "Mojito"],
-    "Jugos": ["Jugos en agua", "Jugos en leche", "Limonada Natural", "Limonada de coco"],
-    "Cervezas": ["Cervezas importadas", "Cervezas nacionales", "Cerveza Corona Cero"],
-    "Licor Destilado": ["Old Parr 12 años", "Caneca Old Parr 12 años", "Ron Medellín 8 años"],
-    "Vino": ["Picolo tinto o blanco", "Picolo espumoso", "Copa de vino de la casa", "Vino tinto de mesa"],
-    "Postre": ["Postre de Natas", "Esponjado de Maracuyá", "Bola de Helado", "Flan de Caramelo"]
+    "Carne": ["Rodizio", "Rodizio Premium", "Picanha (300g)", "Picanha (400g)",  
+        "New York Steak", "Rib Eye", "Morillo", "Churrasco", "Baby Beef", 
+        "Lomo en Salsa de trufa Negra" , "Filet Mignon"],
+    "Pasta": ["Pasta Fruto del Mar", "Pasta de Trufa (Pollo)", "Pasta de Trufa (Carne)"],
+    "Pollo": ["File de Frango"],
+    "Mariscos / Pescado": ["Ceviche de Pulpo", "Ceviche de Panceta", "Salmón a la Parrilla", "Salmón Fruto del Mar", "Langostinos Do Sul", "Langostinos al Ajillo"],
+    "Fast food": ["Hamburguesa Clásica", "Hamburguesa Jack Daniels",  "Hamburguesa Jack Daniels Doble"],
+    "Coctel": ["Burbujeante de Cereza", "Amargor de Vodka", "Caricia Añeja", "Secreto de la Tierra", "Brisa Tequilera", 
+        "Arrechera", "Guarito Sour", "La Verde", "Mar Morado", "White Anis Negroni", "Mint Julep", "Paloma", "Mojito Clásico", 
+        "Caipiroska", "Negroni", "Aperol Spritz", "Campari Spritz", "French 75", "Mimosa", "Caipiriña", "Black Russian", 
+        "White Russian", "Orgasmo Múltiple", "El Padrino", "La Madrina", "Mojito Fresa", "Mojito Maracuyá", "Mojito Agras", 
+        "SAndría Espumosa (Copa)", "Sangría Espumosa (Jarra)", "Moscow Mule", "Mexican Mule", "Mezcal Mule", 
+        "Mojito Ron viejo de Caldas", "Mojito La Hechicera", "Mojito Zapaca 23", "Sangría (COPA)", "Sangría (Media Jarra)", 
+        "Sangría (Jarra)", "Samba (Copa)", "Samba (Media Jarra)", "Samba (Jarra)", "Negroni Clásico", "Negroni Mezcal", 
+        "Negroni White", "Martini Tanqueray", "Martini Bombay", "Martini Hendrick's", "Martini Monkey 47", "Vodka Martini Absolut", 
+        "Vordka Martini Lemon Drop", "Vodka Martini Grey Goose", "Whisky Sour", "Pisco Sour", "Amaretto Sour", "Tequila Sour", 
+        "Vodka Sour", "Piña Colada Tradicional", "Piña Colada La Hechicera", "Piña Colada Zacapa 23"],
+    "Jugos": ["Jugos en agua", "Jugos en leche", "Limonada Natural", "Limonada de coco", "Limonada de cereza", "Limonada de mango viche"],
+    "Postre": ["Postre de Natas", "Esponjado de Maracuyá", "Bola de Helado", "Flan de Caramelo"],
+    "Sodas" : ["Soda Italiana"]
   };
 
   let calificacionSeleccionada = 0;
@@ -309,7 +330,7 @@ function enviarFormulario() {
   formData.append("calificacion", calificacion);
   formData.append("comentario", comentario);
 
-  fetch("https://script.google.com/macros/s/AKfycbyA3y7ECUCGil1h2fXxm5Kcyd9Jjv9eXvaXctuUE7F5RniHpUnHgyb5RPxJowRBk6c/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbwxLQBpsoX5zkMyrDCqZFvbS7ZAT7Z01ySyN483CBqI1xxe0zT5MdTvPOMD00aA7SGi/exec", {
     method: "POST",
     body: formData
   })
