@@ -104,6 +104,8 @@
 
 
 
+
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const apiKey = "aff3683756ae45c8869132830250106";
@@ -118,39 +120,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const clima = document.getElementById("clima-info");
 
   const tempActual = document.getElementById("temp-actual");
-  const sensacion = document.getElementById("sensacion-termica");
   const descripcion = document.getElementById("descripcion-clima");
+  const sensacion = document.getElementById("sensacion-termica");
+  sensacion.style.display = "none";
 
-  // Lista de platos sugeridos
+
+
   const platos = [
-    {
-      imagen: "imagenes/LANGOSTA.webp",
-      descripcion: "Nuestra deliciosa Langosta"
-    },
-    {
-      imagen: "imagenes/langostinos_do_sul.webp",
-      descripcion: "Prueba nuestros Langostinos Do Sul"
-    },
-    {
-      imagen: "imagenes/picada.webp",
-      descripcion: "¡Una deliciosa picada!"
-    },
-    {
-      imagen: "imagenes/seviche_pulpo.webp",
-      descripcion: "¿Qué tal un seviche de pulto?"
-    },
-    {
-      imagen: "imagenes/lang_ajillo.webp",
-      descripcion: "Ufff... unos langostinos al ajillo."
-    },
-    {
-      imagen: "imagenes/lomo_trufa.webp",
-      descripcion: "Prueba nuestro espectacular Lomo en Salsa de Trufa"
-    },
-    {
-      imagen: "imagenes/H_JACK_R.webp",
-      descripcion: "Te recomiendo una hamburguesa Jack Daniels doble"
-    }
+    { imagen: "imagenes/platos/LANGOSTA.webp", descripcion: "Nuestra deliciosa Langosta" },
+    { imagen: "imagenes/platos/langostinos_do_sul.webp", descripcion: "Nuestros Langostinos Do Sul" },
+    { imagen: "imagenes/platos/picada.webp", descripcion: "¡Una deliciosa picada!" },
+    { imagen: "imagenes/platos/seviche_pulpo.webp", descripcion: "Un seviche de pulpo" },
+    { imagen: "imagenes/platos/lang_ajillo.webp", descripcion: "Unos langostinos al ajillo." },
+    { imagen: "imagenes/platos/lomo_trufa.webp", descripcion: "Nuestro espectacular Lomo en Salsa de Trufa" },
+    { imagen: "imagenes/platos/H_JACK_R.webp", descripcion: "Una hamburguesa Jack Daniels doble" }
   ];
 
   fetch(url)
@@ -161,10 +144,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       const temp = Math.round(data.current.temp_c);
-      const feelsLike = Math.round(data.current.feelslike_c);
       const desc = data.current.condition.text;
       const code = data.current.condition.code;
-
       const hour = new Date().getHours();
       const isNight = hour < 6 || hour >= 18;
 
@@ -183,7 +164,6 @@ document.addEventListener("DOMContentLoaded", () => {
       clima.style.backgroundImage = `url('${fondo}')`;
 
       tempActual.textContent = `${temp}°C`;
-      sensacion.textContent = `Sensación: ${feelsLike}°C`;
       descripcion.textContent = desc;
 
       let mensaje1 = "";
@@ -196,22 +176,23 @@ document.addEventListener("DOMContentLoaded", () => {
         mensaje1 = "Hoy el clima está ideal para un jugoso corte de carne y un buen vino.";
       }
 
-      mensaje.textContent = mensaje1;
+      mensaje.innerHTML = `<strong style="font-size: 1.4rem;">${mensaje1}</strong>`;
 
-      // Mostrar clima (fase 1)
       clima.style.display = "flex";
       mensaje.style.display = "block";
       promo.style.display = "none";
       modal.style.display = "flex";
 
-      // A los 4s: mostrar plato aleatorio (fase 2)
       setTimeout(() => {
         clima.style.display = "none";
         mensaje.style.display = "none";
 
         const plato = platos[Math.floor(Math.random() * platos.length)];
         document.getElementById("imagen-plato").src = plato.imagen;
-        document.getElementById("descripcion-plato").textContent = plato.descripcion;
+        document.getElementById("descripcion-plato").innerHTML = `
+          <div style="font-weight:bold; font-size:1.2rem; margin-bottom: 0.5rem;">👨‍🍳 El chef te sugiere...</div>
+          ${plato.descripcion}
+        `;
 
         promo.style.display = "block";
       }, 4000);
@@ -219,10 +200,12 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch(error => {
       console.error("Error al obtener clima. Mostrando hamburguesa aleatoria:", error);
 
-      // Mostrar plato aleatorio directamente
       const plato = platos[Math.floor(Math.random() * platos.length)];
       document.getElementById("imagen-plato").src = plato.imagen;
-      document.getElementById("descripcion-plato").textContent = plato.descripcion;
+      document.getElementById("descripcion-plato").innerHTML = `
+        <div style="font-weight:bold; font-size:1.2rem; margin-bottom: 0.5rem;">👨‍🍳 El chef te sugiere...</div>
+        ${plato.descripcion}
+      `;
 
       clima.style.display = "none";
       mensaje.style.display = "none";
@@ -235,6 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+
 
 
 
