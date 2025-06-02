@@ -129,7 +129,7 @@ body {
 /* ========== GALERÍA ==========
 */
 .promo-galeria {
-  background: url("imagenes/textura-radix.png") no-repeat center center;
+  background: url("imagenes/textura-radix.webp") no-repeat center center;
   background-size: cover;
   background-attachment: fixed;
   padding: 4rem 2rem;

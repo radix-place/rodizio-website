@@ -30,12 +30,12 @@
 
 <section class="hero-completo">
   <div class="lado">
-    <img src="imagenes/IZQUIERDA_R.png" alt="Bosque Izquierdo" />
+    <img src="imagenes/IZQUIERDA_R.webp" alt="Bosque Izquierdo" />
   </div>
 
   <div class="centro-video">
     <video autoplay muted loop playsinline>
-      <source src="videos/video_P.mp4" type="video/mp4" />
+      <source src="videos/video_PP.mp4" type="video/mp4" />
     </video>
     <div class="hero-texto">
       <h2>Do Sul Restaurante</h2>
@@ -44,7 +44,7 @@
   </div>
 
   <div class="lado">
-    <img src="imagenes/DERECHA_R.png" alt="Bosque Derecho" />
+    <img src="imagenes/DERECHA_R.webp" alt="Bosque Derecho" />
   </div>
 </section>
 
@@ -90,7 +90,7 @@
 
     <!-- BLOQUE HAMBURGUESA ALTERNATIVO -->
     <div id="promo-hamburguesa" style="display: none;">
-      <img src="imagenes/H_JACK_R.jpg" alt="Hamburguesa Jack Daniels Doble" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;">
+      <img src="imagenes/H_JACK_R.webp" alt="Hamburguesa Jack Daniels Doble" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;">
       <div style="font-size: 1.1rem;">
         ¡Descubre nuestra nueva <strong>Hamburguesa Jack Daniels Doble</strong>!<br>
         Una explosión de sabor con doble carne, queso fundido y nuestra salsa especial
@@ -139,13 +139,13 @@ const isNight = hour < 6 || hour >= 18;
 let fondo = ""; // ruta de fondo
 
 if ([1000].includes(code)) {
-  fondo = isNight ? "imagenes/N1.png" : "imagenes/1.png"; // Soleado
+  fondo = isNight ? "imagenes/N1.webp" : "imagenes/1.webp"; // Soleado
 } else if ([1003, 1006].includes(code)) {
-  fondo = isNight ? "imagenes/N2.png" : "imagenes/2.png"; // Nublado
+  fondo = isNight ? "imagenes/N2.webp" : "imagenes/2.webp"; // Nublado
 } else if ([1180, 1183, 1186, 1189, 1192, 1195, 1240, 1243, 1246].includes(code)) {
-  fondo = isNight ? "imagenes/N3.png" : "imagenes/3.png"; // Lluvia
+  fondo = isNight ? "imagenes/N3.webp" : "imagenes/3.webp"; // Lluvia
 } else {
-  fondo = isNight ? "imagenes/N2.png" : "imagenes/2.png"; // Default nublado
+  fondo = isNight ? "imagenes/N2.webp" : "imagenes/2.webp"; // Default nublado
 }
 
 clima.style.backgroundImage = `url('${fondo}')`;
@@ -214,12 +214,12 @@ mensaje.textContent = mensaje1;
   </p>
 
   <div class="galeria-grid">
-    <img src="imagenes/churrasco.jpg" alt="Corte especial rodizio" />
-    <img src="imagenes/LANGOSTA.jpg" alt="Costilla a la parrilla" />
-    <img src="imagenes/fotoA.jpg" alt="Postre artesanal" />
-    <img src="imagenes/picada.jpg" alt="Buffet de ensaladas" />
-    <img src="imagenes/seviche.jpg" alt="Filete jugoso" />
-    <img src="imagenes/coctelD.jpg" alt="Bebidas refrescantes" />
+    <img src="imagenes/churrasco.webp" alt="Corte especial rodizio" />
+    <img src="imagenes/LANGOSTA.webp" alt="Costilla a la parrilla" />
+    <img src="imagenes/coctelA.webp" alt="Postre artesanal" />
+    <img src="imagenes/picada.webp" alt="Buffet de ensaladas" />
+    <img src="imagenes/seviche.webp" alt="Filete jugoso" />
+    <img src="imagenes/coctelD.webp" alt="Bebidas refrescantes" />
   </div>
 </section>
 
@@ -237,7 +237,7 @@ mensaje.textContent = mensaje1;
 </p>
     </div>
     <div class="noticia img">
-      <img src="imagenes/H_JACK_R.jpg" alt="Noticia 2">
+      <img src="imagenes/H_JACK_R.webp" alt="Noticia 2">
       <p><strong>Hamburguesas</strong></p>
       <p>Los invitamos a probar nuestra deliciosa hamburguesa clásica o Jack Daniels.</p>
     </div>
