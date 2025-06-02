@@ -528,52 +528,83 @@ body {
   background-color: #1ebe5b;
 }
 
-
 /* NOTICIAS */
 
-/* Contenedor en forma de grilla */
+/* SECCIÓN DE NOTICIAS */
+
+.noticias {
+  background-color: #000;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.noticias h2 {
+  font-size: 2.4rem;
+  color: #d4af37;
+  margin-bottom: 2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* GRILLA DE TARJETAS */
 
 .noticias-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 2rem;
-  padding: 2rem 1rem;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  box-sizing: border-box;
 }
 
-
 .tarjeta-noticia {
-  width: 100%;
-  max-width: 320px; /* 👈 LIMITE de ancho */
+  flex: 1 1 calc(100% - 2rem);
+  max-width: 320px;
   background-color: #1c1c1c;
   border-radius: 1rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.tarjeta-noticia:hover {
+  transform: translateY(-5px);
 }
 
 .tarjeta-noticia img {
   width: 100%;
+  height: auto;
   max-height: 160px;
-  object-fit: contain;
   aspect-ratio: 4 / 3;
+  object-fit: cover;
   background-color: #000;
   display: block;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
 }
 
-
-/* Contenido textual */
 .tarjeta-noticia .contenido {
   padding: 1rem 1.2rem;
   color: #fff;
 }
 
-/* Título */
 .tarjeta-noticia h3 {
   font-size: 1.3rem;
   margin-bottom: 0.6rem;
   color: #d4af37;
+}
+
+/* MEDIA QUERY: celulares pequeños */
+
+@media screen and (max-width: 480px) {
+  .tarjeta-noticia {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .noticias-grid {
+    gap: 1rem;
+    padding: 1rem;
+  }
 }
