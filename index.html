@@ -82,8 +82,12 @@
     <div id="sensacion-termica">Sensación: --°C</div>
     <div id="descripcion-clima">--</div>
     <div id="mensaje-promocional"></div>
+    <div id="espera-chef" style="margin-top: 1rem; font-style: italic; font-size: 1rem; color: #444;">
+      Espera la recomendación del chef...
+    </div>
   </div>
 </div>
+
 
     <!-- MENSAJE CAMBIANTE -->
     <div id="mensaje-promocional"></div>
@@ -101,9 +105,6 @@
 
 
 <!-- SCRIPT MODAL -->
-
-
-
 
 
 <script>
@@ -220,10 +221,6 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 
-
-
-
-
 <!-- GALERÍA Y FRASE  -->
 
 
@@ -237,45 +234,56 @@ document.addEventListener("DOMContentLoaded", () => {
     <img src="imagenes/churrasco.webp" alt="Corte especial rodizio" />
     <img src="imagenes/LANGOSTA.webp" alt="Costilla a la parrilla" />
     <img src="imagenes/coctelA.webp" alt="Postre artesanal" />
-    <img src="imagenes/picada.webp" alt="Buffet de ensaladas" />
+    <img src="imagenes/postre.webp" alt="Buffet de ensaladas" />
     <img src="imagenes/seviche.webp" alt="Filete jugoso" />
     <img src="imagenes/coctelD.webp" alt="Bebidas refrescantes" />
   </div>
 </section>
 
 <!-- SECCION DE NOTICIAS -->
-
 <section id="noticias" class="noticias">
   <h2>Noticias</h2>
   <div class="noticias-grid">
-    <div class="noticia">
-      <img src="imagenes/N_CARTA.png" alt="Noticia 1">
-      <p><strong>Nueva carta 2025</strong></p>
-      <p>Conoce nuestra nueva 
-  <a href="carta.html" style="color: #d4af37; text-decoration: underline;">carta</a>, 
-      platos sorprendentes con muchas opciones más.
-</p>
-    </div>
-    <div class="noticia img">
-      <img src="imagenes/H_JACK_R.webp" alt="Noticia 2">
-      <p><strong>Hamburguesas</strong></p>
-      <p>Los invitamos a probar nuestra deliciosa hamburguesa clásica o Jack Daniels.</p>
+    
+    <!-- TARJETA 1 -->
+    <div class="tarjeta-noticia">
+      <img src="imagenes/N_CARTA.png" alt="Nueva carta 2025">
+      <div class="contenido">
+        <h3>Nueva carta 2025</h3>
+        <p>Conoce nuestra nueva <a href="#">carta</a>, platos sorprendentes con muchas opciones más.</p>
+      </div>
     </div>
 
-   <!-- 
-    <div class="noticia">
-      <img src="imagenes/noticia3.jpg" alt="Noticia 3">
-      <p><strong>Cocteles premiados:</strong> ¡Conoce los ganadores de nuestro concurso interno!</p>
+    <!-- TARJETA 2 -->
+    <div class="tarjeta-noticia">
+      <img src="imagenes/H_JACK_R.webp" alt="Hamburguesas">
+      <div class="contenido">
+        <h3>Hamburguesas</h3>
+        <p>Los invitamos a probar nuestra deliciosa hamburguesa clásica o Jack Daniels.</p>
+      </div>
     </div>
-    <div class="noticia">
-      <img src="imagenes/noticia4.jpg" alt="Noticia 4">
-      <p><strong>Rodizio Premium:</strong> nueva selección de cortes de exportación.</p>
-    </div> -->
-    
+
+    <div class="tarjeta-noticia">
+      <img src="imagenes/salmon marinero.webp" alt="Almuerzos">
+      <div class="contenido">
+        <h3>Almuerzo</h3>
+        <p>De lunes a viernes, un increible almuerzo Do Sul</p>
+      </div>
+    </div>
+
+    <!-- TARJETA OPCIONAL (EJEMPLO DESCOMENTADO) -->
+    <!--
+    <div class="tarjeta-noticia">
+      <img src="imagenes/noticia3.jpg" alt="Cocteles premiados">
+      <div class="contenido">
+        <h3>Cocteles premiados</h3>
+        <p>¡Conoce los ganadores de nuestro concurso interno!</p>
+      </div>
+    </div>
+    -->
+
   </div>
 </section>
-
-
 
 
 <!-- CONTACTO -->
@@ -459,11 +467,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <div id="calificacion" style="margin-top: 1rem;"></div>
     <textarea id="comentario" rows="3" placeholder="Comentario (opcional)"></textarea>
-    <button class="enviar" onclick="enviarFormulario()">Enviar</button>
+    <button id="boton-enviar" class="enviar" onclick="enviarFormulario()">Enviar</button>
   </div>
 </div>
 
 <!-- === SCRIPT INTERACTIVO === -->
+
 <script>
   const menu = {
     "Platos": ["Carne", "Pasta", "Pollo", "Mariscos / Pescado", "Fast food"],
@@ -555,10 +564,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-
-  <!-- FUNCION ENVIAR FORMULARIO -->
-
-
 function enviarFormulario() {
   const categoria = document.getElementById('categoria').value;
   const subcategoria = document.getElementById('subcategoria').value;
@@ -570,6 +575,17 @@ function enviarFormulario() {
     alert('Por favor selecciona un ítem y una calificación.');
     return;
   }
+
+  const boton = document.getElementById("boton-enviar");
+  boton.disabled = true;
+
+  // Animación de puntos "Enviando..."
+  let dots = 0;
+  boton.textContent = "Enviando";
+  const animacion = setInterval(() => {
+    dots = (dots + 1) % 4;
+    boton.textContent = "Enviando" + ".".repeat(dots);
+  }, 500);
 
   const formData = new FormData();
   formData.append("categoria", categoria);
@@ -584,6 +600,10 @@ function enviarFormulario() {
   })
   .then(response => response.json())
   .then(data => {
+    clearInterval(animacion);
+    boton.disabled = false;
+    boton.textContent = "Enviar";
+
     if (data.status === "ok") {
       alert("✅ ¡Gracias por tu calificación!");
       cerrarModal();
@@ -592,15 +612,16 @@ function enviarFormulario() {
     }
   })
   .catch(error => {
+    clearInterval(animacion);
+    boton.disabled = false;
+    boton.textContent = "Enviar";
+
     console.error("❌ Error al enviar:", error);
     alert("❌ No se pudo conectar con el servidor. Inténtalo más tarde.");
   });
 }
 
 </script>
-
-
-<!-- FRASES-->
 
 <script>
   const frases = [
