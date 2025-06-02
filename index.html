@@ -21,13 +21,12 @@
   <ul class="nav-links">
     <li><a href="carta.html">Carta</a></li>
     <li><a href="#noticias">Noticias</a></li>
-    <li><a href="#reservas">Reservas</a></li>
+    <li><a href="#" onclick="abrirModalReservas(); return false;">Reservas</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
 </nav>
 
   <!-- Hero -->
-
 
 <section class="hero-completo">
   <div class="lado">
@@ -48,6 +47,30 @@
     <img src="imagenes/DERECHA_R.png" alt="Bosque Derecho" />
   </div>
 </section>
+
+
+<!-- MODAL DE RESERVAS -->
+<div class="modal" id="modal-reservas">
+  <div class="modal-contenido">
+    <h2>Reserva tu mesa</h2>
+    <p>Haz tu reserva rápidamente a través de WhatsApp.</p>
+
+<a href="#" onclick="reservarPorWhatsapp(); return false;" class="btn-whatsapp">
+  📲 Reserva por WhatsApp
+</a>
+
+
+<button id="cerrar-modal-reservas" class="cerrar-modal">Cerrar</button>
+
+
+  </div>
+</div>
+
+
+
+
+
+
 
 <!-- MODELA EMERGENTE CALOR - PROMOCIÓN -->
 
@@ -114,16 +137,22 @@ document.addEventListener("DOMContentLoaded", () => {
       const desc = data.current.condition.text;
       const code = data.current.condition.code;
 
-      // Asignar fondo decorativo según el código del clima
-      if ([1000].includes(code)) {
-        clima.style.backgroundImage = "url('imagenes/1.png')"; // Soleado
-      } else if ([1003, 1006].includes(code)) {
-        clima.style.backgroundImage = "url('imagenes/2.png')"; // Soleado con nubes / Nublado
-      } else if ([1180, 1183, 1186, 1189, 1192, 1195, 1240, 1243, 1246].includes(code)) {
-        clima.style.backgroundImage = "url('imagenes/3.png')"; // Lluvioso
-      } else {
-        clima.style.backgroundImage = "url('imagenes/2.png')"; // Default nublado
-      }
+    const hour = new Date().getHours();
+const isNight = hour < 6 || hour >= 18;
+
+let fondo = ""; // ruta de fondo
+
+if ([1000].includes(code)) {
+  fondo = isNight ? "imagenes/N1.png" : "imagenes/1.png"; // Soleado
+} else if ([1003, 1006].includes(code)) {
+  fondo = isNight ? "imagenes/N2.png" : "imagenes/2.png"; // Nublado
+} else if ([1180, 1183, 1186, 1189, 1192, 1195, 1240, 1243, 1246].includes(code)) {
+  fondo = isNight ? "imagenes/N3.png" : "imagenes/3.png"; // Lluvia
+} else {
+  fondo = isNight ? "imagenes/N2.png" : "imagenes/2.png"; // Default nublado
+}
+
+clima.style.backgroundImage = `url('${fondo}')`;
 
       tempActual.textContent = `${temp}°C`;
       sensacion.textContent = `Sensación: ${feelsLike}°C`;
@@ -135,23 +164,30 @@ document.addEventListener("DOMContentLoaded", () => {
       promo.style.display = "none";
       modal.style.display = "flex";
 
-      // Mensaje 1: bebida
-      let mensaje1 = temp > 29
-        ? "¡Hace calor!, ¿por qué no te tomas unas Sangría Espumosa?"
-        : " Hoy el clima está ideal para un jugoso corte de carne y un buen vino";
+
+
+let mensaje1 = "";
+
+if (temp > 28) {
+  mensaje1 = "¡Hace calor!, ¿por qué no te tomas unas Sangría Espumosa?";
+} else if (temp < 21) {
+  mensaje1 = "¡Hace un poco de frío! ¿Qué tal si pruebas uno de nuestros tragos para entrar en calor?";
+} else {
+  mensaje1 = "Hoy el clima está ideal para un jugoso corte de carne y un buen vino.";
+}
+
+mensaje.textContent = mensaje1;
 
       mensaje.textContent = mensaje1;
 
-      // A los 4s: ocultar clima y mostrar hamburguesa
+      // A los 5s: ocultar clima y mostrar hamburguesa
       setTimeout(() => {
         clima.style.display = "none";
         mensaje.style.display = "none";
         promo.style.display = "block";
-      }, 6000);
+      }, 5000);
 
-     /* setTimeout(() => {
-        modal.style.display = "none";
-      }, 8000); */
+
     })
     .catch(error => {
       console.error("Error al obtener clima. Mostrando hamburguesa:", error);
@@ -160,20 +196,20 @@ document.addEventListener("DOMContentLoaded", () => {
       promo.style.display = "block";
       modal.style.display = "flex";
 
-      /*setTimeout(() => {
-        modal.style.display = "none";
-      }, 8000); */
+
     });
 
   cerrar.addEventListener("click", () => {
     modal.style.display = "none";
   });
 });
+
+
 </script>
 
 
+<!-- GALERÍA Y FRASE  -->
 
-<!-- CERRANDO MODAL EMERGENTE -->
 
 <section class="promo-galeria">
   <h2 id="titulo-dinamico">Descubre el mejor sabor de la ciudad</h2>
@@ -191,6 +227,42 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 </section>
 
+<!-- SECCION DE NOTICIAS -->
+
+<section id="noticias" class="noticias">
+  <h2>Noticias</h2>
+  <div class="noticias-grid">
+    <div class="noticia">
+      <img src="imagenes/N_CARTA.png" alt="Noticia 1">
+      <p><strong>Nueva carta 2025</strong></p>
+      <p>Conoce nuestra nueva 
+  <a href="carta.html" style="color: #d4af37; text-decoration: underline;">carta</a>, 
+      platos sorprendentes con muchas opciones más.
+</p>
+    </div>
+    <div class="noticia img">
+      <img src="imagenes/H_JACK_R.jpg" alt="Noticia 2">
+      <p><strong>Hamburguesas</strong></p>
+      <p>Los invitamos a probar nuestra deliciosa hamburguesa clásica o Jack Daniels.</p>
+    </div>
+
+   <!-- 
+    <div class="noticia">
+      <img src="imagenes/noticia3.jpg" alt="Noticia 3">
+      <p><strong>Cocteles premiados:</strong> ¡Conoce los ganadores de nuestro concurso interno!</p>
+    </div>
+    <div class="noticia">
+      <img src="imagenes/noticia4.jpg" alt="Noticia 4">
+      <p><strong>Rodizio Premium:</strong> nueva selección de cortes de exportación.</p>
+    </div> -->
+    
+  </div>
+</section>
+
+
+
+
+<!-- CONTACTO -->
 
 <section class="seccion-contacto" id="contacto">
   <h2>Contáctanos</h2>
@@ -307,6 +379,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 </style>
+
+
+<script>
+  function abrirModalReservas() {
+    document.getElementById("modal-reservas").style.display = "flex";
+  }
+
+  function cerrarModalReservas() {
+    document.getElementById("modal-reservas").style.display = "none";
+  }
+
+  function reservarPorWhatsapp() {
+    cerrarModalReservas();
+    setTimeout(() => {
+      window.open("https://wa.me/573001112233?text=Hola%2C%20quiero%20hacer%20una%20reserva%20en%20Rodizio%20Do%20Sul%20para%20hoy", "_blank");
+    }, 200);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("modal-reservas");
+    const botonCerrar = document.getElementById("cerrar-modal-reservas");
+
+    if (botonCerrar) {
+      botonCerrar.addEventListener("click", cerrarModalReservas);
+    }
+
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) {
+        cerrarModalReservas();
+      }
+    });
+  });
+</script>
+
+
+
+
 
 <!-- === BOTÓN FLOTANTE === -->
 <button class="boton-flotante" onclick="mostrarModal()">⭐ Califica tu experiencia</button>
@@ -473,7 +582,6 @@ function enviarFormulario() {
 }
 
 </script>
-
 
 
 <!-- FRASES-->

@@ -203,8 +203,6 @@ section.categoria-carta::before {
   color: #eee;
 }
 
-
-
 .encabezado-destilados-global {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -305,7 +303,7 @@ section.categoria-carta::before {
 }
 
 
-      @media (max-width: 600px) {
+@media (max-width: 600px) {
         .encabezado-destilados-global {
           grid-template-columns: 1fr 1fr 1fr;
           padding: 1rem 1rem;
@@ -326,14 +324,8 @@ section.categoria-carta::before {
   background-repeat: no-repeat;
   overflow: hidden;
   border-radius: 12px;
-  filter: grayscale(1); 
+  filter: grayscale(0); 
   animation: revelarColor 10s forwards ease-in-out;
-}
-
-@keyframes revelarColor {
-  to {
-    filter: grayscale(0);
-  }
 }
 
 .tarjeta-oscura {
@@ -347,117 +339,15 @@ section.categoria-carta::before {
   color: #fff;
 }
 
-.particulas-container {
-  position: absolute;
-  inset: 0;
-  z-index: 99;
-  pointer-events: none;
-}
 
-.boid {
-  position: absolute;
-  width: 12px;
-  height: 12px;
-  background-color: #f5b900;
-  border-radius: 50%;
-  opacity: 0.9;
-  box-shadow: 0 0 8px #f5b900;
-}
 
 </style>
-
-<script>
-let tiempoQuieto = 0;
-let intervaloQuietud;
-let boidsActivos = false;
-
-function crearBoid(targetX, targetY) {
-  const boid = document.createElement('div');
-  boid.className = 'boid';
-  boid.style.left = Math.random() * window.innerWidth + 'px';
-  boid.style.top = Math.random() * window.innerHeight + 'px';
-  document.querySelector('.particulas-container').appendChild(boid);
-
-  const interval = setInterval(() => {
-    const bx = parseFloat(boid.style.left);
-    const by = parseFloat(boid.style.top);
-    const dx = targetX - bx;
-    const dy = targetY - by;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 2) {
-      clearInterval(interval);
-      return;
-    }
-    const speed = 1.5;
-    boid.style.left = bx + dx / dist * speed + 'px';
-    boid.style.top = by + dy / dist * speed + 'px';
-  }, 16);
-
-  setTimeout(() => {
-    clearInterval(interval);
-    boid.remove();
-  }, 8000);
-}
-
-function activarBoids() {
-  if (boidsActivos) return;
-  boidsActivos = true;
-
-  const h4 = document.querySelector('.destino-boid');
-  if (!h4) return;
-
-  const rect = h4.getBoundingClientRect();
-  const containerRect = document.querySelector('.categoria-carta').getBoundingClientRect();
-  const x = rect.left + rect.width / 2 - containerRect.left;
-  const y = rect.top + rect.height / 2 - containerRect.top;
-
-  // Punto de referencia rojo
-  const marcador = document.createElement('div');
-  marcador.style.position = 'absolute';
-  marcador.style.left = `${x}px`;
-  marcador.style.top = `${y}px`;
-  marcador.style.width = '10px';
-  marcador.style.height = '10px';
-  marcador.style.background = 'red';
-  marcador.style.borderRadius = '50%';
-  marcador.style.zIndex = '100';
-  document.querySelector('.particulas-container').appendChild(marcador);
-  setTimeout(() => marcador.remove(), 3000);
-
-  for (let i = 0; i < 12; i++) {
-    setTimeout(() => crearBoid(x, y), i * 150);
-  }
-
-  setTimeout(() => boidsActivos = false, 10000);
-}
-
-function reiniciarTemporizador() {
-  tiempoQuieto = 0;
-  clearInterval(intervaloQuietud);
-  intervaloQuietud = setInterval(() => {
-    tiempoQuieto++;
-    if (tiempoQuieto >= 4) {
-      activarBoids();
-      clearInterval(intervaloQuietud);
-    }
-  }, 1000);
-}
-
-['mousemove', 'scroll', 'touchstart'].forEach(evt => {
-  window.addEventListener(evt, reiniciarTemporizador);
-});
-
-reiniciarTemporizador();
-</script>
-
-
-
 
 
 </head>
 <body>
   <section class="seccion-carta">
-    <h2>Carta de Rodizio Do Sul</h2>
+    <h2>Carta</h2>
 
     <div class="navegacion-carta">
       <a href="#entradas">Entradas</a>
@@ -612,7 +502,7 @@ reiniciarTemporizador();
 </section>
 
 <!-- Sección Rodizio Premium -->
-<section class="categoria-carta" id="rodizio-premium">
+<section class="categoria-carta" id="premium">
   <div class="tarjeta-oscura">
   <h3>Rodizio Premium</h3>
   <div class="item-carta">
