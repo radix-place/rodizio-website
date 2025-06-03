@@ -7,7 +7,33 @@
   <link rel="stylesheet" href="styles.css" />
 
 
+<div class="idioma-toggle">
+  <button onclick="cambiarIdioma('es')">🇨🇴 Español</button>
+  <button onclick="cambiarIdioma('en')">🇺🇸 English</button>
+</div>
+
 <style>
+
+.idioma-toggle {
+  text-align: right;
+  margin: 1rem;
+}
+
+.idioma-toggle button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: #d4af37;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.idioma-toggle button:hover {
+  background-color: #b3822e;
+}
+
   /* Fondo general oscuro y texto claro */
   body {
     background-color: #000;
@@ -346,1092 +372,1250 @@ section.categoria-carta::before {
 
 </head>
 <body>
-  <section class="seccion-carta">
-    <h2>Carta</h2>
+<section class="seccion-carta">
+  <h2 data-es="Carta" data-en="Menu">Carta</h2>
 
-    <div class="navegacion-carta">
-      <a href="#entradas">Entradas</a>
-      <a href="#fastfood">Fast Food</a>
-      <a href="#rodizio">Rodizio</a>
-      <a href="#premium">Rodizio Premium</a>
-      <a href="#steak">Steak House</a>
-      <a href="#salsa">Carnes en Salsa</a>
-      <a href="#mariscos">Pescado y Mariscos</a>
-      <a href="#pollo">Pollo, Pastas y Ensaladas</a>
-      <a href="#postres">Postres</a>
-      <a href="#bebidas">Bebidas</a>
-      <a href="#bebidas-calientes">Bebidas Calientes</a>
-      <a href="#cervezas">Cervezas</a>
-      <a href="#cocteles-sin-alcohol">Cócteles sin Alcohol</a>
-      <a href="#cocteleria-autor">Coctelería de Autor</a>
-      <a href="#cocteleria-clasica">Coctelería Clásica</a>
-      <a href="#destilados">Licores Destilados</a>
-      <a href="#vinos">Vinos</a>
-    </div>
-  </section>
+  <div class="navegacion-carta">
+    <a href="#entradas" data-es="Entradas" data-en="Appetizers">Entradas</a>
+    <a href="#fastfood" data-es="Fast Food" data-en="Fast Food">Fast Food</a>
+    <a href="#rodizio" data-es="Rodizio" data-en="Rodizio">Rodizio</a>
+    <a href="#premium" data-es="Rodizio Premium" data-en="Premium Rodizio ">Rodizio Premium</a>
+    <a href="#steak" data-es="Steak House" data-en="Steak House">Steak House</a>
+    <a href="#salsa" data-es="Carnes en Salsa" data-en="Meat in Sauce">Carnes en Salsa</a>
+    <a href="#mariscos" data-es="Pescado y Mariscos" data-en="Fish and Seafood">Pescado y Mariscos</a>
+    <a href="#pollo" data-es="Pollo, Pastas y Ensaladas" data-en="Chicken, Pasta and Salads">Pollo, Pastas y Ensaladas</a>
+    <a href="#postres" data-es="Postres" data-en="Desserts">Postres</a>
+    <a href="#bebidas" data-es="Bebidas" data-en="Drinks">Bebidas</a>
+    <a href="#bebidas-calientes" data-es="Bebidas Calientes" data-en="Hot Drinks">Bebidas Calientes</a>
+    <a href="#cervezas" data-es="Cervezas" data-en="Beers">Cervezas</a>
+    <a href="#cocteles-sin-alcohol" data-es="Cócteles sin Alcohol" data-en="Non-Alcoholic Cocktails">Cócteles sin Alcohol</a>
+    <a href="#cocteleria-autor" data-es="Coctelería de Autor" data-en="Signature Cocktails">Coctelería de Autor</a>
+    <a href="#cocteleria-clasica" data-es="Coctelería Clásica" data-en="Classic Cocktails">Coctelería Clásica</a>
+    <a href="#destilados" data-es="Licores Destilados" data-en="Distilled Spirits">Licores Destilados</a>
+    <a href="#vinos" data-es="Vinos" data-en="Wines">Vinos</a>
+  </div>
+</section>
 
 <div class="boton-regreso">
-  <a href="index.html" class="btn">Volver a la página principal</a>
+  <a href="index.html" class="btn" data-es="Volver a la página principal" data-en="Back to the main page">Volver a la página principal</a>
 </div>
+
 
 
     <!------------------- CATEGORÍAS ----------------------------------->
-    
+ 
 
-  <section class="categoria-carta" id="entradas">
-      <div class="tarjeta-oscura">
-      <h3>Entradas</h3>
-
-      <div class="item-carta">
-        <div class="info">
-          <h4>Picada</h4>
-          <p>Deliciosa costilla ahumada y chorizo asados a la parrilla, yucas fritas y salsa de ajo casera.</p>
-          <span class="precio">$48.000</span>
-        </div>
-      </div>
-      
-      <div class="item-carta">
-        <div class="info">
-          <h4>Ceviche de Pulpo</h4>
-          <p>Pulpo fresco asado, acompañado de una cama de aliños cítricos y mango viche.</p>
-          <span class="precio">$50.000</span>
-        </div>
-      </div>
-      
-      <div class="item-carta">
-        <div class="info">
-          <h4>Ceviche de Panceta</h4>
-          <p>Delicioso chicharrón de cerdo tostado al carbón, acompañado de una cama aliños cítricos.</p>
-          <span class="precio">$40.000</span>
-        </div>
-      </div>
-      
-      <div class="item-carta">
-        <div class="info">
-          <h4>Consomé</h4>
-          <p>Delicioso caldo hecho con pollo y verduras.</p>
-          <span class="precio">$32.000</span>
-        </div>
-      </div>
-
-      <div class="volver-inicio">
-        <a href="#">Volver al inicio</a>
-      </div>
-    </div>
-</section>
-
-<!-- FASTFOOD -->
-<!--  <section class="categoria-carta" id="fastfood" style="background-image: url('imagenes/fotoA.jpg');">  -->
-<section class="categoria-carta" id="fastfood">
+<!-- INICIO SECCIÓN ENTRADAS -->
+<section class="categoria-carta" id="entradas">
   <div class="tarjeta-oscura">
-      <h3>Fast Food</h3>
-        <p class="descripcion-subcategoria">
-          <em> Ideal con una Caipiriña de maracuyá o un Mojito Clásico </em>
-      </p>
-
-      <div class="item-carta">
-        <div class="info">
-          <h4>Hamburguesa Jack Daniels</h4>
-          <p>Pan Brioche artesanal, deliciosa carne
-              asada al carbón acompañanada de
-              tocineta crocante, queso americano,
-              aros de cebolla en cerveza, lechuga y
-              nuestra salsa de Jack Daniels </p>
-          <span class="precio">$50.000</span>
-        </div>
-      </div>
-      <div class="item-carta">
-        <div class="info">
-          <h4>Hamburguesa Clásica</h4>
-          <p>Pan Brioche artesanal, deliciosa carne
-              asada al carbón acompañanada de
-              tocineta crocante, queso americano,
-              lechuga, tomate y nuestra salsa Do Sul.</p>
-          <span class="precio">$35.000</span>
-        </div>
-      </div>
-      <div class="item-carta">
-        <div class="info">
-          <h4>Hamburguesa Jack Daniels Doble</h4>
-          <p>Pan Brioche artesanal, doble carne asada
-            al carbón acompañanada de tocineta
-            crocante, queso americano, aros de
-            cebolla en cerveza, lechuga y nuestra
-            salsa de Jack Daniels</p>
-          <span class="precio">$50.000</span>
-        </div>
-      </div>
-
-      <div class="volver-inicio">
-        <a href="#">Volver al inicio</a>
-      </div>
-
-    </div>
-</section>
-
-
-<!-- Sección Rodizio -->
-
-
-<section class="categoria-carta" id="rodizio">
-  <div class="tarjeta-oscura">
-    <h3>Rodizio</h3>
-    
-    <div class="item-carta">
-      <div class="info">
-        <h4 class="destino-boid">Rodizio</h4>
-        <p>Doce variedades de carne entre res, cerdo y pollo, asadas al
-          carbón, servidas en espadas a su mesa. Incluye nueve tipos
-          diferentes de acompañaminetos.</p>
-        <p>Este plato es personal y de consumo ilumitado.</p>
-        <p><strong>Cortes:</strong> Picanha angus importada, 
-        morrillo, cadera, lomo viche, costilla de cerdo, lomo de caracho 
-        angus importado, bondiola de cerdo, chorizo, lomo redondo, 
-        muslos de pollo, corazones de pollo y ubre.</p>
-        <p><strong>Acompañamientos:</strong> Polenta, yuca frita, bananos
-           acaramelados, aros de cebolla, arroz blanco, picadillo de tomate,
-            ensalada hawaiana, ensalada de papa y caraotas.</p>
-        <p><strong>Sugerencia de bebida:</strong> Acompáñalo con un Aperol Spritz.</p>
-        <span class="precio">$108.500</span>
-      </div>
-    </div>
-    <div class="volver-inicio">
-      <a href="#">Volver al inicio</a>
-    </div>
-  </div>
-</section>
-
-<!-- Sección Rodizio Premium -->
-<section class="categoria-carta" id="premium">
-  <div class="tarjeta-oscura">
-  <h3>Rodizio Premium</h3>
-  <div class="item-carta">
-    <div class="info">
-      <h4>Rodizio Premium</h4>
-      <p>Quince variedades de carne entre res, cerdo y pollo,
-        asadas al carbón, servidas en espadas a su mesa. Incluye
-        nueve tipos diferentes de acompañamientos.</p>
-      <p>Este plato es personal, de consumo ilimitado, no se puede compartir
-        o empacar para llevar</p>
-      <p><strong>Cortes:</strong> Langostinos, Picanha angus importada,
-        rib eye importado, new york steak importado, morrillo, cadera, 
-        lomo viche, costilla de cerdo, lomo de caracho angus importado, 
-        bondiola de cerdo, chorizo, lomo redondo, muslos de pollo, 
-        corazones de pollo y ubre.</p>
-      <p><strong>Acompañamientos:</strong> Polenta, yuca frita, bananos acaramelados,
-       aros de cebolla, arroz blanco, picadillo de tomate, ensalada hawaiana, 
-       ensalada de papa y caraotas.</p>
-      <p><strong>Sugerencia de bebida:</strong> Perfecto con una sangría espumosa.</p>
-      <span class="precio">$149.000</span>
-    </div>
-    </div>
-    <div class="volver-inicio">
-      <a href="#">Volver al inicio</a>
-    </div>  
-  </div>
-</section>
-
-
-<!-- STEAK HOUSE -->
-<section class="categoria-carta" id="steak">
-  <div class="tarjeta-oscura">
-      <h3>Steak House</h3>
-      
-      <div class="item-carta">
-        <div class="info">
-          <h4>Picanha</h4>
-          <p>Jugosa porción de picanha angus importada al carbón.
-            Acompañada de papas a la francesa y ensalada.</p>
-          <span class="precio">$85.000 (300g) / $100.000 (450g)</span>
-       <p><em>Recomendado con un Guarito Sour</em></p>
-       <p><em>su frescura resalta la jugosidad de la carne</em></p>
-        </div>
-      </div>
-
-      <div class="item-carta">
-        <div class="info">
-          <h4>New York Steak</h4>
-          <p>Jugoso corte angus importado al carbón (450g).
-            Acompañado de papas a la francesa y ensaladas fresca.</p>
-          <span class="precio">$100.000</span>
-      <p><em>Acompáñalo con un Mint Julep.</em></p>
-       <p><em>Ideal para los amantes del whisky y sabores herbales</em></p>
-        </div>
-      </div>
-      
-      <div class="item-carta">
-        <div class="info">
-          <h4>Rib Eye</h4>
-          <p>Jugoso corte angus importado al carbón (450g).
-            Acompáñalo de papas a la francesa y ensalada fresca.</p>
-          <span class="precio">$100.000</span>
-        </div>
-      </div>
-
-      <div class="item-carta">
-        <div class="info">
-          <h4>Morillo</h4>
-          <p>Medallones de corte grado (500gr) de carne asada al carbón,
-            acompañado de ensalada y chips de plátano.</p>
-          <span class="precio">$65.000</span>
-        </div>
-      </div>
-
-      <div class="item-carta">
-        <div class="info">
-          <h4>Churrasco</h4>
-          <p>Espectacular filete de lomo de caracho ancho (300gr) 
-            importado al carbón, acompañado de chips de plátano y ensalada fresca.</p>
-          <span class="precio">$68.000</span>
-        </div>
-      </div>
-
-      <div class="item-carta">
-        <div class="info">
-          <h4>Baby Beef</h4>
-          <p>Jugoso corte de lomo fino de res, sin grase, al carbón. 
-            Acompañado de ensalada fresca y chips de plátano.
-          </p>
-          <span class="precio">$69.000</span>
-        </div>
-      </div>
-
-      <div class="item-carta">
-        <div class="info">
-          <h4>Adiciones</h4>
-          <p>Polenta, yuca frita, bananos acaramelados,
-          aros de cebolla, arroz blanco, picadillo de
-          tomate, ensalada hawaiana, ensalada de
-          papa, caraotas, papas a la francesa, chips
-          de plátano, puré de papa, ensalada de la
-          casa.</p>
-          <span class="precio">$69.000</span>
-        </div>
-      </div>
-
-        <div class="volver-inicio"> 
-          <a href="#">Volver al inicio</a>
-        </div>
-      </div>
-    </div>
-</section>
-
-<!-- CARNES ENSALSAS -->
-
-<section class="categoria-carta" id="salsa">
-  <div class="tarjeta-oscura">
-      <h3>Carnes en Salsa</h3>
-
-      <div class="item-carta">
-        <div class="info">
-          <h4>Lomo en Salsa de Trufa Negra</h4>
-          <p>Solomillo tierno al carbón bañado en salsa de trufa
-            negra silvestre, champiñones y queso padano. 
-            Acompañado de chips de platano y ensalada fresca.</p>
-          <span class="precio">$84.000</span>
-      <p><em>Maridaje: Una Sangría espumosa para balancear su intesidad.</em></p>
-        </div>
-      </div>
-      <div class="item-carta">
-
-
-        <div class="info">
-          <h4>Filet Mignon</h4>
-          <p>Jugosos medallones de lomo fino de res
-              sellados al carbón en salsa de vino
-              tinto, champiñones y tocineta.
-              Acompañado de ensalda fresca y chips
-              de plátano.</p>
-          <span class="precio">$82.000</span>
-          <p><em>Marida perfectamente con un Old Fashion o un elegante La Verde.</em></p>
-        </div>
-      </div>
-    <div class="volver-inicio"> 
-      <a href="#">Volver al inicio</a>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- PESCADOS Y MARISCOS -->
-
-<section class="categoria-carta" id="mariscos">
-  <div class="tarjeta-oscura">
-      <h3>Pescado y Mariscos</h3>
-
-      <div class="item-carta">
-        <div class="info">
-          <h4>Salmón a la Parrilla</h4>
-          <p>Filete de salmón cuidadosamente
-            seleccionado, asado a la parrilla.
-            Acompañado de chips de plátano y
-            ensalada de la casa. </p>
-          <span class="precio">$75.000</span>
-        </div>
-      </div>
-
-      <div class="item-carta">
-        <div class="info">
-          <h4>Salmón Fruto del Mar</h4>
-          <p>Filete de salmón bañado en salsa de
-            mariscos, leche de coco y hierbas del
-            pacífico. Acompañado de chips de
-            plátano y ensalada de la casa.</p>
-          <span class="precio">$85.000</span>
-      <p><em>Maridaje: Paloma con Don Julio Blanco, notas
-        cítricas que limpian el paladar tras cada bocado.</em></p>
-        </div>
-      </div>
-      
-      <div class="item-carta">
-        <div class="info">
-          <h4>Langostinos Do Sul</h4>
-          <p>Brocheta de langostinos al carbón asados al carbón
-            en espada. Acompañado de chips de plátano y ensalada de la casa.</p>
-          <span class="precio">$89.000</span>
-        </div>
-      </div>
-      
-      <div class="item-carta">
-        <div class="info">
-          <h4>Langostinos al Ajillo</h4>
-          <p>Langostinos al ajillo flambeados con brandy. 
-            Acompañados con chips de plátano y ensalada de la casa.</p>
-          <span class="precio">$89.000</span>
-        </div>
-      </div>
-      
-      <div class="item-carta">
-        <div class="info">
-          <h4>Langosta (Gratinada/Menier/Ajillo)</h4>
-          <p>Deliciosa cola de langosta fresca, preparada a tu
-            preferencia: gratinada con queso fundido, salteada al ajillo
-            o bañada en una clásica salsa menier de mantequilla y
-            limón. Acompañada de chips de plátano y ensalda fresca.</p>
-          <span class="precio">$160.000</span>
-        <p><em>Marida con un Orgásmo Múltiple (digestivo dulce) para cerrar
-          una experiencia de lujo.</em></p>
-        </div>
-      </div>
-
-      <div class="volver-inicio"> 
-        <a href="#">Volver al inicio</a>
-      </div>
-    </div>
-</section>
-
-<!-- POLLO, PASTAS Y ENSALADA -->
-
-<section class="categoria-carta" id="pollo">
-  <div class="tarjeta-oscura">
-      <h3>Pollo, Pastas y Ensaladas</h3>
-
-      <div class="item-carta">
-        <div class="info">
-          <h4>File de Frango</h4>
-          <p>Filete de pechuga de pollo a la
-            plancha. Acompañado de chips de
-            plátano y ensalda fresca.</p>
-            <span class="precio">$49.000</span>
-        </div>
-      </div>
-
-      <div class="item-carta">
-        <div class="info">
-          <h4>Ensalada César</h4>
-          <p>Filete de pechuga de pollo en julianas,
-              lechuga, aceitunas, crotones, queso
-              parmesano y aderzo cesar con anchoas.</p>
-            <span class="precio">$49.000</span>
-        </div>
-      </div>
-
-      <div class="item-carta">
-        <div class="info">
-          <h4>Pasta en Salsa de Trufa y Hongos (Res/Pollo)</h4>
-          <p>Medallon de res o filete de pollo es salsa
-            de trufa negra y champiñones, finalizado
-            con queso parmesano sobre una cama de
-            espaquetis.</p>
-            <p> Res: <span class="precio">$55.000 </span>
-            <p> Pollo: <span class="precio">$49.000 </span>
-        </div>
-      </div>
-
-      <div class="item-carta">
-        <div class="info">
-          <h4>Pasta Fruto del Mar</h4>
-          <p>Espaquetis en salsa de mariscos, leche de
-            coco, fumé de pescado y heirbas del
-            pacífico, finalizado con queso parmesano.</p>
-            <span class="precio">$55.000</span>
-        </div>
-
-      </div>
-      <div class="volver-inicio"> 
-        <a href="#">Volver al inicio</a>
-      </div>
-  </div>
-</section>
-
-
-<!-- BEBIDAS -->
-
-<section class="categoria-carta" id="bebidas">
-  <div class="tarjeta-oscura">
-    <h3>Bebidas</h3>
-
-    <div class="subcategoria-carta">
-      <div class="item-carta titulo-subcategoria">Aguas y Sodas</div>
-      <div class="item-carta"><div class="info"><h4>Agua con gas</h4><span class="precio">$7.500</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Agua en botella</h4><span class="precio">$8.500</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Soda Hatsu de frambuesa</h4><span class="precio">$12.000</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Soda Hatsu de limón y hirbabuena</h4><span class="precio">$12.000</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Canada Dry Ginger Ale</h4><span class="precio">$8.000</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Soda Bretaña</h4><span class="precio">$8.000</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Red Bull</h4><span class="precio">$14.000</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Coca Cola</h4><span class="precio">$8.800</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Coca Cola Cero</h4><span class="precio">$15.000</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Agua mineral</h4><span class="precio">$16.000</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Monster</h4><span class="precio">$15.000</span></div></div>
-    </div>
-
-    <div class="subcategoria-carta">
-      <div class="item-carta titulo-subcategoria">Jugos Naturales</div>
-      <div class="item-carta"><div class="info"><h4>Jugos en agua</h4><span class="precio">$15.000</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Jugos en leche</h4><span class="precio">$17.500</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Limonada Natural</h4><span class="precio">$15.000</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Limonada de coco</h4><span class="precio">$18.000</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Limonada de cereza</h4><span class="precio">$18.000</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Limonada de mango viche</h4><span class="precio">$17.500</span></div></div>
-    </div>
-          <div class="volver-inicio"> 
-      <a href="#">Volver al inicio</a>
-    </div>
-  </div>
-</section>
-
-<!-- SECCION DE CERVEZAS  -->
-
-<section class="categoria-carta" id="cervezas">
-  <div class="tarjeta-oscura">
-  <h3>Cervezas</h3>
-      <div class="item-carta"><div class="info"><h4>Cervezas importadas</h4><span class="precio">$16.000</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Cervezas nacionales</h4><span class="precio">$15.500</span></div></div>
-      <div class="item-carta"><div class="info"><h4>Cerveza Corona Cero</h4><span class="precio">$16.000</span></div></div>
-
-    <div class="volver-inicio"> 
-      <a href="#">Volver al inicio</a>
-    </div>
- </div>
-</section>
-
-<!-- COCTELERÍA SIN ACOHOL -->
-
-<section class="categoria-carta" id="cocteles-sin-alcohol">
-  <div class="tarjeta-oscura">
-  <h3>Cócteles sin Alcohol</h3>
-  <div class="item-carta">
-    <div class="info">
-      <h4>Soda Italiana</h4>
-      <p>Puré o sirope de fruta hecho en casa, elevado con soda.</p>
-      <span class="precio">$19.000</span>
-    </div>
-  </div>
-  <div class="item-carta">
-    <div class="info">
-      <h4>Piña colada</h4>
-      <p>Leche de coco, crema de leche, piña fresca y sirope simple.</p>
-      <span class="precio">$26.000</span>
-    </div>
-  </div>
-
-  <div class="subcategoria-carta">
-      <div class="item-carta titulo-subcategoria">Mojito</div>
-        <div class="item-carta">
-          <div class="info">
-        <h4>Mojito</h4>
-        <p>Hierbabuena, albahaca, limón, sirope simple elevado con soda.</p>
-        <span class="precio">$19.000</span>
-        <h4>Mojito de fresa</h4>
-        <p>El mojito con sirope de fresa.</p>
-        <span class="precio">$21.000</span>
-        <h4>Mojito de maracuyá</h4>
-        <p>El mojito con sirope de maracuyá.</p>
-        <span class="precio">$21.000</span>
-        <h4>Mojito de agraz</h4>
-        <p>El clásico con sirope de agraz.</p>
-        <span class="precio">$21.000</span>
-      </div>
-    </div>
-      <div class="volver-inicio"> 
-      <a href="#">Volver al inicio</a>
-    </div>
-  </div>
-</section>
-
-
-<!-- BEBIDAS CALIENTES -->
-
-<section class="categoria-carta" id="bebidas-calientes">
-  <div class="tarjeta-oscura">
-  <h3>Bebidas sin Alcohol</h3>
-
-  <div class="subcategoria-carta">
-    <div class="item-carta titulo-subcategoria">Café y Aromáticas</div>
-    <div class="item-carta"><div class="info"><h4>Café Negro</h4><span class="precio">$5.000</span></div></div>
-    <div class="item-carta"><div class="info"><h4>Café con Leche</h4><span class="precio">$6.000</span></div></div>
-    <div class="item-carta"><div class="info"><h4>Aromática de Frutas</h4><span class="precio">$6.000</span></div></div>
-  </div>
-          <div class="volver-inicio"> 
-      <a href="#">Volver al inicio</a>
-    </div>
-  </div>
-</setion>
-
-
-<!-- COCTELERÍA DE AUTOR -->
-
-<section class="categoria-carta" id="cocteleria-autor">
-   <div class="tarjeta-oscura">
-  <h3>Coctelería de Autor</h3>
-
-  <div class="item-carta">
-    <div class="info">
-      <h4>Burbujeante de Cereza</h4>
-      <p>Puré de cordial de cereza, elevado con soda Bretaña o prosecco.</p>
-      <span class="precio">$35.000</span>
-    </div>
-  </div>
-
-   <div class="item-carta">
-    <div class="info">
-      <h4>Amargor de Vodka</h4>
-      <p>Absolut Vodka, vermouth extra dry Cinzano, sirope simple y sirope de maracuyá. </p>
-      <span class="precio">$40.000</span>
-    </div>
-  </div>
-
-  <div class="item-carta">
-    <div class="info">
-      <h4>Caricia Añeja</h4>
-      <p>Whisky Buchanan's 12 años </p>
-      <span class="precio">$37.000</span>
-    </div>
-  </div>
-
-  <div class="item-carta">
-    <div class="info">
-      <h4>Secreto de la Tierra</h4>
-      <p> Mezcal 400 conejos, licor de naranja, zumo de piña, sirope simple y zumo de limón.</p>
-      <span class="precio">$52.000</span>
-    </div>
-  </div>
-
-  <div class="item-carta">
-    <div class="info">
-      <h4>Brisa Tequilera</h4>
-      <p> Tequila reposado Cazadores, sirope de maracuyá y agua tónica.</p>
-      <span class="precio">$52.000</span>
-    </div>
-  </div>
-
-  <div class="item-carta">
-    <div class="info">
-      <h4>Arrechera</h4>
-      <p>Aguardiente anizado Blanco del Valle, crema de café y crema de leche.</p>
-      <span class="precio">$37.000</span>
-    </div>
-  </div>
-
-  <div class="item-carta">
-    <div class="info">
-      <h4>Guarito Sour</h4>
-      <p>Aguardiente anizado Blanco del Valle, zumo de limón crema de café y crema de leche.</p>
-      <span class="precio">$37.000</span>
-    </div>
-  </div>  
-
-  <div class="item-carta">
-    <div class="info">
-      <h4>La Verde</h4>
-      <p>Tequila Patrón, hierbabuena, zumo de limón y sirope simple.</p>
-      <span class="precio">$55.000</span>
-    </div>
-  </div>  
-
-  <div class="item-carta">
-    <div class="info">
-      <h4>Mar Morado</h4>
-      <p>Brandy sinco estrellas, leche de coco y puré de agras.</p>
-      <span class="precio">$55.000</span>
-    </div>
-  </div>
+    <h3 data-es="Entradas" data-en="Appetizers">Entradas</h3>
 
     <div class="item-carta">
-    <div class="info">
-      <h4>White Anis Negroni</h4>
-      <p>Variación Do Sul del clásico: gin tanqueray, vermouth extra dry Cinzano y aguardiente Blanco del Valle.</p>
-      <span class="precio">$40.000</span>
-    </div>
-  </div>
-
-  <div class="item-carta">
-    <div class="info">
-      <h4>Sangría Espumosa</h4>
-      <p>Gin Tanqueray, sirope simple y botella de vino espumoso.</p>
-      <p>Copa <span class="precio">$50.000</span> </p>
-      <p>Jarra <span class="precio">$150.000</span> </p> 
-    </div>
-  </div> 
-
-  <div class="volver-inicio"> 
-    <a href="#">Volver al inicio</a>
-  </div>
-  </div>
-</section>
-
-<!-- COCTELERÍA CLÁSICA  -->
-
-<section class="categoria-carta" id="cocteleria-clasica">
-  <div class="tarjeta-oscura">
-  <h3>Coctelería Clásica</h3>
-
-<div class="item-carta">
-    <div class="info">
-      <h4>Mule Family</h4>
-      <p>Zumo de limón, Fever Tree ginger beer y destilado de eleccion:</p>
-      <p>Moscow Mule <span class="precio">$38.000</span> </p>
-      <p>Mexican Mule <span class="precio">$38.000</span> </p>
-      <p>Mezcal Mule <span class="precio">$39.000</span> </p>
-      <p>Gingin Mule <span class="precio">$39.000</span> </p>
-      
-    </div>
-</div>
-
-<div class="item-carta">
-    <div class="info">
-      <h4>Mint Julep</h4>
-      <p>Variación Do Sul del clásico: hierbabuena, sirope simple y whisky Old Parr 12 años</p>
-      <span class="precio">$38.000</span>
-    </div>
-</div>
-
-<div class="item-carta">
-    <div class="info">
-      <h4>Paloma</h4>
-      <p>Tequila Don Julio Blanco, zumo de limón, zumo de toronja, pisca de sal, soda Bretaña.</p>
-      <span class="precio">$50.000</span>
-    </div>
-</div>
-
-<div class="item-carta">
-    <div class="info">
-      <h4>Mojito</h4>
-      <p>hierbabuena, limón, sirope simple y soda Bretaña.</p>
-      <p>Variantes de ron:</p>
-      <p>Ron Viejo de Caldas <span class="precio">$38.000</span> </p>
-      <p>La Hechicera <span class="precio">$45.000</span> </p>
-      <p>Zacapa 23 años <span class="precio">$50.000</span> </p>
-    </div>
-</div>
-
-
-    <div class="item-carta">
       <div class="info">
-        <h4>Caricia Añeja</h4>
-        <p>Whisky Buchanan's 12, licor de naranja, zumo de naranja y bitter.</p>
-        <span class="precio">$37.000</span>
-      </div>
-    </div>
-   
-
-  <div class="subcategoria-carta">
-    <div class="item-carta titulo-subcategoria">Refrescantes</div>
-      <p class="descripcion-subcategoria">
-  Tragos largos o cortos, con menor porcentaje de alcohol, donde priman las notas herbáceas,
-  vegetales, frutales y/o burbujeantes de la mezcla.
-      </p>
-  </div>
-
-    <div class="item-carta">
-      <div class="info">
-        <h4>Mojito Clásico</h4>
-        <p>Ron blanco, hierbabuena, limón, azúcar y soda.</p>
-        <span class="precio">$30.000</span>
-      </div>
-    </div>
-
-    <div class="item-carta">
-      <div class="info">
-        <h4>Caipiroska</h4>
-        <p>Vodka, limón, azúcar y hielo picado.</p>
-        <span class="precio">$30.000</span>
-      </div>
-    </div>
-
-    <div class="item-carta">
-      <div class="info">
-        <h4>Negroni</h4>
-        <p>Gin, vermouth rojo y Campari.</p>
-        <span class="precio">$32.000</span>
-      </div>
-    </div>
-  
-    <div class="item-carta">
-      <div class="info">
-        <h4>Aperol Spritz</h4>
-        <p>Aperol, prosecco y soda.</p>
-        <span class="precio">$32.000</span>
-      </div>
-    </div>
-
-  <div class="item-carta">
-      <div class="info">
-        <h4>Campari Spritz</h4>
-        <p>Campari, soda Bretaña y proseco.</p>
-        <span class="precio">$40.000</span>
-      </div>
-    </div>
-
-  <div class="item-carta">
-      <div class="info">
-        <h4>French 75</h4>
-        <p>Gin Tanqueray, sirope simple, zumo de limón, elevado con prosecco.</p>
-        <span class="precio">$40.000</span>
-      </div>
-    </div>
-
-  <div class="item-carta">
-      <div class="info">
-        <h4>Mimosa</h4>
-        <p>Zumo de naranja, soda Bretaña, elevado con vino espumoso.</p>
-        <span class="precio">$35.000</span>
-      </div>
-    </div>
-
-    <div class="item-carta">
-      <div class="info">
-        <h4>Caipiriña</h4>
-        <p>Cachaza Jamel, cascos de limón y sirope simple. Puedes escoger de Maracuyá o Frutos rojos.</p>
-        <span class="precio">$40.000</span>
-      </div>
-    </div>
-  
-  <div class="subcategoria-carta">
-    <div class="item-carta titulo-subcategoria">Tipo Aperitivo</div>
-      <p class="descripcion-subcategoria">
-      Tragos largos o cortos, con mayor porcentaje de
-      alcohol, dónde priman las notas cítricas,
-      vegetales, astringentes propias de los
-      destilados y/o licores utilizados en la mezcla.
-      </p>
-  </div>
-
-    <div class="item-carta">
-      <div class="info">
-        <h4>Sangría</h4>
-        <p>Vino tinto de la casa, brandy Cinco Estrellas, Ron Viejo de Caldas Tradicional, sirope simple y mix de frutas.</p>
-        <p>Copa <span class="precio">$30.000</span> </p>
-        <p>Media Jarra <span class="precio">$68.000</span> </p>
-        <p>Jarra <span class="precio">$120.000</span> </p>
-      </div>
-    </div>
-
-    <div class="item-carta">
-      <div class="info">
-        <h4>Samba</h4>
-        <p>Vino blanco de la casa, brandy Cinco Estrellas, cachaza Jamel, sirope simple y mix de frutas.</p>
-        <p>Copa <span class="precio">$38.000</span> </p>
-        <p>Media Jarra <span class="precio">$60.000</span> </p>
-        <p>Jarra <span class="precio">$120.000</span> </p>
-      </div>
-    </div>
-
-    <div class="item-carta">
-      <div class="info">
-        <h4>Negroni Family</h4>
-        <p>Vermouth rosso, Campari y el destilado de su elección.</p>
-        <p>Negroni Clásico <span class="precio">$52.000</span> </p>
-        <p>Mezcal Negroni  <span class="precio">$50.000</span> </p>
-        <p>White Negroni   <span class="precio">$45.000</span> </p>
-      </div>
-    </div>
-
-    <div class="item-carta">
-      <div class="info">
-        <h4>Martini Family</h4>
-        <h4>Dry/Dirty Martini</h4>
-        <p>Vermouth extra seco Cinzano, salmuera de aceituna y Gin de su 
-          elección.</p>
-        <p>Tanqueray <span class="precio">$40.000</span> </p>
-        <p>Bombay  <span class="precio">$45.000</span> </p>
-        <p>Hendrick's   <span class="precio">$55.000</span> </p>
-        <p>Monkey 47   <span class="precio">$65.000</span> </p>
-      </div>
-    </div>
-
-    <div class="item-carta">
-      <div class="info">
-        <h4>Vodka Martini</h4>
-        <p>Vermouth extra seco Cinzano y vodka de su elección.</p>
-        <p>Absolut <span class="precio">$40.000</span> </p>
-        <p>Lemon Drop   <span class="precio">$4.000</span> </p>
-        <p>Grey Goose  <span class="precio">$50.000</span> </p>
-      </div>
-    </div>
-
-  <div class="subcategoria-carta">
-    <div class="item-carta titulo-subcategoria">Tipo Digestivo</div>
-      <p class="descripcion-subcategoria">
-      Tragos largos o cortos, con mayor procentaje de alcohol, donde priman las notas
-      de frutos secos, dulces, normalmente de textura cremosa o sedosa.
-      </p>
-
-    <div class="item-carta">
-      <div class="info">
-        <h4>Sour Family</h4>
-        <p>Clara de huevo, zumo de limón, sirope simple y el destilado de su elección.</p>
-        <p>Whisky Sour <span class="precio">$40.000</span> </p>
-        <p>Pisco Sour  <span class="precio">$38.000</span> </p>
-        <p>Amaretto Sour  <span class="precio">$38.000</span> </p>
-        <p>Tequila Sour <span class="precio">$38.000</span> </p>
-        <p>Vodka Sour  <span class="precio">$35.000</span> </p>
-        <p>New York Sour  <span class="precio">$43.000</span> </p>
-      </div>
-    </div>
-
-    <div class="item-carta">
-      <div class="info">
-        <h4>Black Russian</h4>
-        <p>Absolut Vodka y licor de café.</p>
-        <span class="precio">$37.000</span>
-      </div>
-    </div>
-
-    <div class="item-carta">
-      <div class="info">
-        <h4>White Russian</h4>
-        <p>Absolut Vodka, licor de café y crema de leche</p>
-        <span class="precio">$38.000</span>
-      </div>
-    </div>
-
-        <div class="item-carta">
-      <div class="info">
-        <h4>Orgasmo Múltiple</h4>
-        <p>Absolut Vodka, amaretto Disaronno, crema de whisky Baileys y licor de café.</p>
+        <h4 data-es="Picada" data-en="Meat Platter">Picada</h4>
+        <p data-es="Deliciosa costilla ahumada y chorizo asados a la parrilla, yucas fritas y salsa de ajo casera."
+           data-en="Delicious smoked ribs and grilled sausage, fried yuca, and homemade garlic sauce.">
+           Deliciosa costilla ahumada y chorizo asados a la parrilla, yucas fritas y salsa de ajo casera.
+        </p>
         <span class="precio">$48.000</span>
       </div>
     </div>
 
     <div class="item-carta">
       <div class="info">
-        <h4>El Padrino</h4>
-        <p>Whisky Old Parr 12 años y amaretto Disoronno.</p>
+        <h4 data-es="Ceviche de Pulpo" data-en="Octopus Ceviche">Ceviche de Pulpo</h4>
+        <p data-es="Pulpo fresco asado, acompañado de una cama de aliños cítricos y mango viche."
+           data-en="Fresh grilled octopus on a bed of citrus seasoning and green mango.">
+           Pulpo fresco asado, acompañado de una cama de aliños cítricos y mango viche.
+        </p>
         <span class="precio">$50.000</span>
       </div>
     </div>
 
     <div class="item-carta">
       <div class="info">
-        <h4>La Madrina</h4>
-        <p>Absolut vodka y amaretto Disoronno.</p>
-        <span class="precio">$50.000</span>
+        <h4 data-es="Ceviche de Panceta" data-en="Pork Belly Ceviche">Ceviche de Panceta</h4>
+        <p data-es="Delicioso chicharrón de cerdo tostado al carbón, acompañado de una cama aliños cítricos."
+           data-en="Delicious charcoal-toasted pork belly on a bed of citrus seasoning.">
+           Delicioso chicharrón de cerdo tostado al carbón, acompañado de una cama aliños cítricos.
+        </p>
+        <span class="precio">$40.000</span>
       </div>
     </div>
 
     <div class="item-carta">
       <div class="info">
-        <h4>Piña Colada</h4>
-        <p>Piña fesca, crema de leche, sirope simple, leche de coco y ron de elección:</p>
-        <p> Tradicional <span class="precio">$40.000</span> </p>
-        <p> La Hechicera <span class="precio">$55.000</span> </p>
-        <p> Zacapa 23 años <span class="precio">$58.000</span> </p>
+        <h4 data-es="Consomé" data-en="Consommé">Consomé</h4>
+        <p data-es="Delicioso caldo hecho con pollo y verduras."
+           data-en="Delicious broth made with chicken and vegetables.">
+           Delicioso caldo hecho con pollo y verduras.
+        </p>
+        <span class="precio">$32.000</span>
       </div>
     </div>
 
-    <div class="volver-inicio"> 
-      <a href="#">Volver al inicio</a>
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
     </div>
-
   </div>
 </section>
+<!-- FIN SECCIÓN ENTRADAS -->
+
+<!-- INICIO SECCIÓN FAST FOOD -->
+<section class="categoria-carta" id="fastfood">
+  <div class="tarjeta-oscura">
+    <h3 data-es="Fast Food" data-en="Fast Food">Fast Food</h3>
+    <p class="descripcion-subcategoria" data-es="Ideal con una Caipiriña de maracuyá o un Mojito Clásico" data-en="Perfect with a Passion Fruit Caipirinha or a Classic Mojito">
+      <em>Ideal con una Caipiriña de maracuyá o un Mojito Clásico</em>
+    </p>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Hamburguesa Jack Daniels" data-en="Jack Daniels Burger">Hamburguesa Jack Daniels</h4>
+        <p data-es="Pan Brioche artesanal, deliciosa carne asada al carbón acompañanada de tocineta crocante, queso americano, aros de cebolla en cerveza, lechuga y nuestra salsa de Jack Daniels"
+           data-en="Artisan brioche bun, charcoal-grilled beef, crispy bacon, American cheese, beer-battered onion rings, lettuce, and our signature Jack Daniels sauce.">
+          Pan Brioche artesanal, deliciosa carne asada al carbón acompañanada de tocineta crocante, queso americano, aros de cebolla en cerveza, lechuga y nuestra salsa de Jack Daniels
+        </p>
+        <span class="precio">$50.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Hamburguesa Clásica" data-en="Classic Burger">Hamburguesa Clásica</h4>
+        <p data-es="Pan Brioche artesanal, deliciosa carne asada al carbón acompañanada de tocineta crocante, queso americano, lechuga, tomate y nuestra salsa Do Sul."
+           data-en="Artisan brioche bun, charcoal-grilled beef, crispy bacon, American cheese, lettuce, tomato, and our Do Sul sauce.">
+          Pan Brioche artesanal, deliciosa carne asada al carbón acompañanada de tocineta crocante, queso americano, lechuga, tomate y nuestra salsa Do Sul.
+        </p>
+        <span class="precio">$35.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Hamburguesa Jack Daniels Doble" data-en="Double Jack Daniels Burger">Hamburguesa Jack Daniels Doble</h4>
+        <p data-es="Pan Brioche artesanal, doble carne asada al carbón acompañanada de tocineta crocante, queso americano, aros de cebolla en cerveza, lechuga y nuestra salsa de Jack Daniels"
+           data-en="Artisan brioche bun, double charcoal-grilled beef patties, crispy bacon, American cheese, beer-battered onion rings, lettuce, and Jack Daniels sauce.">
+          Pan Brioche artesanal, doble carne asada al carbón acompañanada de tocineta crocante, queso americano, aros de cebolla en cerveza, lechuga y nuestra salsa de Jack Daniels
+        </p>
+        <span class="precio">$50.000</span>
+      </div>
+    </div>
+
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
+    </div>
+  </div>
+</section>    
+
+
+<!-- INICIO SECCIÓN RODIZIO -->
+<section class="categoria-carta" id="rodizio">
+  <div class="tarjeta-oscura">
+    <h3 data-es="Rodizio" data-en="Rodizio">Rodizio</h3>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Rodizio" data-en="Rodizio">Rodizio</h4>
+        <p data-es="Doce variedades de carne entre res, cerdo y pollo, asadas al carbón, servidas en espadas a su mesa. Incluye nueve tipos diferentes de acompañaminetos."
+           data-en="Twelve varieties of beef, pork, and chicken grilled over charcoal, served on skewers at your table. Includes nine different side dishes.">
+          Doce variedades de carne entre res, cerdo y pollo, asadas al carbón, servidas en espadas a su mesa. Incluye nueve tipos diferentes de acompañaminetos.
+        </p>
+        <p data-es="Este plato es personal y de consumo ilumitado."
+           data-en="This is a personal dish with unlimited servings.">
+          Este plato es personal y de consumo ilumitado.
+        </p>
+        <p data-es="Cortes: Picanha angus importada, morrillo, cadera, lomo viche, costilla de cerdo, lomo de caracho angus importado, bondiola de cerdo, chorizo, lomo redondo, muslos de pollo, corazones de pollo y ubre."
+           data-en="Cuts: Imported Angus picanha, brisket, rump, fresh tenderloin, pork ribs, imported Angus shoulder loin, pork shoulder, chorizo, round steak, chicken thighs, chicken hearts, and udder.">
+          Cortes: Picanha angus importada, morrillo, cadera, lomo viche, costilla de cerdo, lomo de caracho angus importado, bondiola de cerdo, chorizo, lomo redondo, muslos de pollo, corazones de pollo y ubre.
+        </p>
+        <p data-es="Acompañamientos: Polenta, yuca frita, bananos acaramelados, aros de cebolla, arroz blanco, picadillo de tomate, ensalada hawaiana, ensalada de papa y caraotas."
+           data-en="Sides: Polenta, fried yuca, caramelized plantains, onion rings, white rice, chopped tomato salad, Hawaiian salad, potato salad, and black beans.">
+          Acompañamientos: Polenta, yuca frita, bananos acaramelados, aros de cebolla, arroz blanco, picadillo de tomate, ensalada hawaiana, ensalada de papa y caraotas.
+        </p>
+        <p data-es="Sugerencia de bebida: Acompáñalo con un Aperol Spritz."
+           data-en="Drink suggestion: Pairs perfectly with an Aperol Spritz.">
+          Sugerencia de bebida: Acompáñalo con un Aperol Spritz.
+        </p>
+        <span class="precio">$108.500</span>
+      </div>
+    </div>
+
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN RODIZIO -->
+
+
+<!-- INICIO SECCIÓN RODIZIO PREMIUM -->
+<section class="categoria-carta" id="premium">
+  <div class="tarjeta-oscura">
+    <h3 data-es="Rodizio Premium" data-en="Premium Rodizio">Rodizio Premium</h3>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Rodizio Premium" data-en="Premium Rodizio">Rodizio Premium</h4>
+        <p data-es="Quince variedades de carne entre res, cerdo y pollo, asadas al carbón, servidas en espadas a su mesa. Incluye nueve tipos diferentes de acompañamientos."
+           data-en="Fifteen varieties of beef, pork, and chicken grilled over charcoal, served on skewers at your table. Includes nine different side dishes.">
+           Quince variedades de carne entre res, cerdo y pollo, asadas al carbón, servidas en espadas a su mesa. Incluye nueve tipos diferentes de acompañamientos.
+        </p>
+        <p data-es="Este plato es personal, de consumo ilimitado, no se puede compartir o empacar para llevar"
+           data-en="This is a personal dish with unlimited servings. Not shareable or available for takeout.">
+           Este plato es personal, de consumo ilimitado, no se puede compartir o empacar para llevar
+        </p>
+        <p data-es="Cortes: Langostinos, Picanha angus importada, rib eye importado, new york steak importado, morrillo, cadera, lomo viche, costilla de cerdo, lomo de caracho angus importado, bondiola de cerdo, chorizo, lomo redondo, muslos de pollo, corazones de pollo y ubre."
+           data-en="Cuts: Prawns, imported Angus picanha, imported rib eye, imported New York steak, brisket, rump, fresh tenderloin, pork ribs, imported Angus shoulder loin, pork shoulder, chorizo, round steak, chicken thighs, chicken hearts, and udder.">
+           Cortes: Langostinos, Picanha angus importada, rib eye importado, new york steak importado, morrillo, cadera, lomo viche, costilla de cerdo, lomo de caracho angus importado, bondiola de cerdo, chorizo, lomo redondo, muslos de pollo, corazones de pollo y ubre.
+        </p>
+        <p data-es="Acompañamientos: Polenta, yuca frita, bananos acaramelados, aros de cebolla, arroz blanco, picadillo de tomate, ensalada hawaiana, ensalada de papa y caraotas."
+           data-en="Sides: Polenta, fried yuca, caramelized plantains, onion rings, white rice, chopped tomato salad, Hawaiian salad, potato salad, and black beans.">
+           Acompañamientos: Polenta, yuca frita, bananos acaramelados, aros de cebolla, arroz blanco, picadillo de tomate, ensalada hawaiana, ensalada de papa y caraotas.
+        </p>
+        <p data-es="Sugerencia de bebida: Perfecto con una sangría espumosa."
+           data-en="Drink suggestion: Perfect with a sparkling sangria.">
+           Sugerencia de bebida: Perfecto con una sangría espumosa.
+        </p>
+        <span class="precio">$149.000</span>
+      </div>
+    </div>
+
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
+    </div>  
+  </div>
+</section>
+<!-- FIN SECCIÓN RODIZIO PREMIUM -->
+
+<!-- INICIO SECCIÓN STEAK HOUSE -->
+<section class="categoria-carta" id="steak">
+  <div class="tarjeta-oscura">
+    <h3 data-es="Steak House" data-en="Steak House">Steak House</h3>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Picanha" data-en="Picanha">Picanha</h4>
+        <p data-es="Jugosa porción de picanha angus importada al carbón. Acompañada de papas a la francesa y ensalada."
+           data-en="Juicy portion of imported Angus picanha grilled over charcoal. Served with French fries and salad.">
+           Jugosa porción de picanha angus importada al carbón. Acompañada de papas a la francesa y ensalada.
+        </p>
+        <span class="precio">$85.000 (300g) / $100.000 (450g)</span>
+        <p data-es="Recomendado con un Guarito Sour" data-en="Recommended with a Guarito Sour"><em>Recomendado con un Guarito Sour</em></p>
+        <p data-es="su frescura resalta la jugosidad de la carne" data-en="its freshness enhances the meat's juiciness"><em>su frescura resalta la jugosidad de la carne</em></p>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="New York Steak" data-en="New York Steak">New York Steak</h4>
+        <p data-es="Jugoso corte angus importado al carbón (450g). Acompañado de papas a la francesa y ensaladas fresca."
+           data-en="Juicy imported Angus cut grilled over charcoal (450g). Served with French fries and fresh salad.">
+           Jugoso corte angus importado al carbón (450g). Acompañado de papas a la francesa y ensaladas fresca.
+        </p>
+        <span class="precio">$100.000</span>
+        <p data-es="Acompáñalo con un Mint Julep." data-en="Pair it with a Mint Julep."><em>Acompáñalo con un Mint Julep.</em></p>
+        <p data-es="Ideal para los amantes del whisky y sabores herbales" data-en="Ideal for whisky and herbal flavor lovers"><em>Ideal para los amantes del whisky y sabores herbales</em></p>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Rib Eye" data-en="Rib Eye">Rib Eye</h4>
+        <p data-es="Jugoso corte angus importado al carbón (450g). Acompáñalo de papas a la francesa y ensalada fresca."
+           data-en="Juicy imported Angus cut grilled over charcoal (450g). Served with French fries and fresh salad.">
+           Jugoso corte angus importado al carbón (450g). Acompáñalo de papas a la francesa y ensalada fresca.
+        </p>
+        <span class="precio">$100.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Morillo" data-en="Brisket">Morillo</h4>
+        <p data-es="Medallones de corte grado (500gr) de carne asada al carbón, acompañado de ensalada y chips de plátano."
+           data-en="Charcoal-grilled brisket medallions (500g), served with salad and plantain chips.">
+           Medallones de corte grado (500gr) de carne asada al carbón, acompañado de ensalada y chips de plátano.
+        </p>
+        <span class="precio">$65.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Churrasco" data-en="Churrasco">Churrasco</h4>
+        <p data-es="Espectacular filete de lomo de caracho ancho (300gr) importado al carbón, acompañado de chips de plátano y ensalada fresca."
+           data-en="Spectacular imported shoulder loin steak (300g) grilled over charcoal, served with plantain chips and fresh salad.">
+           Espectacular filete de lomo de caracho ancho (300gr) importado al carbón, acompañado de chips de plátano y ensalada fresca.
+        </p>
+        <span class="precio">$68.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Baby Beef" data-en="Baby Beef">Baby Beef</h4>
+        <p data-es="Jugoso corte de lomo fino de res, sin grasa, al carbón. Acompañado de ensalada fresca y chips de plátano."
+           data-en="Juicy lean beef tenderloin grilled over charcoal. Served with fresh salad and plantain chips.">
+           Jugoso corte de lomo fino de res, sin grasa, al carbón. Acompañado de ensalada fresca y chips de plátano.
+        </p>
+        <span class="precio">$69.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Adiciones" data-en="Side Dishes">Adiciones</h4>
+        <p data-es="Polenta, yuca frita, bananos acaramelados, aros de cebolla, arroz blanco, picadillo de tomate, ensalada hawaiana, ensalada de papa, caraotas, papas a la francesa, chips de plátano, puré de papa, ensalada de la casa."
+           data-en="Polenta, fried yuca, caramelized bananas, onion rings, white rice, chopped tomato, Hawaiian salad, potato salad, black beans, French fries, plantain chips, mashed potatoes, house salad.">
+           Polenta, yuca frita, bananos acaramelados, aros de cebolla, arroz blanco, picadillo de tomate, ensalada hawaiana, ensalada de papa, caraotas, papas a la francesa, chips de plátano, puré de papa, ensalada de la casa.
+        </p>
+        <span class="precio">$69.000</span>
+      </div>
+    </div>
+
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN STEAK HOUSE -->
+
+<!-- INICIO SECCIÓN CARNES EN SALSA -->
+<section class="categoria-carta" id="salsa">
+  <div class="tarjeta-oscura">
+    <h3 data-es="Carnes en Salsa" data-en="Meats in Sauce">Carnes en Salsa</h3>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Lomo en Salsa de Trufa Negra" data-en="Tenderloin in Black Truffle Sauce">Lomo en Salsa de Trufa Negra</h4>
+        <p data-es="Solomillo tierno al carbón bañado en salsa de trufa negra silvestre, champiñones y queso padano. Acompañado de chips de platano y ensalada fresca."
+           data-en="Tender charcoal-grilled sirloin topped with wild black truffle sauce, mushrooms, and padano cheese. Served with plantain chips and fresh salad.">
+           Solomillo tierno al carbón bañado en salsa de trufa negra silvestre, champiñones y queso padano. Acompañado de chips de platano y ensalada fresca.
+        </p>
+        <span class="precio">$84.000</span>
+        <p data-es="Maridaje: Una Sangría espumosa para balancear su intesidad." data-en="Pairing: A sparkling sangria to balance its intensity."><em>Maridaje: Una Sangría espumosa para balancear su intesidad.</em></p>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Filet Mignon" data-en="Filet Mignon">Filet Mignon</h4>
+        <p data-es="Jugosos medallones de lomo fino de res sellados al carbón en salsa de vino tinto, champiñones y tocineta. Acompañado de ensalda fresca y chips de plátano."
+           data-en="Juicy tenderloin medallions grilled over charcoal in a red wine sauce with mushrooms and bacon. Served with fresh salad and plantain chips.">
+           Jugosos medallones de lomo fino de res sellados al carbón en salsa de vino tinto, champiñones y tocineta. Acompañado de ensalda fresca y chips de plátano.
+        </p>
+        <span class="precio">$82.000</span>
+        <p data-es="Marida perfectamente con un Old Fashion o un elegante La Verde." data-en="Pairs perfectly with an Old Fashion or a refined La Verde."><em>Marida perfectamente con un Old Fashion o un elegante La Verde.</em></p>
+      </div>
+    </div>
+
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN CARNES EN SALSA -->
+
+<!-- INICIO SECCIÓN PESCADOS Y MARISCOS -->
+<section class="categoria-carta" id="mariscos">
+  <div class="tarjeta-oscura">
+    <h3 data-es="Pescado y Mariscos" data-en="Fish and Seafood">Pescado y Mariscos</h3>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Salmón a la Parrilla" data-en="Grilled Salmon">Salmón a la Parrilla</h4>
+        <p data-es="Filete de salmón cuidadosamente seleccionado, asado a la parrilla. Acompañado de chips de plátano y ensalada de la casa."
+           data-en="Carefully selected salmon fillet, grilled to perfection. Served with plantain chips and house salad.">
+           Filete de salmón cuidadosamente seleccionado, asado a la parrilla. Acompañado de chips de plátano y ensalada de la casa.
+        </p>
+        <span class="precio">$75.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Salmón Fruto del Mar" data-en="Seafood Salmon">Salmón Fruto del Mar</h4>
+        <p data-es="Filete de salmón bañado en salsa de mariscos, leche de coco y hierbas del pacífico. Acompañado de chips de plátano y ensalada de la casa."
+           data-en="Salmon fillet covered in a seafood sauce with coconut milk and Pacific herbs. Served with plantain chips and house salad.">
+           Filete de salmón bañado en salsa de mariscos, leche de coco y hierbas del pacífico. Acompañado de chips de plátano y ensalada de la casa.
+        </p>
+        <span class="precio">$85.000</span>
+        <p data-es="Maridaje: Paloma con Don Julio Blanco, notas cítricas que limpian el paladar tras cada bocado."
+           data-en="Pairing: Paloma with Don Julio Blanco, citrus notes that cleanse the palate after each bite.">
+           <em>Maridaje: Paloma con Don Julio Blanco, notas cítricas que limpian el paladar tras cada bocado.</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Langostinos Do Sul" data-en="Do Sul Prawns">Langostinos Do Sul</h4>
+        <p data-es="Brocheta de langostinos al carbón asados al carbón en espada. Acompañado de chips de plátano y ensalada de la casa."
+           data-en="Charcoal-grilled prawn skewer served on a sword. Accompanied by plantain chips and house salad.">
+           Brocheta de langostinos al carbón asados al carbón en espada. Acompañado de chips de plátano y ensalada de la casa.
+        </p>
+        <span class="precio">$89.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Langostinos al Ajillo" data-en="Garlic Prawns">Langostinos al Ajillo</h4>
+        <p data-es="Langostinos al ajillo flambeados con brandy. Acompañados con chips de plátano y ensalada de la casa."
+           data-en="Garlic prawns flambéed with brandy. Served with plantain chips and house salad.">
+           Langostinos al ajillo flambeados con brandy. Acompañados con chips de plátano y ensalada de la casa.
+        </p>
+        <span class="precio">$89.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Langosta (Gratinada/Menier/Ajillo)" data-en="Lobster (Gratin/Menier/Garlic)">Langosta (Gratinada/Menier/Ajillo)</h4>
+        <p data-es="Deliciosa cola de langosta fresca, preparada a tu preferencia: gratinada con queso fundido, salteada al ajillo o bañada en una clásica salsa menier de mantequilla y limón. Acompañada de chips de plátano y ensalda fresca."
+           data-en="Delicious fresh lobster tail prepared to your preference: gratin with melted cheese, sautéed in garlic, or covered in classic butter-lemon menier sauce. Served with plantain chips and fresh salad.">
+           Deliciosa cola de langosta fresca, preparada a tu preferencia: gratinada con queso fundido, salteada al ajillo o bañada en una clásica salsa menier de mantequilla y limón. Acompañada de chips de plátano y ensalda fresca.
+        </p>
+        <span class="precio">$160.000</span>
+        <p data-es="Marida con un Orgásmo Múltiple (digestivo dulce) para cerrar una experiencia de lujo."
+           data-en="Pairs with a Multiple Orgasm (sweet digestive) to finish a luxurious experience.">
+           <em>Marida con un Orgásmo Múltiple (digestivo dulce) para cerrar una experiencia de lujo.</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN PESCADOS Y MARISCOS -->
+
+
+
+
+<!-- INICIO SECCIÓN POLLO, PASTAS Y ENSALADAS -->
+<section class="categoria-carta" id="pollo">
+  <div class="tarjeta-oscura">
+    <h3 data-es="Pollo, Pastas y Ensaladas" data-en="Chicken, Pasta and Salads">Pollo, Pastas y Ensaladas</h3>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="File de Frango" data-en="Grilled Chicken Fillet">File de Frango</h4>
+        <p data-es="Filete de pechuga de pollo a la plancha. Acompañado de chips de plátano y ensalda fresca."
+           data-en="Grilled chicken breast fillet. Served with plantain chips and fresh salad.">
+           Filete de pechuga de pollo a la plancha. Acompañado de chips de plátano y ensalda fresca.
+        </p>
+        <span class="precio">$49.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Ensalada César" data-en="Caesar Salad">Ensalada César</h4>
+        <p data-es="Filete de pechuga de pollo en julianas, lechuga, aceitunas, crotones, queso parmesano y aderzo cesar con anchoas."
+           data-en="Julienned chicken breast fillet, lettuce, olives, croutons, parmesan cheese and Caesar dressing with anchovies.">
+           Filete de pechuga de pollo en julianas, lechuga, aceitunas, crotones, queso parmesano y aderzo cesar con anchoas.
+        </p>
+        <span class="precio">$49.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Pasta en Salsa de Trufa y Hongos (Res/Pollo)" data-en="Truffle Mushroom Pasta (Beef/Chicken)">Pasta en Salsa de Trufa y Hongos (Res/Pollo)</h4>
+        <p data-es="Medallón de res o filete de pollo en salsa de trufa negra y champiñones, finalizado con queso parmesano sobre una cama de espaguetis."
+           data-en="Beef medallion or chicken fillet in black truffle and mushroom sauce, topped with parmesan cheese over a bed of spaghetti.">
+           Medallón de res o filete de pollo en salsa de trufa negra y champiñones, finalizado con queso parmesano sobre una cama de espaguetis.
+        </p>
+        <p data-es="Res:" data-en="Beef:"><strong>Res:</strong> <span class="precio">$55.000</span></p>
+        <p data-es="Pollo:" data-en="Chicken:"><strong>Pollo:</strong> <span class="precio">$49.000</span></p>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Pasta Fruto del Mar" data-en="Seafood Pasta">Pasta Fruto del Mar</h4>
+        <p data-es="Espaguetis en salsa de mariscos, leche de coco, fumé de pescado y hierbas del pacífico, finalizado con queso parmesano."
+           data-en="Spaghetti in seafood sauce, coconut milk, fish stock and Pacific herbs, finished with parmesan cheese.">
+           Espaguetis en salsa de mariscos, leche de coco, fumé de pescado y hierbas del pacífico, finalizado con queso parmesano.
+        </p>
+        <span class="precio">$55.000</span>
+      </div>
+    </div>
+
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN POLLO, PASTAS Y ENSALADAS -->
+
+
+<!-- INICIO SECCIÓN BEBIDAS -->
+<section class="categoria-carta" id="bebidas">
+  <div class="tarjeta-oscura">
+    <h3 data-es="Bebidas" data-en="Drinks">Bebidas</h3>
+
+    <div class="subcategoria-carta">
+      <div class="item-carta titulo-subcategoria" data-es="Aguas y Sodas" data-en="Waters and Sodas">Aguas y Sodas</div>
+      <div class="item-carta"><div class="info"><h4 data-es="Agua con gas" data-en="Sparkling Water">Agua con gas</h4><span class="precio">$7.500</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Agua en botella" data-en="Bottled Water">Agua en botella</h4><span class="precio">$8.500</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Soda Hatsu de frambuesa" data-en="Hatsu Raspberry Soda">Soda Hatsu de frambuesa</h4><span class="precio">$12.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Soda Hatsu de limón y hirbabuena" data-en="Hatsu Lime & Mint Soda">Soda Hatsu de limón y hirbabuena</h4><span class="precio">$12.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Canada Dry Ginger Ale" data-en="Canada Dry Ginger Ale">Canada Dry Ginger Ale</h4><span class="precio">$8.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Soda Bretaña" data-en="Bretaña Soda">Soda Bretaña</h4><span class="precio">$8.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Red Bull" data-en="Red Bull">Red Bull</h4><span class="precio">$14.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Coca Cola" data-en="Coca Cola">Coca Cola</h4><span class="precio">$8.800</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Coca Cola Cero" data-en="Coca Cola Zero">Coca Cola Cero</h4><span class="precio">$15.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Agua mineral" data-en="Mineral Water">Agua mineral</h4><span class="precio">$16.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Monster" data-en="Monster Energy">Monster</h4><span class="precio">$15.000</span></div></div>
+    </div>
+
+    <div class="subcategoria-carta">
+      <div class="item-carta titulo-subcategoria" data-es="Jugos Naturales" data-en="Natural Juices">Jugos Naturales</div>
+      <div class="item-carta"><div class="info"><h4 data-es="Jugos en agua" data-en="Juices with water">Jugos en agua</h4><span class="precio">$15.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Jugos en leche" data-en="Juices with milk">Jugos en leche</h4><span class="precio">$17.500</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Limonada Natural" data-en="Natural Lemonade">Limonada Natural</h4><span class="precio">$15.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Limonada de coco" data-en="Coconut Lemonade">Limonada de coco</h4><span class="precio">$18.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Limonada de cereza" data-en="Cherry Lemonade">Limonada de cereza</h4><span class="precio">$18.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Limonada de mango viche" data-en="Green Mango Lemonade">Limonada de mango viche</h4><span class="precio">$17.500</span></div></div>
+    </div>
+
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN BEBIDAS -->
+
+<!-- INICIO SECCIÓN CERVEZAS -->
+<section class="categoria-carta" id="cervezas">
+  <div class="tarjeta-oscura">
+    <h3 data-es="Cervezas" data-en="Beers">Cervezas</h3>
+    <div class="item-carta"><div class="info"><h4 data-es="Cervezas importadas" data-en="Imported Beers">Cervezas importadas</h4><span class="precio">$16.000</span></div></div>
+    <div class="item-carta"><div class="info"><h4 data-es="Cervezas nacionales" data-en="National Beers">Cervezas nacionales</h4><span class="precio">$15.500</span></div></div>
+    <div class="item-carta"><div class="info"><h4 data-es="Cerveza Corona Cero" data-en="Corona Zero Beer">Cerveza Corona Cero</h4><span class="precio">$16.000</span></div></div>
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN CERVEZAS -->
+
+<!-- INICIO SECCIÓN CÓCTELES SIN ALCOHOL -->
+<section class="categoria-carta" id="cocteles-sin-alcohol">
+  <div class="tarjeta-oscura">
+    <h3 data-es="Cócteles sin Alcohol" data-en="Non-Alcoholic Cocktails">Cócteles sin Alcohol</h3>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Soda Italiana" data-en="Italian Soda">Soda Italiana</h4>
+        <p data-es="Puré o sirope de fruta hecho en casa, elevado con soda."
+           data-en="Homemade fruit purée or syrup, topped with soda.">Puré o sirope de fruta hecho en casa, elevado con soda.</p>
+        <span class="precio">$19.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Piña colada" data-en="Virgin Piña Colada">Piña colada</h4>
+        <p data-es="Leche de coco, crema de leche, piña fresca y sirope simple."
+           data-en="Coconut milk, cream, fresh pineapple and simple syrup.">Leche de coco, crema de leche, piña fresca y sirope simple.</p>
+        <span class="precio">$26.000</span>
+      </div>
+    </div>
+
+    <div class="subcategoria-carta">
+      <div class="item-carta titulo-subcategoria" data-es="Mojito" data-en="Mojito">Mojito</div>
+      <div class="item-carta">
+        <div class="info">
+          <h4 data-es="Mojito" data-en="Classic Mojito">Mojito</h4>
+          <p data-es="Hierbabuena, albahaca, limón, sirope simple elevado con soda."
+             data-en="Mint, basil, lime, simple syrup and soda.">Hierbabuena, albahaca, limón, sirope simple elevado con soda.</p>
+          <span class="precio">$19.000</span>
+
+          <h4 data-es="Mojito de fresa" data-en="Strawberry Mojito">Mojito de fresa</h4>
+          <p data-es="El mojito con sirope de fresa."
+             data-en="The mojito with strawberry syrup.">El mojito con sirope de fresa.</p>
+          <span class="precio">$21.000</span>
+
+          <h4 data-es="Mojito de maracuyá" data-en="Passion Fruit Mojito">Mojito de maracuyá</h4>
+          <p data-es="El mojito con sirope de maracuyá."
+             data-en="The mojito with passion fruit syrup.">El mojito con sirope de maracuyá.</p>
+          <span class="precio">$21.000</span>
+
+          <h4 data-es="Mojito de agraz" data-en="Agraz Mojito">Mojito de agraz</h4>
+          <p data-es="El clásico con sirope de agraz."
+             data-en="The classic with agraz syrup.">El clásico con sirope de agraz.</p>
+          <span class="precio">$21.000</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN CÓCTELES SIN ALCOHOL -->
+
+<!-- INICIO SECCIÓN BEBIDAS CALIENTES -->
+<section class="categoria-carta" id="bebidas-calientes">
+  <div class="tarjeta-oscura">
+    <h3 data-es="Bebidas sin Alcohol" data-en="Hot Beverages">Bebidas sin Alcohol</h3>
+
+    <div class="subcategoria-carta">
+      <div class="item-carta titulo-subcategoria" data-es="Café y Aromáticas" data-en="Coffee and Herbal Teas">Café y Aromáticas</div>
+      <div class="item-carta"><div class="info"><h4 data-es="Café Negro" data-en="Black Coffee">Café Negro</h4><span class="precio">$5.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Café con Leche" data-en="Coffee with Milk">Café con Leche</h4><span class="precio">$6.000</span></div></div>
+      <div class="item-carta"><div class="info"><h4 data-es="Aromática de Frutas" data-en="Fruit Herbal Tea">Aromática de Frutas</h4><span class="precio">$6.000</span></div></div>
+    </div>
+
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+<!-- FIN SECCIÓN BEBIDAS CALIENTES -->
+
+
+<!-- COCTELERÍA DE AUTOR -->
+
+<section class="categoria-carta" id="cocteleria-autor">
+  <div class="tarjeta-oscura">
+    <h3 data-es="Coctelería de Autor" data-en="Signature Cocktails">Coctelería de Autor</h3>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Burbujeante de Cereza" data-en="Cherry Sparkler">Burbujeante de Cereza</h4>
+        <p data-es="Puré de cordial de cereza, elevado con soda Bretaña o prosecco."
+           data-en="Cherry cordial purée, topped with Bretaña soda or prosecco.">
+           Puré de cordial de cereza, elevado con soda Bretaña o prosecco.
+        </p>
+        <span class="precio">$35.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Amargor de Vodka" data-en="Vodka Bitters">Amargor de Vodka</h4>
+        <p data-es="Absolut Vodka, vermouth extra dry Cinzano, sirope simple y sirope de maracuyá."
+           data-en="Absolut Vodka, Cinzano extra dry vermouth, simple syrup, and passion fruit syrup.">
+           Absolut Vodka, vermouth extra dry Cinzano, sirope simple y sirope de maracuyá.
+        </p>
+        <span class="precio">$40.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Caricia Añeja" data-en="Aged Caress">Caricia Añeja</h4>
+        <p data-es="Whisky Buchanan's 12 años" data-en="Buchanan's 12-Year-Old Whisky">
+          Whisky Buchanan's 12 años
+        </p>
+        <span class="precio">$37.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Secreto de la Tierra" data-en="Secret of the Earth">Secreto de la Tierra</h4>
+        <p data-es="Mezcal 400 conejos, licor de naranja, zumo de piña, sirope simple y zumo de limón."
+           data-en="400 Conejos mezcal, orange liqueur, pineapple juice, simple syrup, and lime juice.">
+           Mezcal 400 conejos, licor de naranja, zumo de piña, sirope simple y zumo de limón.
+        </p>
+        <span class="precio">$52.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Brisa Tequilera" data-en="Tequila Breeze">Brisa Tequilera</h4>
+        <p data-es="Tequila reposado Cazadores, sirope de maracuyá y agua tónica."
+           data-en="Cazadores reposado tequila, passion fruit syrup, and tonic water.">
+           Tequila reposado Cazadores, sirope de maracuyá y agua tónica.
+        </p>
+        <span class="precio">$52.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Arrechera" data-en="Fierce Delight">Arrechera</h4>
+        <p data-es="Aguardiente anizado Blanco del Valle, crema de café y crema de leche."
+           data-en="Aniseed aguardiente Blanco del Valle, coffee cream, and milk cream.">
+           Aguardiente anizado Blanco del Valle, crema de café y crema de leche.
+        </p>
+        <span class="precio">$37.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Guarito Sour" data-en="Guarito Sour">Guarito Sour</h4>
+        <p data-es="Aguardiente anizado Blanco del Valle, zumo de limón crema de café y crema de leche."
+           data-en="Aniseed aguardiente Blanco del Valle, lemon juice, coffee cream, and milk cream.">
+           Aguardiente anizado Blanco del Valle, zumo de limón crema de café y crema de leche.
+        </p>
+        <span class="precio">$37.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="La Verde" data-en="The Green One">La Verde</h4>
+        <p data-es="Tequila Patrón, hierbabuena, zumo de limón y sirope simple."
+           data-en="Patrón tequila, mint, lime juice, and simple syrup.">
+           Tequila Patrón, hierbabuena, zumo de limón y sirope simple.
+        </p>
+        <span class="precio">$55.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Mar Morado" data-en="Purple Sea">Mar Morado</h4>
+        <p data-es="Brandy cinco estrellas, leche de coco y puré de agras."
+           data-en="Five-star brandy, coconut milk, and wild berry purée.">
+           Brandy sinco estrellas, leche de coco y puré de agras.
+        </p>
+        <span class="precio">$55.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="White Anis Negroni" data-en="White Anis Negroni">White Anis Negroni</h4>
+        <p data-es="Variación Do Sul del clásico: gin tanqueray, vermouth extra dry Cinzano y aguardiente Blanco del Valle."
+           data-en="Do Sul’s twist on the classic: Tanqueray gin, Cinzano extra dry vermouth, and Blanco del Valle aguardiente.">
+           Variación Do Sul del clásico: gin tanqueray, vermouth extra dry Cinzano y aguardiente Blanco del Valle.
+        </p>
+        <span class="precio">$40.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Sangría Espumosa" data-en="Sparkling Sangria">Sangría Espumosa</h4>
+        <p data-es="Gin Tanqueray, sirope simple y botella de vino espumoso."
+           data-en="Tanqueray gin, simple syrup, and sparkling wine bottle.">
+           Gin Tanqueray, sirope simple y botella de vino espumoso.
+        </p>
+        <p data-es="Copa" data-en="Glass">Copa <span class="precio">$50.000</span> </p>
+        <p data-es="Jarra" data-en="Pitcher">Jarra <span class="precio">$150.000</span> </p>
+      </div>
+    </div>
+
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+
+<!-- FIN COCTELERÍA DE AUTOR -->
+
+<!-- COCTELERÍA CLÁSICA  -->
+
+<!-- COCTELERÍA CLÁSICA  -->
+
+<section class="categoria-carta" id="cocteleria-clasica">
+  <div class="tarjeta-oscura">
+    <h3 data-es="Coctelería Clásica" data-en="Classic Cocktails">Coctelería Clásica</h3>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Mule Family" data-en="Mule Family">Mule Family</h4>
+        <p data-es="Zumo de limón, Fever Tree ginger beer y destilado de elección:" 
+           data-en="Lime juice, Fever Tree ginger beer, and spirit of your choice:">
+           Zumo de limón, Fever Tree ginger beer y destilado de elección:
+        </p>
+        <p data-es="Moscow Mule" data-en="Moscow Mule">Moscow Mule <span class="precio">$38.000</span> </p>
+        <p data-es="Mexican Mule" data-en="Mexican Mule">Mexican Mule <span class="precio">$38.000</span> </p>
+        <p data-es="Mezcal Mule" data-en="Mezcal Mule">Mezcal Mule <span class="precio">$39.000</span> </p>
+        <p data-es="Gingin Mule" data-en="Gingin Mule">Gingin Mule <span class="precio">$39.000</span> </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Mint Julep" data-en="Mint Julep">Mint Julep</h4>
+        <p data-es="Variación Do Sul del clásico: hierbabuena, sirope simple y whisky Old Parr 12 años"
+           data-en="Do Sul's twist on the classic: mint, simple syrup, and Old Parr 12-Year whisky">
+           Variación Do Sul del clásico: hierbabuena, sirope simple y whisky Old Parr 12 años
+        </p>
+        <span class="precio">$38.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Paloma" data-en="Paloma">Paloma</h4>
+        <p data-es="Tequila Don Julio Blanco, zumo de limón, zumo de toronja, pisca de sal, soda Bretaña."
+           data-en="Don Julio Blanco tequila, lime juice, grapefruit juice, a pinch of salt, and Bretaña soda.">
+           Tequila Don Julio Blanco, zumo de limón, zumo de toronja, pisca de sal, soda Bretaña.
+        </p>
+        <span class="precio">$50.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Mojito" data-en="Mojito">Mojito</h4>
+        <p data-es="hierbabuena, limón, sirope simple y soda Bretaña."
+           data-en="Mint, lime, simple syrup, and Bretaña soda.">
+           hierbabuena, limón, sirope simple y soda Bretaña.
+        </p>
+        <p data-es="Variantes de ron:" data-en="Rum variants:">Variantes de ron:</p>
+        <p data-es="Ron Viejo de Caldas" data-en="Ron Viejo de Caldas">Ron Viejo de Caldas <span class="precio">$38.000</span> </p>
+        <p data-es="La Hechicera" data-en="La Hechicera">La Hechicera <span class="precio">$45.000</span> </p>
+        <p data-es="Zacapa 23 años" data-en="Zacapa 23">Zacapa 23 años <span class="precio">$50.000</span> </p>
+      </div>
+    </div>
+
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Caricia Añeja" data-en="Aged Caress">Caricia Añeja</h4>
+        <p data-es="Whisky Buchanan's 12, licor de naranja, zumo de naranja y bitter."
+           data-en="Buchanan's 12 Whisky, orange liqueur, orange juice, and bitters.">
+           Whisky Buchanan's 12, licor de naranja, zumo de naranja y bitter.
+        </p>
+        <span class="precio">$37.000</span>
+      </div>
+    </div>
+
+    <div class="subcategoria-carta">
+      <div class="item-carta titulo-subcategoria" data-es="Refrescantes" data-en="Refreshing">Refrescantes</div>
+      <p class="descripcion-subcategoria" data-es="Tragos largos o cortos, con menor porcentaje de alcohol, donde priman las notas herbáceas, vegetales, frutales y/o burbujeantes de la mezcla."
+         data-en="Long or short drinks, with lower alcohol content, highlighting herbal, vegetal, fruity, and/or bubbly notes in the blend.">
+        Tragos largos o cortos, con menor porcentaje de alcohol, donde priman las notas herbáceas,
+        vegetales, frutales y/o burbujeantes de la mezcla.
+      </p>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Mojito Clásico" data-en="Classic Mojito">Mojito Clásico</h4>
+        <p data-es="Ron blanco, hierbabuena, limón, azúcar y soda."
+           data-en="White rum, mint, lime, sugar, and soda.">
+           Ron blanco, hierbabuena, limón, azúcar y soda.
+        </p>
+        <span class="precio">$30.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Caipiroska" data-en="Caipiroska">Caipiroska</h4>
+        <p data-es="Vodka, limón, azúcar y hielo picado."
+           data-en="Vodka, lime, sugar, and crushed ice.">
+           Vodka, limón, azúcar y hielo picado.
+        </p>
+        <span class="precio">$30.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Negroni" data-en="Negroni">Negroni</h4>
+        <p data-es="Gin, vermouth rojo y Campari."
+           data-en="Gin, red vermouth, and Campari.">
+           Gin, vermouth rojo y Campari.
+        </p>
+        <span class="precio">$32.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Aperol Spritz" data-en="Aperol Spritz">Aperol Spritz</h4>
+        <p data-es="Aperol, prosecco y soda."
+           data-en="Aperol, prosecco, and soda.">
+           Aperol, prosecco y soda.
+        </p>
+        <span class="precio">$32.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Campari Spritz" data-en="Campari Spritz">Campari Spritz</h4>
+        <p data-es="Campari, soda Bretaña y proseco."
+           data-en="Campari, Bretaña soda, and prosecco.">
+           Campari, soda Bretaña y proseco.
+        </p>
+        <span class="precio">$40.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="French 75" data-en="French 75">French 75</h4>
+        <p data-es="Gin Tanqueray, sirope simple, zumo de limón, elevado con prosecco."
+           data-en="Tanqueray gin, simple syrup, lemon juice, topped with prosecco.">
+           Gin Tanqueray, sirope simple, zumo de limón, elevado con prosecco.
+        </p>
+        <span class="precio">$40.000</span>
+      </div>
+    </div>
+
+   <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Mimosa" data-en="Mimosa">Mimosa</h4>
+        <p data-es="Zumo de naranja, soda Bretaña, elevado con vino espumoso."
+           data-en="Orange juice, Bretaña soda, topped with sparkling wine.">
+           Zumo de naranja, soda Bretaña, elevado con vino espumoso.
+        </p>
+        <span class="precio">$35.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Caipiriña" data-en="Caipirinha">Caipiriña</h4>
+        <p data-es="Cachaza Jamel, cascos de limón y sirope simple. Puedes escoger de Maracuyá o Frutos rojos."
+           data-en="Jamel cachaça, lime wedges, and simple syrup. Available in Passion Fruit or Red Berries.">
+           Cachaza Jamel, cascos de limón y sirope simple. Puedes escoger de Maracuyá o Frutos rojos.
+        </p>
+        <span class="precio">$40.000</span>
+      </div>
+    </div>
+
+    <div class="subcategoria-carta">
+      <div class="item-carta titulo-subcategoria" data-es="Tipo Aperitivo" data-en="Aperitif Style">Tipo Aperitivo</div>
+      <p class="descripcion-subcategoria" data-es="Tragos largos o cortos, con mayor porcentaje de alcohol, dónde priman las notas cítricas, vegetales, astringentes propias de los destilados y/o licores utilizados en la mezcla."
+         data-en="Long or short drinks with higher alcohol content, highlighting citrus, vegetal, and astringent notes from the spirits and/or liqueurs used in the mix.">
+        Tragos largos o cortos, con mayor porcentaje de
+        alcohol, dónde priman las notas cítricas,
+        vegetales, astringentes propias de los
+        destilados y/o licores utilizados en la mezcla.
+      </p>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Sangría" data-en="Sangria">Sangría</h4>
+        <p data-es="Vino tinto de la casa, brandy Cinco Estrellas, Ron Viejo de Caldas Tradicional, sirope simple y mix de frutas."
+           data-en="House red wine, Cinco Estrellas brandy, Ron Viejo de Caldas Tradicional, simple syrup, and fruit mix.">
+           Vino tinto de la casa, brandy Cinco Estrellas, Ron Viejo de Caldas Tradicional, sirope simple y mix de frutas.
+        </p>
+        <p data-es="Copa" data-en="Glass">Copa <span class="precio">$30.000</span> </p>
+        <p data-es="Media Jarra" data-en="Half Pitcher">Media Jarra <span class="precio">$68.000</span> </p>
+        <p data-es="Jarra" data-en="Pitcher">Jarra <span class="precio">$120.000</span> </p>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Samba" data-en="Samba">Samba</h4>
+        <p data-es="Vino blanco de la casa, brandy Cinco Estrellas, cachaza Jamel, sirope simple y mix de frutas."
+           data-en="House white wine, Cinco Estrellas brandy, Jamel cachaça, simple syrup, and fruit mix.">
+           Vino blanco de la casa, brandy Cinco Estrellas, cachaza Jamel, sirope simple y mix de frutas.
+        </p>
+        <p data-es="Copa" data-en="Glass">Copa <span class="precio">$38.000</span> </p>
+        <p data-es="Media Jarra" data-en="Half Pitcher">Media Jarra <span class="precio">$60.000</span> </p>
+        <p data-es="Jarra" data-en="Pitcher">Jarra <span class="precio">$120.000</span> </p>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Negroni Family" data-en="Negroni Family">Negroni Family</h4>
+        <p data-es="Vermouth rosso, Campari y el destilado de su elección."
+           data-en="Rosso vermouth, Campari, and your choice of spirit.">
+           Vermouth rosso, Campari y el destilado de su elección.
+        </p>
+        <p data-es="Negroni Clásico" data-en="Classic Negroni">Negroni Clásico <span class="precio">$52.000</span> </p>
+        <p data-es="Mezcal Negroni" data-en="Mezcal Negroni">Mezcal Negroni  <span class="precio">$50.000</span> </p>
+        <p data-es="White Negroni" data-en="White Negroni">White Negroni   <span class="precio">$45.000</span> </p>
+      </div>
+    </div>
+
+
+     <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Vodka Martini" data-en="Vodka Martini">Vodka Martini</h4>
+        <p data-es="Vermouth extra seco Cinzano y vodka de su elección."
+           data-en="Cinzano extra dry vermouth and vodka of your choice.">
+           Vermouth extra seco Cinzano y vodka de su elección.
+        </p>
+        <p data-es="Absolut" data-en="Absolut">Absolut <span class="precio">$40.000</span> </p>
+        <p data-es="Lemon Drop" data-en="Lemon Drop">Lemon Drop <span class="precio">$4.000</span> </p>
+        <p data-es="Grey Goose" data-en="Grey Goose">Grey Goose <span class="precio">$50.000</span> </p>
+      </div>
+    </div>
+
+    <div class="subcategoria-carta">
+      <div class="item-carta titulo-subcategoria" data-es="Tipo Digestivo" data-en="Digestif Type">Tipo Digestivo</div>
+      <p class="descripcion-subcategoria" data-es="Tragos largos o cortos, con mayor procentaje de alcohol, donde priman las notas de frutos secos, dulces, normalmente de textura cremosa o sedosa."
+         data-en="Long or short drinks, with higher alcohol content, highlighting notes of dried fruits, sweetness, and typically a creamy or silky texture.">
+        Tragos largos o cortos, con mayor procentaje de alcohol, donde priman las notas de frutos secos, dulces, normalmente de textura cremosa o sedosa.
+      </p>
+    </div>
+
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Sour Family" data-en="Sour Family">Sour Family</h4>
+        <p data-es="Clara de huevo, zumo de limón, sirope simple y el destilado de su elección."
+           data-en="Egg white, lemon juice, simple syrup, and spirit of your choice.">
+           Clara de huevo, zumo de limón, sirope simple y el destilado de su elección.
+        </p>
+        <p data-es="Whisky Sour" data-en="Whisky Sour">Whisky Sour <span class="precio">$40.000</span> </p>
+        <p data-es="Pisco Sour" data-en="Pisco Sour">Pisco Sour <span class="precio">$38.000</span> </p>
+        <p data-es="Amaretto Sour" data-en="Amaretto Sour">Amaretto Sour <span class="precio">$38.000</span> </p>
+        <p data-es="Tequila Sour" data-en="Tequila Sour">Tequila Sour <span class="precio">$38.000</span> </p>
+        <p data-es="Vodka Sour" data-en="Vodka Sour">Vodka Sour <span class="precio">$35.000</span> </p>
+        <p data-es="New York Sour" data-en="New York Sour">New York Sour <span class="precio">$43.000</span> </p>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Black Russian" data-en="Black Russian">Black Russian</h4>
+        <p data-es="Absolut Vodka y licor de café."
+           data-en="Absolut Vodka and coffee liqueur.">
+           Absolut Vodka y licor de café.
+        </p>
+        <span class="precio">$37.000</span>
+      </div>
+    </div>
+
+<div class="item-carta">
+      <div class="info">
+        <h4 data-es="White Russian" data-en="White Russian">White Russian</h4>
+        <p data-es="Absolut Vodka, licor de café y crema de leche."
+           data-en="Absolut Vodka, coffee liqueur, and cream.">
+           Absolut Vodka, licor de café y crema de leche.
+        </p>
+        <span class="precio">$38.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Orgasmo Múltiple" data-en="Multiple Orgasm">Orgasmo Múltiple</h4>
+        <p data-es="Absolut Vodka, amaretto Disaronno, crema de whisky Baileys y licor de café."
+           data-en="Absolut Vodka, Disaronno amaretto, Baileys Irish cream, and coffee liqueur.">
+           Absolut Vodka, amaretto Disaronno, crema de whisky Baileys y licor de café.
+        </p>
+        <span class="precio">$48.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="El Padrino" data-en="The Godfather">El Padrino</h4>
+        <p data-es="Whisky Old Parr 12 años y amaretto Disoronno."
+           data-en="Old Parr 12-year whisky and Disaronno amaretto.">
+           Whisky Old Parr 12 años y amaretto Disoronno.
+        </p>
+        <span class="precio">$50.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="La Madrina" data-en="The Godmother">La Madrina</h4>
+        <p data-es="Absolut vodka y amaretto Disoronno."
+           data-en="Absolut vodka and Disaronno amaretto.">
+           Absolut vodka y amaretto Disoronno.
+        </p>
+        <span class="precio">$50.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Piña Colada" data-en="Piña Colada">Piña Colada</h4>
+        <p data-es="Piña fesca, crema de leche, sirope simple, leche de coco y ron de elección:"
+           data-en="Fresh pineapple, cream, simple syrup, coconut milk, and your choice of rum:">
+           Piña fesca, crema de leche, sirope simple, leche de coco y ron de elección:
+        </p>
+        <p data-es="Tradicional" data-en="Traditional"> Tradicional <span class="precio">$40.000</span> </p>
+        <p data-es="La Hechicera" data-en="La Hechicera"> La Hechicera <span class="precio">$55.000</span> </p>
+        <p data-es="Zacapa 23 años" data-en="Zacapa 23 years"> Zacapa 23 años <span class="precio">$58.000</span> </p>
+      </div>
+    </div>
+
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
+    </div>
+  </div>
+</section>
+
+    
+
 
 <!-- POSTRES -->
 
 <section class="categoria-carta" id="postres">
   <div class="tarjeta-oscura">
-      <h3>Postres</h3>
+      <h3 data-es="Postres" data-en="Desserts">Postres</h3>
       
       <div class="item-carta">
         <div class="info">
-          <h4>Bola de Helado</h4>
+          <h4 data-es="Bola de Helado" data-en="Scoop of Ice Cream">Bola de Helado</h4>
           <span class="precio">$10.000</span>
         </div>
       </div>
 
       <div class="item-carta">
         <div class="info">
-          <h4>Dos Bolas de Helado</h4>
+          <h4 data-es="Dos Bolas de Helado" data-en="Two Scoops of Ice Cream">Dos Bolas de Helado</h4>
           <span class="precio">$18.000</span>
         </div>
       </div>
       
       <div class="item-carta">
         <div class="info">
-          <h4>Flan de Caramelo</h4>
+          <h4 data-es="Flan de Caramelo" data-en="Caramel Flan">Flan de Caramelo</h4>
           <span class="precio">$18.000</span>
         </div>
       </div>
 
       <div class="item-carta">
         <div class="info">
-          <h4>Esponjado de Maracuyá</h4>
+          <h4 data-es="Esponjado de Maracuyá" data-en="Passion Fruit Mousse">Esponjado de Maracuyá</h4>
           <span class="precio">$17.000</span>
         </div>
       </div>
 
       <div class="item-carta">
         <div class="info">
-          <h4>Postre de Natas</h4>
+          <h4 data-es="Postre de Natas" data-en="Milk Cream Dessert">Postre de Natas</h4>
           <span class="precio">$16.500</span>
         </div>
       </div>
 
       <div class="item-carta">
         <div class="info">
-          <h4>Brownie con Helado</h4>
+          <h4 data-es="Brownie con Helado" data-en="Brownie with Ice Cream">Brownie con Helado</h4>
           <span class="precio">$21.000</span>
         </div>
       </div>
 
       <div class="volver-inicio"> 
-        <a href="#">Volver al inicio</a>
+        <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
       </div>
     </div>
-
 </section>
 
 <!-- VINOS -->
 
 <section class="categoria-carta" id="vinos">
-    <div class="tarjeta-oscura">
-  <h3>Vinos</h3>
+  <div class="tarjeta-oscura">
+    <h3 data-es="Vinos" data-en="Wines">Vinos</h3>
 
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Picolo tinto o blanco" data-en="Piccolo red or white">Picolo tinto o blanco</h4>
+        <span class="precio">30.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Picolo espumoso" data-en="Piccolo sparkling">Picolo espumoso</h4>
+        <span class="precio">45.000</span>
+      </div>
+    </div>
+
+    <div class="item-carta">
+      <div class="info">
+        <h4 data-es="Media vino tinto o blanco" data-en="Half bottle red or white wine">Media vino tinto o blanco</h4>
+        <span class="precio">30.000</span>
+      </div>
+    </div>
+
+    <div class="subcategoria-carta">
+      <div class="item-carta titulo-subcategoria" data-es="ARGENTINA" data-en="ARGENTINA">ARGENTINA</div>
+
+      <h4 data-es="BODEGAS Y VIÑEDOS PEÑAFLOR" data-en="BODEGAS Y VIÑEDOS PEÑAFLOR">BODEGAS Y VIÑEDOS PEÑAFLOR</h4>
       <div class="item-carta">
         <div class="info">
-          <h4>Picolo tinto o blanco</h4>
-          <span class="precio">30.000</span>
+          <p data-es="Finca La Escondida" data-en="Finca La Escondida">Finca La Escondida <span class="precio">$110.000</span></p>
+          <p data-es="Finca La Escondida / Torrentes blanco" data-en="Finca La Escondida / Torrontés white">Finca La Escondida / Torrentes blanco <span class="precio">$110.000</span></p>
+          <p data-es="Finca La Escondida Reserva" data-en="Finca La Escondida Reserva">Finca La Escondida Reserva <span class="precio">$145.000</span></p>
+          <p data-es="Finca La Escondida Gran Reserva" data-en="Finca La Escondida Gran Reserva">Finca La Escondida Gran Reserva <span class="precio">$155.000</span></p>
         </div>
       </div>
 
+      <h4 data-es="BODEGA CASA VIGIL" data-en="BODEGA CASA VIGIL">BODEGA CASA VIGIL</h4>
       <div class="item-carta">
         <div class="info">
-          <h4>Picolo espumoso</h4>
-          <span class="precio">45.000</span>
+          <p data-es="El Enemigo Cabernet Franc" data-en="El Enemigo Cabernet Franc">El Enemigo Cabernet Franc <span class="precio">$250.000</span></p>
         </div>
       </div>
 
+      <h4 data-es="BODEGA CATENA ZAPATA" data-en="BODEGA CATENA ZAPATA">BODEGA CATENA ZAPATA</h4>
       <div class="item-carta">
         <div class="info">
-          <h4>Media vino tinto o blanco</h4>
-          <span class="precio">30.000</span>
+          <p data-es="Catena Malbec" data-en="Catena Malbec">Catena Malbec <span class="precio">$210.000</span></p>
+          <p data-es="Angelica Zapata Alta Malbec" data-en="Angelica Zapata Alta Malbec">Angelica Zapata Alta Malbec <span class="precio">$360.000</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="subcategoria-carta">
+      <div class="item-carta titulo-subcategoria" data-es="CHILE" data-en="CHILE">CHILE</div>
+
+      <h4 data-es="VIÑA INDOMITA" data-en="VIÑA INDOMITA">VIÑA INDOMITA</h4>
+      <div class="item-carta">
+        <div class="info">
+          <p data-es="Zardoz Cabernet Sauvingnon" data-en="Zardoz Cabernet Sauvignon">Zardoz Cabernet Sauvingnon <span class="precio">$250.000</span></p>
         </div>
       </div>
 
-  <div class="subcategoria-carta">
-    <div class="item-carta titulo-subcategoria">ARGENTINA</div>
-    
-    <h4>BODEGAS Y VIÑEDOS PEÑAFLOR</h4>
-    <div class="item-carta">
-      <div class="info">
-        <p>Finca La Escondida <span class="precio">$110.000</span> </p>
-        <p>Finca La Escondida / Torrentes blanco <span class="precio">$110.000</span> </p>
-        <p>Finca La Escondida Reserva <span class="precio">$145.000</span> </p>
-        <p>Finca La Escondida Gran Reserva <span class="precio">$155.000</span> </p>
+      <h4 data-es="BODEGA LAPOSTOLLE" data-en="BODEGA LAPOSTOLLE">BODEGA LAPOSTOLLE</h4>
+      <div class="item-carta">
+        <div class="info">
+          <p data-es="Gran Selección Carmenere" data-en="Gran Selección Carmenere">Gran Selección Carmenere <span class="precio">$155.000</span></p>
+          <p data-es="Gran Selección Cabernet Sauvingnon" data-en="Gran Selección Cabernet Sauvignon">Gran Selección Cabernet Sauvingnon <span class="precio">$155.000</span></p>
+          <p data-es="Gran Selección Sauvingnon Blanc" data-en="Gran Selección Sauvignon Blanc">Gran Selección Sauvingnon Blanc <span class="precio">$140.000</span></p>
+        </div>
       </div>
     </div>
 
-    <h4>BODEGA CASA VIGIL</h4>
-    <div class="item-carta">
-      <div class="info">
-        <p>El Enemigo Cabernet Franc <span class="precio">$250.000</span> </p>
-       </div>
-    </div>
+    <div class="subcategoria-carta">
+      <div class="item-carta titulo-subcategoria" data-es="FRANCIA" data-en="FRANCE">FRANCIA</div>
 
-    <h4>BODEGA CATENA ZAPATA </h4>
-    <div class="item-carta">
-      <div class="info">
-        <p> Catena Malbec <span class="precio">$210.000</span> </p>
-        <p> Angelica Zapata Alta Malbec <span class="precio">$360.000</span> </p>
-       </div>
-    </div>
-
-  </div>
-
-  <div class="subcategoria-carta">
-    <div class="item-carta titulo-subcategoria">CHILE</div>
-
-    <h4>VIÑA INDOMITA </h4>
-    <div class="item-carta">
-      <div class="info">
-        <p> Zardoz Cabernet Sauvingnon <span class="precio">$250.000</span> </p>
-
-       </div>
-    </div>
-
-    <h4>BODEGA LAPOSTOLLE </h4>
-    <div class="item-carta">
-      <div class="info">
-        <p> Gran Selección Carmenere <span class="precio">$155.000</span> </p>
-        <p> Gran Selección Cabernet Sauvingnon <span class="precio">$155.000</span> </p>
-        <p> Gran Selección Sauvingnon Blanc <span class="precio">$140.000</span>
+      <h4 data-es="THE MAISON LAURENT PERRIER" data-en="THE MAISON LAURENT PERRIER">THE MAISON LAURENT PERRIER</h4>
+      <div class="item-carta">
+        <div class="info">
+          <p data-es="Laurent - Perrier Rosé" data-en="Laurent - Perrier Rosé">Laurent - Perrier Rosé <span class="precio">$600.000</span></p>
+        </div>
       </div>
     </div>
-  
-  </div>
 
+    <div class="subcategoria-carta">
+      <div class="item-carta titulo-subcategoria" data-es="ESPAÑA" data-en="SPAIN">ESPAÑA</div>
 
-  <div class="subcategoria-carta">
-    <div class="item-carta titulo-subcategoria">FRANCIA</div>
+      <h4 data-es="BODEGA HEREDEROS DEL MARQUÉS DE RISCAL" data-en="BODEGA HEREDEROS DEL MARQUÉS DE RISCAL">BODEGA HEREDEROS DEL MARQUÉS DE RISCAL</h4>
+      <div class="item-carta">
+        <div class="info">
+          <p data-es="Marqués de Riscal Reserva" data-en="Marqués de Riscal Reserva">Marqués de Riscal Reserva <span class="precio">$250.000</span></p>
+          <p data-es="Marqués de Riscal Verdejo" data-en="Marqués de Riscal Verdejo">Marqués de Riscal Verdejo <span class="precio">$150.000</span></p>
+          <p data-es="Marqués de Riscal Rosado" data-en="Marqués de Riscal Rosé">Marqués de Riscal Rosado <span class="precio">$150.000</span></p>
+        </div>
+      </div>
 
-    <h4>THE MAISON LAURENT PERRIER</h4>
-    <div class="item-carta">
-      <div class="info">
-        <p> Laurent - Perrier Rosé <span class="precio">$600.000</span> </p>
-
-       </div>
+      <h4 data-es="ESPUMOSOS" data-en="SPARKLING WINES">ESPUMOSOS</h4>
+      <div class="item-carta">
+        <div class="info">
+          <p data-es="Codorniu Clásica" data-en="Codorniu Clásica">Codorniu Clásica <span class="precio">$150.000</span></p>
+          <p data-es="Codorniu Rosé" data-en="Codorniu Rosé">Codorniu Rosé <span class="precio">$150.000</span></p>
+        </div>
+      </div>
     </div>
 
-  </div>  
-
-  <div class="subcategoria-carta">
-    <div class="item-carta titulo-subcategoria">ESPAÑA</div>
-
-    <h4>BODEGA HEREDEROS DEL MARQUÉS DE RISCAL</h4>
-    <div class="item-carta">
-      <div class="info">
-        <p> Marqués de Riscal Reserva <span class="precio">$250.000</span> </p>
-        <p> Marqués de Riscal Verdejo <span class="precio">$150.000</span> </p>
-        <p> Marqués de Riscal Rosado  <span class="precio">$150.000</span> </p>
-       </div>
-    </div>
-
-    <h4>ESPUMOSOS</h4>
-    <div class="item-carta">
-      <div class="info">
-        <p> Codorniu Clásica <span class="precio">$150.000</span> </p>
-        <p> Codorniu Rosé <span class="precio">$150.000</span> </p>
-       </div>
-    </div>
-    
-  </div>
-
-
-    <div class="volver-inicio"> 
-      <a href="#">Volver al inicio</a>
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
     </div>
   </div>
 </section>
@@ -1440,6 +1624,7 @@ section.categoria-carta::before {
 
 <section class="categoria-carta" id="destilados">
   <div class="tarjeta-oscura">
+    <h3 data-es="Licores y Destilados" data-en="Spirits and Liquors">Licores y Destilados</h3>
 
     <div class="encabezado-destilados-global" style="background-color: #111; border-radius: 10px; padding: 1rem 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr; align-items: center; max-width: 900px; margin: 0 auto 2rem; gap: 0.5rem; text-align: center;">
       <span class="categoria-nombre" style="color: #f5b900; font-weight: bold; font-size: 1.2rem; letter-spacing: 1px; text-transform: uppercase; text-align: left; grid-column: 1 / 2;">Licores y Destilados</span>
@@ -1486,7 +1671,7 @@ section.categoria-carta::before {
 
     <!-- CAÑA DE AZÚCAR -->
     <div class="subcategoria-destilado">
-      <div class="fila-destilado encabezado" style="justify-content: center;"><span style="font-weight: bold; color: white; text-align: center; width: 100%;">De la Caña de Azúcar</span><span></span><span></span></div>
+      <div class="fila-destilado encabezado" style="justify-content: center;"><span style="font-weight: bold; color: white; text-align: center; width: 100%;">DE LA CAÑA DE AZUCAR</span><span></span><span></span></div>
       <div class="fila-destilado"><span style="text-align: left;">Cachaza</span><span>$28.000</span><span></span></div>
       <div class="fila-destilado"><span style="text-align: left;">Aguardiente Blanco del Valle</span><span>$20.000</span><span>$110.000</span></div>
       <div class="fila-destilado"><span style="text-align: left;">Caneca Aguardiente Blanco del Valle</span><span></span><span>$55.000</span></div>
@@ -1495,7 +1680,7 @@ section.categoria-carta::before {
 
         <!-- DE LA UVA -->
     <div class="subcategoria-destilado">
-      <div class="fila-destilado encabezado" style="justify-content: center;"><span style="font-weight: bold; color: white; text-align: center; width: 100%;">DE LA UNA</span><span></span><span></span></div>
+      <div class="fila-destilado encabezado" style="justify-content: center;"><span style="font-weight: bold; color: white; text-align: center; width: 100%;">DE LA UVA</span><span></span><span></span></div>
       <div class="fila-destilado"><span style="text-align: left;">Pisco Demonio de los Andes</span><span>$35.000</span><span></span></div>
       <div class="fila-destilado"><span style="text-align: left;">Vermouth Rosso Cinzano</span><span>$20.000</span><span></span></div>
       <div class="fila-destilado"><span style="text-align: left;">Vermouth Extra Dry Cinzano</span><span>$23.000</span><span></span></div>
@@ -1515,12 +1700,21 @@ section.categoria-carta::before {
       <div class="fila-destilado"><span style="text-align: left;">Jerez Tío Pepe</span><span>$20.000</span><span></span></div>
     </div>
 
-    <div class="volver-inicio"> 
-      <a href="#">Volver al inicio</a>
+    <div class="volver-inicio">
+      <a href="#" data-es="Volver al inicio" data-en="Back to top">Volver al inicio</a>
     </div>
-
   </div>
 </section>
+
+
+
+<script>
+function cambiarIdioma(idioma) {
+  document.querySelectorAll('[data-es]').forEach(el => {
+    el.textContent = el.getAttribute(`data-${idioma}`);
+  });
+}
+</script>
 
 
 </body>
