@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Página principal -->
+  <url>
+    <loc>https://www.rodiziodosul.com/</loc>
+    <lastmod>2025-06-05</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/#noticias</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/#contacto</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Carta -->
+  <url>
+    <loc>https://www.rodiziodosul.com/carta.html</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/carta.html#entradas</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/carta.html#fastfood</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/carta.html#rodizio</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/carta.html#premium</loc>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/carta.html#steak</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/carta.html#salsa</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/carta.html#mariscos</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/carta.html#pollo</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/carta.html#bebidas</loc>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/carta.html#cocteles-sin-alcohol</loc>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/carta.html#cocteleria-autor</loc>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/carta.html#cocteleria-clasica</loc>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/carta.html#destilados</loc>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://www.rodiziodosul.com/carta.html#vinos</loc>
+    <priority>0.60</priority>
+  </url>
+
+</urlset>
