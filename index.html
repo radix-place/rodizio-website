@@ -17,9 +17,24 @@
     gtag('config', 'G-6KZ98JP07C');
   </script>
 
-  <meta name="description" content="Rodizio Do Sul te ofrece la mejor experiencia gastronómica en Cali con cortes premium de carne, coctelería de autor y un ambiente inigualable." />
-  <meta name="keywords" content="rodizio, carnes, restaurante, Cali, comida brasileña, cocteles, premium, buffet, espadas, parrilla" />
-  <meta name="author" content="Rodizio Do Sul" />
+
+  <meta name="theme-color" content="#000000" />
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:title" content="Do Sul Restaurante | Con el mejor rodizio de Cali" />
+  <meta property="og:description" content="Disfruta cortes premium, coctelería de autor y un ambiente único en Do Sul Restaurante, Cali." />
+  <meta property="og:image" content="https://www.rodiziodosul.com/apple-touch-icon.png" />
+  <meta property="og:url" content="https://www.rodiziodosul.com/" />
+
+  <meta property="og:site_name" content="Do Sul Restaurante" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Do Sul Restaurante | Con el mejor rodizio de Cali" />
+  <meta name="twitter:description" content="Disfruta cortes premium, coctelería de autor y un ambiente único en Cali." />
+  <meta name="twitter:image" content="https://www.rodiziodosul.com/apple-touch-icon.png" />
+
+
+  <meta name="description" content="Do Sul Restaurante te ofrece la mejor experiencia gastronómica en Cali con cortes premium de carne, coctelería de autor y un ambiente inigualable." />
+  <meta name="keywords" content="rodizio, carnes, restaurante, Cali, comida brasileña, cocteles, premium, buffet, espadas, parrilla, new york steak, steak house, vinos" />
+  <meta name="author" content="Do Sul Restaurante" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.rodiziodosul.com/" />
 
@@ -58,8 +73,8 @@
   "https://www.rodiziodosul.com/carta.html",
   "https://www.rodiziodosul.com/menu",
   "https://www.rodiziodosul.com/menus"
-]
-  "servesCuisine": ["Carnes", "Rodizio", "Pastas", "Coctelería", "Cocteles" , "cocteleria-autor" ],
+],
+  "servesCuisine": ["Carnes", "Rodizio", "Pastas", "Coctelería", "Cocteles" , "cocteleria-autor", "New York Steak" , "Steak House" ],
   "priceRange": "$$",
   "sameAs": [
     "https://www.instagram.com/dosulrestaurante/",
@@ -68,8 +83,6 @@
 }
 </script>
 </head>
-
-
 
 
 
@@ -475,12 +488,23 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("modal-reservas").style.display = "none";
   }
 
+
   function reservarPorWhatsapp() {
-    cerrarModalReservas();
-    setTimeout(() => {
-      window.open("https://wa.me/573159267529?text=Hola%2C%20quiero%20hacer%20una%20reserva%20en%20Rodizio%20Do%20Sul%20para%20hoy", "_blank");
-    }, 200);
-  }
+  cerrarModalReservas();
+
+  // Enviar evento a Google Analytics
+  gtag('event', 'click_reserva_whatsapp', {
+    'event_category': 'conversion',
+    'event_label': 'Reserva Modal WhatsApp'
+  });
+
+  // Abrir WhatsApp con leve retardo para no bloquear el evento
+  setTimeout(() => {
+    window.open("https://wa.me/573159267529?text=Hola%2C%20quiero%20hacer%20una%20reserva%20en%20Rodizio%20Do%20Sul%20para%20hoy", "_blank");
+  }, 500);
+}
+
+
 
   document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("modal-reservas");

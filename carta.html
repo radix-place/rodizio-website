@@ -389,25 +389,45 @@ section.categoria-carta::before {
 <section class="seccion-carta">
   <h2 data-es="Carta" data-en="Menu">Carta</h2>
 
-  <div class="navegacion-carta">
-    <a href="#entradas" data-es="Entradas" data-en="Appetizers">Entradas</a>
-    <a href="#fastfood" data-es="Fast Food" data-en="Fast Food">Fast Food</a>
-    <a href="#rodizio" data-es="Rodizio" data-en="Rodizio">Rodizio</a>
-    <a href="#premium" data-es="Rodizio Premium" data-en="Premium Rodizio ">Rodizio Premium</a>
-    <a href="#steak" data-es="Steak House" data-en="Steak House">Steak House</a>
-    <a href="#salsa" data-es="Carnes en Salsa" data-en="Meat in Sauce">Carnes en Salsa</a>
-    <a href="#mariscos" data-es="Pescado y Mariscos" data-en="Fish and Seafood">Pescado y Mariscos</a>
-    <a href="#pollo" data-es="Pollo, Pastas y Ensaladas" data-en="Chicken, Pasta and Salads">Pollo, Pastas y Ensaladas</a>
-    <a href="#postres" data-es="Postres" data-en="Desserts">Postres</a>
-    <a href="#bebidas" data-es="Bebidas" data-en="Drinks">Bebidas</a>
-    <a href="#bebidas-calientes" data-es="Bebidas Calientes" data-en="Hot Drinks">Bebidas Calientes</a>
-    <a href="#cervezas" data-es="Cervezas" data-en="Beers">Cervezas</a>
-    <a href="#cocteles-sin-alcohol" data-es="Cócteles sin Alcohol" data-en="Non-Alcoholic Cocktails">Cócteles sin Alcohol</a>
-    <a href="#cocteleria-autor" data-es="Coctelería de Autor" data-en="Signature Cocktails">Coctelería de Autor</a>
-    <a href="#cocteleria-clasica" data-es="Coctelería Clásica" data-en="Classic Cocktails">Coctelería Clásica</a>
-    <a href="#destilados" data-es="Licores Destilados" data-en="Distilled Spirits">Licores Destilados</a>
-    <a href="#vinos" data-es="Vinos" data-en="Wines">Vinos</a>
-  </div>
+
+<div class="navegacion-carta">
+  <a href="#entradas" data-es="Entradas" data-en="Appetizers" onclick="gtag('event', 'click_menu_entradas', { 'event_category': 'menu', 'event_label': 'Entradas' })">Entradas</a>
+
+  <a href="#fastfood" data-es="Fast Food" data-en="Fast Food" onclick="gtag('event', 'click_menu_fastfood', { 'event_category': 'menu', 'event_label': 'Fast Food' })">Fast Food</a>
+
+  <a href="#rodizio" data-es="Rodizio" data-en="Rodizio" onclick="gtag('event', 'click_menu_rodizio', { 'event_category': 'menu', 'event_label': 'Rodizio' })">Rodizio</a>
+
+  <a href="#premium" data-es="Rodizio Premium" data-en="Premium Rodizio" onclick="gtag('event', 'click_menu_premium', { 'event_category': 'menu', 'event_label': 'Rodizio Premium' })">Rodizio Premium</a>
+
+  <a href="#steak" data-es="Steak House" data-en="Steak House" onclick="gtag('event', 'click_menu_steakhouse', { 'event_category': 'menu', 'event_label': 'Steak House' })">Steak House</a>
+
+  <a href="#salsa" data-es="Carnes en Salsa" data-en="Meat in Sauce" onclick="gtag('event', 'click_menu_salsas', { 'event_category': 'menu', 'event_label': 'Carnes en Salsa' })">Carnes en Salsa</a>
+
+  <a href="#mariscos" data-es="Pescado y Mariscos" data-en="Fish and Seafood" onclick="gtag('event', 'click_menu_mariscos', { 'event_category': 'menu', 'event_label': 'Pescado y Mariscos' })">Pescado y Mariscos</a>
+
+  <a href="#pollo" data-es="Pollo, Pastas y Ensaladas" data-en="Chicken, Pasta and Salads" onclick="gtag('event', 'click_menu_pollo', { 'event_category': 'menu', 'event_label': 'Pollo, Pastas y Ensaladas' })">Pollo, Pastas y Ensaladas</a>
+
+  <a href="#postres" data-es="Postres" data-en="Desserts" onclick="gtag('event', 'click_menu_postres', { 'event_category': 'menu', 'event_label': 'Postres' })">Postres</a>
+
+  <a href="#bebidas" data-es="Bebidas" data-en="Drinks" onclick="gtag('event', 'click_menu_bebidas', { 'event_category': 'menu', 'event_label': 'Bebidas' })">Bebidas</a>
+
+  <a href="#bebidas-calientes" data-es="Bebidas Calientes" data-en="Hot Drinks" onclick="gtag('event', 'click_menu_bebidascalientes', { 'event_category': 'menu', 'event_label': 'Bebidas Calientes' })">Bebidas Calientes</a>
+
+  <a href="#cervezas" data-es="Cervezas" data-en="Beers" onclick="gtag('event', 'click_menu_cervezas', { 'event_category': 'menu', 'event_label': 'Cervezas' })">Cervezas</a>
+
+  <a href="#cocteles-sin-alcohol" data-es="Cócteles sin Alcohol" data-en="Non-Alcoholic Cocktails" onclick="gtag('event', 'click_menu_sin_alcohol', { 'event_category': 'menu', 'event_label': 'Cócteles sin Alcohol' })">Cócteles sin Alcohol</a>
+
+  <a href="#cocteleria-autor" data-es="Coctelería de Autor" data-en="Signature Cocktails" onclick="gtag('event', 'click_menu_autor', { 'event_category': 'menu', 'event_label': 'Coctelería de Autor' })">Coctelería de Autor</a>
+
+  <a href="#cocteleria-clasica" data-es="Coctelería Clásica" data-en="Classic Cocktails" onclick="gtag('event', 'click_menu_clasica', { 'event_category': 'menu', 'event_label': 'Coctelería Clásica' })">Coctelería Clásica</a>
+
+  <a href="#destilados" data-es="Licores Destilados" data-en="Distilled Spirits" onclick="gtag('event', 'click_menu_destilados', { 'event_category': 'menu', 'event_label': 'Licores Destilados' })">Licores Destilados</a>
+
+  <a href="#vinos" data-es="Vinos" data-en="Wines" onclick="gtag('event', 'click_menu_vinos', { 'event_category': 'menu', 'event_label': 'Vinos' })">Vinos</a>
+</div>
+
+
+
 </section>
 
 <div class="boton-regreso">
