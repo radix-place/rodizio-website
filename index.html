@@ -160,6 +160,10 @@
   </div>
 </div>
 
+<div id="modal-dia-padre" style="display: none; text-align: center;">
+  <img src="imagenes/PUBLI_padre.webp" alt="Día del Padre" style="width: 100%; max-width: 600px; border-radius: 12px; box-shadow: 0 0 20px rgba(0,0,0,0.4); margin: auto;">
+</div>
+
 
     <!-- MENSAJE CAMBIANTE -->
     <div id="mensaje-promocional"></div>
@@ -179,118 +183,118 @@
 <!-- SCRIPT MODAL -->
 
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const apiKey = "aff3683756ae45c8869132830250106";
-  const ciudad = "Cali";
-  const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${ciudad}&lang=es`;
 
+
+<!-- SCRIPT MODAL PROMOCIÓN / CLIMA -->
+
+<script>
+const hoy = new Date();
+const esJunio = hoy.getMonth() === 5; // Junio
+const dia = hoy.getDate();
+const modoEspecialDiaDelPadre = esJunio && dia >= 7 && dia <= 16; // 14-16 junio
+
+document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("modal-promocion");
   const cerrar = document.getElementById("cerrar-modal");
 
   const mensaje = document.getElementById("mensaje-promocional");
   const promo = document.getElementById("promo-hamburguesa");
   const clima = document.getElementById("clima-info");
+  const padre = document.getElementById("modal-dia-padre");
 
-  const tempActual = document.getElementById("temp-actual");
-  const descripcion = document.getElementById("descripcion-clima");
-  const sensacion = document.getElementById("sensacion-termica");
-  sensacion.style.display = "none";
+  if (modoEspecialDiaDelPadre) {
+    padre.style.display = "block";
+    clima.style.display = "none";
+    promo.style.display = "none";
+    modal.style.display = "flex";
+  } else {
+    padre.style.display = "none";
 
+    const apiKey = "aff3683756ae45c8869132830250106";
+    const ciudad = "Cali";
+    const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${ciudad}&lang=es`;
 
+    const tempActual = document.getElementById("temp-actual");
+    const descripcion = document.getElementById("descripcion-clima");
+    const sensacion = document.getElementById("sensacion-termica");
+    sensacion.style.display = "none";
 
-  const platos = [
-    { imagen: "imagenes/platos/LANGOSTA.webp", descripcion: "Nuestra deliciosa Langosta" },
-    { imagen: "imagenes/platos/langostinos_do_sul.webp", descripcion: "Nuestros Langostinos Do Sul" },
-    { imagen: "imagenes/platos/picada.webp", descripcion: "¡Una deliciosa picada!" },
-    { imagen: "imagenes/platos/seviche_pulpo.webp", descripcion: "Un seviche de pulpo" },
-    { imagen: "imagenes/platos/lang_ajillo.webp", descripcion: "Unos langostinos al ajillo." },
-    { imagen: "imagenes/platos/lomo_trufa.webp", descripcion: "Nuestro espectacular Lomo en Salsa de Trufa" },
-    { imagen: "imagenes/platos/H_JACK_R.webp", descripcion: "Una hamburguesa Jack Daniels doble" }
-  ];
+    const platos = [
+      { imagen: "imagenes/platos/LANGOSTA.webp", descripcion: "Nuestra deliciosa Langosta" },
+      { imagen: "imagenes/platos/langostinos_do_sul.webp", descripcion: "Nuestros Langostinos Do Sul" },
+      { imagen: "imagenes/platos/picada.webp", descripcion: "¡Una deliciosa picada!" },
+      { imagen: "imagenes/platos/seviche_pulpo.webp", descripcion: "Un seviche de pulpo" },
+      { imagen: "imagenes/platos/lang_ajillo.webp", descripcion: "Unos langostinos al ajillo." },
+      { imagen: "imagenes/platos/lomo_trufa.webp", descripcion: "Nuestro espectacular Lomo en Salsa de Trufa" },
+      { imagen: "imagenes/platos/H_JACK_R.webp", descripcion: "Una hamburguesa Jack Daniels doble" }
+    ];
 
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      if (!data || !data.current || !("temp_c" in data.current)) {
-        throw new Error("Respuesta inválida de WeatherAPI");
-      }
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        if (!data || !data.current || !("temp_c" in data.current)) throw new Error("Respuesta inválida de WeatherAPI");
 
-      const temp = Math.round(data.current.temp_c);
-      const desc = data.current.condition.text;
-      const code = data.current.condition.code;
-      const hour = new Date().getHours();
-      const isNight = hour < 6 || hour >= 18;
+        const temp = Math.round(data.current.temp_c);
+        const desc = data.current.condition.text;
+        const code = data.current.condition.code;
+        const hour = new Date().getHours();
+        const isNight = hour < 6 || hour >= 18;
 
-      let fondo = "";
+        let fondo = "";
+        if ([1000].includes(code)) fondo = isNight ? "imagenes/N1.webp" : "imagenes/1.webp";
+        else if ([1003, 1006].includes(code)) fondo = isNight ? "imagenes/N2.webp" : "imagenes/2.webp";
+        else if ([1180, 1183, 1186, 1189, 1192, 1195, 1240, 1243, 1246].includes(code)) fondo = isNight ? "imagenes/N3.webp" : "imagenes/3.webp";
+        else fondo = isNight ? "imagenes/N2.webp" : "imagenes/2.webp";
 
-      if ([1000].includes(code)) {
-        fondo = isNight ? "imagenes/N1.webp" : "imagenes/1.webp";
-      } else if ([1003, 1006].includes(code)) {
-        fondo = isNight ? "imagenes/N2.webp" : "imagenes/2.webp";
-      } else if ([1180, 1183, 1186, 1189, 1192, 1195, 1240, 1243, 1246].includes(code)) {
-        fondo = isNight ? "imagenes/N3.webp" : "imagenes/3.webp";
-      } else {
-        fondo = isNight ? "imagenes/N2.webp" : "imagenes/2.webp";
-      }
+        clima.style.backgroundImage = `url('${fondo}')`;
+        tempActual.textContent = `${temp}°C`;
+        descripcion.textContent = desc;
 
-      clima.style.backgroundImage = `url('${fondo}')`;
+        let mensaje1 = "";
+        if (temp > 28) mensaje1 = "¡Hace calor!, ¿por qué no te tomas una Sangría Espumosa?";
+        else if (temp < 21) mensaje1 = "¡Hace un poco de frío! ¿Qué tal si pruebas uno de nuestros tragos para entrar en calor?";
+        else mensaje1 = "Hoy el clima está ideal para un jugoso corte de carne y un buen vino.";
 
-      tempActual.textContent = `${temp}°C`;
-      descripcion.textContent = desc;
+        mensaje.innerHTML = `<strong style="font-size: 1.4rem;">${mensaje1}</strong>`;
 
-      let mensaje1 = "";
+        clima.style.display = "flex";
+        mensaje.style.display = "block";
+        promo.style.display = "none";
+        modal.style.display = "flex";
 
-      if (temp > 28) {
-        mensaje1 = "¡Hace calor!, ¿por qué no te tomas una Sangría Espumosa?";
-      } else if (temp < 21) {
-        mensaje1 = "¡Hace un poco de frío! ¿Qué tal si pruebas uno de nuestros tragos para entrar en calor?";
-      } else {
-        mensaje1 = "Hoy el clima está ideal para un jugoso corte de carne y un buen vino.";
-      }
-
-      mensaje.innerHTML = `<strong style="font-size: 1.4rem;">${mensaje1}</strong>`;
-
-      clima.style.display = "flex";
-      mensaje.style.display = "block";
-      promo.style.display = "none";
-      modal.style.display = "flex";
-
-      setTimeout(() => {
-        clima.style.display = "none";
-        mensaje.style.display = "none";
-
+        setTimeout(() => {
+          clima.style.display = "none";
+          mensaje.style.display = "none";
+          const plato = platos[Math.floor(Math.random() * platos.length)];
+          document.getElementById("imagen-plato").src = plato.imagen;
+          document.getElementById("descripcion-plato").innerHTML = `
+            <div style="font-weight:bold; font-size:1.2rem; margin-bottom: 0.5rem;">👨‍🍳 El chef te sugiere...</div>
+            ${plato.descripcion}
+          `;
+          promo.style.display = "block";
+        }, 4000);
+      })
+      .catch(error => {
+        console.error("Error al obtener clima. Mostrando hamburguesa aleatoria:", error);
         const plato = platos[Math.floor(Math.random() * platos.length)];
         document.getElementById("imagen-plato").src = plato.imagen;
         document.getElementById("descripcion-plato").innerHTML = `
           <div style="font-weight:bold; font-size:1.2rem; margin-bottom: 0.5rem;">👨‍🍳 El chef te sugiere...</div>
           ${plato.descripcion}
         `;
-
+        clima.style.display = "none";
+        mensaje.style.display = "none";
         promo.style.display = "block";
-      }, 4000);
-    })
-    .catch(error => {
-      console.error("Error al obtener clima. Mostrando hamburguesa aleatoria:", error);
-
-      const plato = platos[Math.floor(Math.random() * platos.length)];
-      document.getElementById("imagen-plato").src = plato.imagen;
-      document.getElementById("descripcion-plato").innerHTML = `
-        <div style="font-weight:bold; font-size:1.2rem; margin-bottom: 0.5rem;">👨‍🍳 El chef te sugiere...</div>
-        ${plato.descripcion}
-      `;
-
-      clima.style.display = "none";
-      mensaje.style.display = "none";
-      promo.style.display = "block";
-      modal.style.display = "flex";
-    });
+        modal.style.display = "flex";
+      });
+  }
 
   cerrar.addEventListener("click", () => {
     modal.style.display = "none";
   });
 });
 </script>
+
 
 
 <!-- GALERÍA Y FRASE  -->
