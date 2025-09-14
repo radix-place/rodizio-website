@@ -593,3 +593,108 @@ body {
     padding: 1rem;
   }
 }
+
+/* --- Modal base (si no lo tienes ya) --- */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none; /* el JS lo pone en flex */
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.6);
+  z-index: 3500;
+}
+.modal-content {
+  position: relative;
+  width: min(92vw, 520px);
+  background: #fff;
+  color: #111;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.35);
+}
+.close {
+  position: absolute;
+  top: 10px; right: 14px;
+  font-size: 28px; line-height: 1; cursor: pointer;
+  color: #666; background: none; border: 0;
+}
+.close:hover { color: #000; }
+
+/* --- Botón flotante fijo --- */
+.boton-flotante {
+  position: fixed;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  right: max(16px, env(safe-area-inset-right));
+  z-index: 4000;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .65rem 1rem;
+  font-weight: 700;
+  font-size: .95rem;
+  color: #111;
+  background: rgba(212,175,55,.93); /* dorado */
+  border: 2px solid rgba(255,255,255,.85);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25), inset 0 0 0 1px rgba(0,0,0,.05);
+  backdrop-filter: blur(6px);
+}
+.boton-flotante:hover { filter: brightness(1.03); transform: translateY(-1px); }
+@media (max-width: 480px){
+  .boton-flotante { font-size: .9rem; padding: .6rem .9rem; }
+}
+
+/* ——— Modal del CHEF (más pequeño y limpio) ——— */
+#modal-promocion .modal-content{
+  width: min(90vw, 380px);   /* móvil: 90vw; desktop: máx 380px */
+  padding: 16px;
+  border-radius: 14px;
+}
+
+@media (min-width: 768px){
+  #modal-promocion .modal-content{
+    width: min(85vw, 420px); /* un pelín más ancho en desktop grande */
+  }
+}
+
+/* Imagen: que no crezca demasiado en alto */
+#modal-promocion #imagen-plato{
+  display: block;
+  width: 100%;
+  height: auto;              /* mantiene proporción */
+  max-height: 40vh;          /* limita altura en pantallas bajas */
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  object-fit: cover;         /* por si en algún momento fijas una altura */
+}
+
+/* Texto un poquito más compacto */
+#modal-promocion #descripcion-plato{
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+/* Botón cerrar un poco más discreto en este modal */
+#modal-promocion .close{
+  font-size: 24px;
+  top: 8px;
+  right: 10px;
+  color: #555;
+}
+#modal-promocion .close:hover{ color:#000; }
+
+
+
+/* Reutiliza la misma estética de tus otros modales */
+#modal-rodizio.modal{
+  position: fixed; inset: 0; display:none; align-items:center; justify-content:center;
+  background: rgba(0,0,0,.6); z-index: 1000;
+}
+#modal-rodizio .modal-content{
+  background:#000; color:#fff; border-radius:12px; padding:12px; width:min(92vw,560px);
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+}
+#rodizio-close{
+  all:unset; cursor:pointer; font-size:1.8rem; line-height:1; float:right; margin-bottom:6px;
+}
