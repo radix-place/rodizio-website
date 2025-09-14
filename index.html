@@ -198,7 +198,6 @@
 
 
 <!-- SCRIPTS EXTERNOS -->
-<script src="js/chef-modal.js" defer></script>
 <script src="js/reservas.js" defer></script>
 <script src="js/frases.js" defer></script>
 
@@ -213,25 +212,16 @@
 </div>
 
 <!-- rodizio primero -->
-<script src="js/rodizio-modal.js" defer></script>
-<!-- luego chef -->
-<script src="js/chef-modal.js" defer></script>
-
+<script src="js/rodizio-anim.js" defer></script>
 <script defer>
-  // 1) abre Rodizio ni bien cargue la página
   window.addEventListener('DOMContentLoaded', () => {
     if (window.RodizioModal && typeof RodizioModal.open === 'function') {
       RodizioModal.open();
     }
   });
+</script>
 
-  // 2) cuando el usuario cierre Rodizio, abre el chef
-  window.addEventListener('rodizio:closed', () => {
-    if (window.ChefModal && typeof ChefModal.open === 'function') {
-      // pequeño respiro visual opcional
-      setTimeout(() => ChefModal.open(), 150);
-    }
-  });
+
 </script>
 
 
