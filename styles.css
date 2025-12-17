@@ -90,10 +90,6 @@ body {
   z-index: 2;
 }
 
-
-
-
-
 /* ========== BOTONES ==========
 */
 .btn {
@@ -730,11 +726,21 @@ body {
 
 .close{
   position: absolute;
-  top: 6px;
+  top: 8px;
   right: 10px;
-  font-size: 28px;
-  background: none;
-  border: none;
-  color: white;
+  z-index: 99999;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1;
+  background: rgba(0,0,0,.55);
+  border: 0;
+  color: #fff;            /* ← esto hace visible la X */
+  padding: 2px 10px;
+  border-radius: 12px;
   cursor: pointer;
+  text-shadow: 0 2px 8px rgba(0,0,0,.6);
 }
+.close:hover{
+  background: rgba(0,0,0,.75);
+}
+
