@@ -197,32 +197,30 @@
 
 
 
-<!-- SCRIPTS EXTERNOS -->
-<script src="js/reservas.js" defer></script>
-<script src="js/frases.js" defer></script>
 
 
+<!-- MODAL IMAGEN INICIAL -->
 
-<!-- MODAL RODIZIO DIENTE DE LEON
-<div id="modal-rodizio" class="modal" style="display:none;" aria-hidden="true">
-  <div class="modal-content" role="dialog" aria-modal="true" aria-label="Animación Rodizio">
-    <button id="rodizio-close" class="close" aria-label="Cerrar">&times;</button>
-    <canvas id="rodizio-canvas" width="600" height="600" style="width:100%;max-width:520px;border-radius:12px;"></canvas>
+
+<div id="modal-imagen-inicial" class="modal" style="display:none;" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-label="Imagen de bienvenida">
+    <button id="cerrar-modal-imagen" class="close" aria-label="Cerrar">&times;</button>
+
+
+    <img
+      id="img-bienvenida"
+      src="imagenes/stella.png"
+      alt="Bienvenida Do Sul"
+      style="width:100%; border-radius:12px; display:block;"
+      loading="eager"
+    />
   </div>
 </div>
 
-<script src="js/rodizio-anim.js" defer></script>
-<script defer>
-  window.addEventListener('DOMContentLoaded', () => {
-    if (window.RodizioModal && typeof RodizioModal.open === 'function') {
-      RodizioModal.open();
-    }
-  });
-</script>
--->
-
-
-
+<!-- SCRIPTS EXTERNOS -->
+<script src="js/reservas.js" defer></script>
+<script src="js/frases.js" defer></script>
+<script src="js/modal-imagen.js" defer></script>
 
 
 </body>
