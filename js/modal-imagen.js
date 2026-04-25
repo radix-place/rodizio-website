@@ -9,7 +9,7 @@ const MODALES = [
   {
     src: "imagenes/dia_madre.jpg",
     alt: "Día de la Madre Do Sul",
-    duracion: 3
+    duracion: 4
   },
   {
     src: "imagenes/happy_hour.jpg",
