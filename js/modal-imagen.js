@@ -7,11 +7,6 @@ const ABRIR_INMEDIATO = true;
 // CONFIGURACIÓN (aquí controlas todo)
 const MODALES = [
   {
-    src: "imagenes/dia_madre.jpg",
-    alt: "Día de la Madre Do Sul",
-    duracion: 4
-  },
-  {
     src: "imagenes/happy_hour.jpg",
     alt: "Happy Hour Do Sul",
     duracion: 2
