@@ -6,13 +6,17 @@ const ABRIR_INMEDIATO = true;
 
 // CONFIGURACIÓN (aquí controlas todo)
 const MODALES = [
+    {
+    src: "imagenes/dia_del_padre.jpg",
+    alt: "Día del padre Do Sul",
+    duracion: 2.5
+  },
   {
     src: "imagenes/happy_hour.jpg",
     alt: "Happy Hour Do Sul",
     duracion: 2
   }
-];
-
+]
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("modal-imagen-inicial");
   const btnClose = document.getElementById("cerrar-modal-imagen");
