@@ -1,0 +1,530 @@
+
+/* Carta Do Sul ----------------------------------------------------- */
+.menu-page {
+  background: var(--ds-ivory-light);
+  overflow-wrap: anywhere;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.nav-links a[aria-current="page"] {
+  color: var(--ds-gold-light);
+}
+
+.menu-hero {
+  position: relative;
+  display: grid;
+  min-height: 470px;
+  align-items: end;
+  padding-top: var(--ds-header-height);
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(18, 17, 15, 0.98), rgba(18, 17, 15, 0.72)),
+    radial-gradient(circle at 80% 20%, rgba(121, 81, 58, 0.42), transparent 42%),
+    var(--ds-carbon);
+  color: var(--ds-ivory);
+}
+
+.menu-hero::after {
+  position: absolute;
+  right: -8vw;
+  bottom: -20vw;
+  width: 48vw;
+  height: 48vw;
+  border: 1px solid rgba(172, 140, 26, 0.3);
+  border-radius: 50%;
+  content: "";
+}
+
+.menu-hero-content {
+  position: relative;
+  z-index: 1;
+  padding-block: 6rem 5rem;
+}
+
+.menu-hero h1 {
+  max-width: 800px;
+  margin-bottom: 1.2rem;
+}
+
+.menu-hero p:last-child {
+  max-width: 720px;
+  margin-bottom: 0;
+  color: rgba(255,255,255,.74);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+}
+
+.menu-toolbar {
+  position: sticky;
+  top: var(--ds-header-height);
+  z-index: 700;
+  border-bottom: 1px solid var(--ds-border);
+  background: rgba(250, 247, 241, 0.96);
+  backdrop-filter: blur(18px);
+}
+
+.menu-toolbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.85rem;
+}
+
+.language-switch {
+  display: inline-flex;
+  flex: 0 0 auto;
+  border: 1px solid var(--ds-border);
+}
+
+.language-button {
+  min-width: 48px;
+  min-height: 42px;
+  padding: .6rem .85rem;
+  border: 0;
+  background: transparent;
+  color: var(--ds-mineral);
+  font: 600 .75rem/1 var(--ds-font-body);
+  letter-spacing: .1em;
+  cursor: pointer;
+}
+
+.language-button + .language-button {
+  border-left: 1px solid var(--ds-border);
+}
+
+.language-button.is-active {
+  background: var(--ds-carbon);
+  color: var(--ds-gold-light);
+}
+
+.menu-search {
+  display: block;
+  width: min(100%, 420px);
+}
+
+.menu-search input {
+  width: 100%;
+  min-height: 44px;
+  padding: .72rem 1rem;
+  border: 1px solid var(--ds-border);
+  border-radius: 0;
+  outline: none;
+  background: #fff;
+  color: var(--ds-carbon);
+  font: 500 .9rem/1.3 var(--ds-font-body);
+}
+
+.menu-search input:focus {
+  border-color: var(--ds-gold);
+  box-shadow: 0 0 0 3px rgba(172, 140, 26, .15);
+}
+
+.category-nav {
+  display: flex;
+  gap: .55rem;
+  overflow-x: auto;
+  padding-bottom: .85rem;
+  scrollbar-width: thin;
+}
+
+.category-nav a {
+  flex: 0 0 auto;
+  padding: .55rem .8rem;
+  border: 1px solid var(--ds-border);
+  color: var(--ds-mineral);
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.category-nav a:hover,
+.category-nav a.is-active {
+  border-color: var(--ds-wine);
+  background: var(--ds-wine);
+  color: var(--ds-ivory);
+}
+
+.menu-list {
+  background: var(--ds-ivory-light);
+}
+
+.menu-list-inner {
+  display: grid;
+  gap: 1rem;
+}
+
+.menu-category {
+  border: 1px solid var(--ds-border);
+  background: var(--ds-ivory);
+}
+
+.menu-category[hidden] {
+  display: none;
+}
+
+.menu-category-featured {
+  border-color: rgba(172, 140, 26, .55);
+}
+
+.menu-category > summary {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 28px;
+  align-items: center;
+  gap: 1rem;
+  min-height: 88px;
+  padding: 1.1rem 1.4rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.menu-category > summary::-webkit-details-marker {
+  display: none;
+}
+
+.menu-category > summary:hover {
+  background: rgba(172, 140, 26, .05);
+}
+
+.category-index {
+  color: var(--ds-gold);
+  font-size: .76rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+}
+
+.category-title {
+  font-family: var(--ds-font-display);
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.category-toggle {
+  position: relative;
+  width: 22px;
+  height: 22px;
+}
+
+.category-toggle::before,
+.category-toggle::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 1px;
+  background: var(--ds-gold);
+  content: "";
+  transform: translate(-50%, -50%);
+  transition: transform 180ms ease;
+}
+
+.category-toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.menu-category[open] .category-toggle::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.menu-category-body {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 0 1.4rem 1.4rem;
+}
+
+.item-carta {
+  min-width: 0;
+  padding: 1.25rem;
+  border-top: 1px solid var(--ds-border);
+  background: rgba(255,255,255,.42);
+}
+
+.item-carta .info {
+  min-width: 0;
+}
+
+.item-carta h4 {
+  margin: 0 0 .55rem;
+  color: var(--ds-carbon);
+  font-family: var(--ds-font-body);
+  font-size: 1.02rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.item-carta p {
+  margin: .45rem 0;
+  color: var(--ds-mineral);
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
+.item-carta em,
+.recomendacion-maridaje {
+  color: var(--ds-wine);
+}
+
+.precio {
+  display: inline-block;
+  margin-top: .35rem;
+  color: var(--ds-wine);
+  font-size: .96rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+.item-carta p + .precio,
+.item-carta .precio + p {
+  margin-top: .6rem;
+}
+
+.titulo-subcategoria {
+  grid-column: 1 / -1;
+  padding: .9rem 1rem;
+  border: 0;
+  background: var(--ds-forest);
+  color: var(--ds-ivory);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.subcategoria-carta,
+.subcategoria-destilado,
+.encabezado-destilados-global,
+.descripcion-subcategoria,
+.menu-category-body > h4 {
+  grid-column: 1 / -1;
+}
+
+.subcategoria-carta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.subcategoria-carta > h4,
+.menu-category-body > h4 {
+  margin: 1rem 0 0;
+  padding: .8rem 0 .5rem;
+  border-bottom: 1px solid var(--ds-border);
+  color: var(--ds-wine);
+  font-family: var(--ds-font-body);
+  font-size: .8rem;
+  letter-spacing: .08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.descripcion-subcategoria {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--ds-mineral);
+  font-size: .9rem;
+  text-align: center;
+}
+
+.encabezado-destilados-global {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+  gap: .5rem;
+  padding: 1rem;
+  background: var(--ds-carbon);
+  color: var(--ds-gold-light);
+}
+
+.encabezado-destilados-global .categoria-nombre {
+  font-size: .78rem !important;
+  letter-spacing: .1em !important;
+  text-align: left !important;
+}
+
+.encabezado-destilados-global svg {
+  width: 26px;
+  height: 26px;
+}
+
+.subcategoria-destilado {
+  margin-top: 1rem;
+}
+
+.fila-destilado {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(80px, .7fr) minmax(90px, .7fr);
+  gap: .75rem;
+  align-items: center;
+  padding: .72rem .9rem;
+  border-bottom: 1px solid var(--ds-border);
+  font-size: .88rem;
+}
+
+.fila-destilado.encabezado {
+  background: var(--ds-forest);
+  color: var(--ds-ivory);
+  text-transform: uppercase;
+}
+
+.fila-destilado span:nth-child(2),
+.fila-destilado span:nth-child(3) {
+  color: var(--ds-wine);
+  font-weight: 600;
+  text-align: right;
+}
+
+.fila-destilado.encabezado span {
+  color: inherit;
+}
+
+.menu-no-results {
+  padding: 3rem 1rem;
+  color: var(--ds-mineral);
+  text-align: center;
+}
+
+.menu-reservation {
+  padding-block: clamp(4rem, 7vw, 6rem);
+  background: var(--ds-wine);
+  color: var(--ds-ivory);
+}
+
+.menu-reservation-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.menu-reservation h2 {
+  max-width: 760px;
+  margin-bottom: 0;
+}
+
+@media (max-width: 980px) {
+  .menu-toolbar {
+    top: var(--ds-header-height);
+  }
+
+  .menu-category-body,
+  .subcategoria-carta {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-reservation-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 720px) {
+  .menu-hero {
+    min-height: 390px;
+  }
+
+  .menu-hero-content {
+    padding-block: 5rem 3.5rem;
+  }
+
+  .menu-toolbar-inner {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .menu-search {
+    width: 100%;
+  }
+
+  .category-nav {
+    width: 100%;
+    padding-inline: 16px;
+  }
+
+  .menu-category > summary {
+    grid-template-columns: 34px minmax(0, 1fr) 24px;
+    min-height: 76px;
+    padding: 1rem;
+  }
+
+  .category-title {
+    font-size: 1.75rem;
+  }
+
+  .menu-category-body {
+    padding: 0 1rem 1rem;
+  }
+
+  .item-carta {
+    padding: 1rem .9rem;
+  }
+
+  .encabezado-destilados-global {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .encabezado-destilados-global .categoria-nombre {
+    grid-column: 1 / -1 !important;
+    text-align: center !important;
+  }
+
+  .fila-destilado {
+    grid-template-columns: minmax(0, 1fr) 72px 86px;
+    gap: .4rem;
+    padding-inline: .35rem;
+    font-size: .78rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-category > summary {
+    grid-template-columns: 28px minmax(0, 1fr) 20px;
+    gap: .55rem;
+  }
+
+  .category-index {
+    font-size: .68rem;
+  }
+
+  .category-title {
+    font-size: 1.55rem;
+  }
+
+  .fila-destilado {
+    grid-template-columns: 1fr;
+    gap: .15rem;
+    padding: .7rem .4rem;
+  }
+
+  .fila-destilado span:nth-child(2),
+  .fila-destilado span:nth-child(3) {
+    text-align: left;
+  }
+
+  .fila-destilado span:nth-child(2):not(:empty)::before {
+    content: "Copa: ";
+    color: var(--ds-mineral);
+    font-weight: 400;
+  }
+
+  .fila-destilado span:nth-child(3):not(:empty)::before {
+    content: "Botella: ";
+    color: var(--ds-mineral);
+    font-weight: 400;
+  }
+}
