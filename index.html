@@ -60,6 +60,7 @@
     fetchpriority="high"
   >
   <link rel="stylesheet" href="styles-index.css">
+  <link rel="stylesheet" href="styles-modal.css?v=1">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6KZ98JP07C"></script>
@@ -512,6 +513,57 @@
     <span>Reservar</span>
   </a>
 
+  <!-- Modal promocional -->
+  <div
+    class="promo-modal"
+    id="promo-modal"
+    hidden
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="promo-modal-title"
+    aria-hidden="true"
+  >
+    <div
+      class="promo-modal-backdrop"
+      data-promo-close
+      aria-hidden="true"
+    ></div>
+
+    <div class="promo-modal-panel" role="document">
+      <button
+        class="promo-modal-close"
+        type="button"
+        aria-label="Cerrar promoción"
+        data-promo-close
+      >
+        ×
+      </button>
+
+      <h2 class="sr-only" id="promo-modal-title">
+        Promoción Happy Hour Do Sul
+      </h2>
+
+      <a
+        class="promo-modal-link"
+        id="promo-modal-link"
+        href="https://wa.me/573159267529?text=Hola%2C%20quisiera%20reservar%20una%20mesa%20y%20consultar%20la%20promoci%C3%B3n%202x1%20en%20c%C3%B3cteles."
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Reservar mesa y consultar la promoción Happy Hour"
+      >
+        <img
+          id="promo-modal-image"
+          src="imagenes/promo2by2.png"
+          alt="Happy Hour 2 por 1 en cócteles seleccionados en Do Sul Restaurante"
+          width="1080"
+          height="1350"
+          decoding="async"
+        >
+      </a>
+    </div>
+  </div>
+
   <script src="js/index.js" defer></script>
+  <script src="js/promocion.js" defer></script>
 </body>
 </html>

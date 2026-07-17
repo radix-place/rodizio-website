@@ -1,0 +1,137 @@
+/* ==========================================================
+   MODAL PROMOCIONAL DO SUL
+   Archivo independiente para evitar conflictos con styles-index.css
+   ========================================================== */
+
+[hidden] {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.promo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 220ms ease, visibility 220ms ease;
+}
+
+.promo-modal.is-visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.promo-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 8, 7, 0.86);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.promo-modal-panel {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 500px);
+  max-height: calc(100svh - 36px);
+  overflow: hidden;
+  background: #1c1b19;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.62);
+  transform: translateY(18px) scale(0.985);
+  transition: transform 220ms ease;
+}
+
+.promo-modal.is-visible .promo-modal-panel {
+  transform: translateY(0) scale(1);
+}
+
+.promo-modal-link {
+  display: block;
+  line-height: 0;
+}
+
+.promo-modal-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(100svh - 36px);
+  object-fit: contain;
+  background: #1c1b19;
+}
+
+.promo-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(241, 236, 226, 0.62);
+  border-radius: 50%;
+  background: rgba(20, 19, 17, 0.92);
+  color: #f1ece2;
+  font: 300 28px/1 Arial, sans-serif;
+  cursor: pointer;
+}
+
+.promo-modal-close:hover,
+.promo-modal-close:focus-visible {
+  border-color: #cfb55a;
+  background: #692b2e;
+  outline: none;
+}
+
+body.promo-open {
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .promo-modal {
+    padding: 10px;
+  }
+
+  .promo-modal-panel {
+    width: min(96vw, 430px);
+    max-height: calc(100svh - 20px);
+  }
+
+  .promo-modal-link img {
+    max-height: calc(100svh - 20px);
+  }
+
+  .promo-modal-close {
+    top: 8px;
+    right: 8px;
+    width: 38px;
+    height: 38px;
+    font-size: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .promo-modal,
+  .promo-modal-panel {
+    transition: none;
+  }
+}

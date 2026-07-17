@@ -1,0 +1,10 @@
+ARCHIVOS DEL MODAL FUNCIONAL
+
+1. Reemplaza index.html.
+2. Copia styles-modal.css en la raíz del repositorio.
+3. Reemplaza js/promocion.js.
+4. Verifica que exista exactamente:
+   imagenes/promociones/promo2by2.png
+
+La versión entregada tiene modoPrueba: true para mostrar el modal en cada recarga.
+Cuando funcione, cambia a modoPrueba: false para aplicar frecuencia diaria y fechas.
