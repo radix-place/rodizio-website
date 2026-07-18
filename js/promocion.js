@@ -4,11 +4,8 @@ const PROMOCION = {
 
   imagen: "imagenes/promo2by2.png",
 
-  enlace:
-    "https://wa.me/573159267529?text=Hola%2C%20quisiera%20reservar%20una%20mesa%20y%20consultar%20la%20promoci%C3%B3n%202x1%20en%20c%C3%B3cteles.",
-
   retrasoApertura: 800,
-  cierreAutomatico: 12000,
+  cierreAutomatico: 8000,
 
   frecuencia: "diaria",
 
@@ -19,10 +16,10 @@ const PROMOCION = {
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("promo-modal");
   const imagen = document.getElementById("promo-modal-image");
-  const enlace = document.getElementById("promo-modal-link");
+  const contenedorImagen = document.getElementById("promo-modal-link");
   const controlesCerrar = document.querySelectorAll("[data-promo-close]");
 
-  if (!modal || !imagen || !enlace) {
+  if (!modal || !imagen || !contenedorImagen) {
     console.error("[Do Sul] Falta la estructura HTML del modal.");
     return;
   }
@@ -32,7 +29,27 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!PROMOCION.modoPrueba && !debeMostrarse()) return;
 
   imagen.src = PROMOCION.imagen;
-  enlace.href = PROMOCION.enlace;
+
+  /*
+   * La imagen es informativa:
+   * se eliminan el enlace, la apertura en otra pestaña
+   * y cualquier redirección.
+   */
+  contenedorImagen.removeAttribute("href");
+  contenedorImagen.removeAttribute("target");
+  contenedorImagen.removeAttribute("rel");
+  contenedorImagen.removeAttribute("aria-label");
+  contenedorImagen.setAttribute("aria-disabled", "true");
+  contenedorImagen.style.cursor = "default";
+
+  /*
+   * Evita que pulsar sobre la imagen cierre el modal
+   * por propagación accidental del evento.
+   */
+  contenedorImagen.addEventListener("click", (evento) => {
+    evento.preventDefault();
+    evento.stopPropagation();
+  });
 
   imagen.addEventListener("error", () => {
     console.error(
@@ -56,9 +73,14 @@ document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("promo-open");
 
       const botonCerrar = modal.querySelector(".promo-modal-close");
-      if (botonCerrar) botonCerrar.focus();
 
-      if (!PROMOCION.modoPrueba) registrarVisualizacion();
+      if (botonCerrar) {
+        botonCerrar.focus();
+      }
+
+      if (!PROMOCION.modoPrueba) {
+        registrarVisualizacion();
+      }
 
       if (PROMOCION.cierreAutomatico > 0) {
         temporizadorCierre = window.setTimeout(
@@ -98,17 +120,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.addEventListener("keydown", (evento) => {
-    if (evento.key === "Escape") cerrarModal();
-  });
-
-  enlace.addEventListener("click", () => {
-    cerrarModal();
-
-    if (typeof gtag === "function") {
-      gtag("event", "click_promocion", {
-        event_category: "promocion",
-        event_label: "Happy Hour 2x1"
-      });
+    if (evento.key === "Escape") {
+      cerrarModal();
     }
   });
 
@@ -121,18 +134,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const hoy = obtenerFechaLocal();
     const inicio = PROMOCION.fechaInicio || "0000-01-01";
     const fin = PROMOCION.fechaFin || "9999-12-31";
+
     return hoy >= inicio && hoy <= fin;
   }
 
   function debeMostrarse() {
-    if (PROMOCION.frecuencia === "siempre") return true;
+    if (PROMOCION.frecuencia === "siempre") {
+      return true;
+    }
 
     if (PROMOCION.frecuencia === "sesion") {
       return sessionStorage.getItem("doSulPromocionVista") !== "true";
     }
 
     if (PROMOCION.frecuencia === "diaria") {
-      return localStorage.getItem("doSulPromocionFecha") !== obtenerFechaLocal();
+      return (
+        localStorage.getItem("doSulPromocionFecha") !==
+        obtenerFechaLocal()
+      );
     }
 
     return true;
@@ -144,7 +163,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (PROMOCION.frecuencia === "diaria") {
-      localStorage.setItem("doSulPromocionFecha", obtenerFechaLocal());
+      localStorage.setItem(
+        "doSulPromocionFecha",
+        obtenerFechaLocal()
+      );
     }
   }
 
@@ -153,6 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const anio = ahora.getFullYear();
     const mes = String(ahora.getMonth() + 1).padStart(2, "0");
     const dia = String(ahora.getDate()).padStart(2, "0");
+
     return `${anio}-${mes}-${dia}`;
   }
 });
